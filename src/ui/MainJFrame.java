@@ -59,9 +59,9 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(235, 133, 54));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        loginJButton.setBackground(new java.awt.Color(204, 204, 204));
+        loginJButton.setBackground(new java.awt.Color(153, 153, 153));
         loginJButton.setFont(new java.awt.Font("Kefa", 0, 13)); // NOI18N
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,9 +75,11 @@ public class MainJFrame extends javax.swing.JFrame {
         passwordField.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("User Name");
 
         jLabel2.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Password");
 
         logoutJButton.setBackground(new java.awt.Color(204, 204, 204));
