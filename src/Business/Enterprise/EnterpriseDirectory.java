@@ -35,6 +35,24 @@ public class EnterpriseDirectory {
             enterprise=new HospitalEnterprise(name);
             enterpriseList.add(enterprise);
         }
+        else if(type==Enterprise.EnterpriseType.Legal){
+            enterprise=new LegalEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.Government){
+            enterprise=new GovernmentEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.PlasmaBank){
+            enterprise=new PlasmaBankEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        else if(type==Enterprise.EnterpriseType.CovidCentre){
+            enterprise=new CovidCentreEnterprise(name);
+            enterpriseList.add(enterprise);
+        }
+        
         return enterprise;
     }
 }
+
