@@ -6,8 +6,10 @@ package Business.Role;
 
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
+import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
+import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -15,11 +17,19 @@ import javax.swing.JPanel;
  * @author raunak
  */
 public abstract class Role {
+
+    public Component createWorkArea(JPanel container, UserAccount userAccount, Organization inOrganization, Enterprise inEnterprise, EcoSystem system) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     public enum RoleType{
         Admin("Admin"),
         Doctor("Doctor"),
-        LabAssistant("Lab Assistant");
+        GovernmentCoordinator("GovernmentCoordinator"),
+        LegalOfficer("LegalOfficer"),
+        Pathologist("Pathologist"),
+        PlasmaBankCoordinator("PlasmaBankCoordinator"),
+        SystemCoordinator("SystemCoordinator");
         
         private String value;
         private RoleType(String value){
@@ -40,7 +50,8 @@ public abstract class Role {
             UserAccount account, 
             Organization organization, 
             Enterprise enterprise, 
-            EcoSystem business);
+            EcoSystem business,
+            Network network);
 
     @Override
     public String toString() {

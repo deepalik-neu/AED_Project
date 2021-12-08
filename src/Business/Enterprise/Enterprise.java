@@ -22,7 +22,11 @@ public abstract class Enterprise extends Organization{
     }
     
     public enum EnterpriseType{
-        Hospital("Hospital");
+        Hospital("Hospital"),
+        PlasmaBank("PlasmaBank"),
+        Authorization("Authorization"),
+        CovidCentre("CovidCentre"),
+        Government("Government");
         
         private String value;
         
@@ -45,6 +49,7 @@ public abstract class Enterprise extends Organization{
     public void setEnterpriseType(EnterpriseType enterpriseType) {
         this.enterpriseType = enterpriseType;
     }
+    
     
     public Enterprise(String name,EnterpriseType type){
         super(name);

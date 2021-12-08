@@ -83,23 +83,24 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         enterpriseJTable = new javax.swing.JTable();
-        submitJButton = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        passwordJPasswordField = new javax.swing.JPasswordField();
-        jLabel7 = new javax.swing.JLabel();
-        nameJTextField = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         networkJComboBox = new javax.swing.JComboBox();
-        jLabel9 = new javax.swing.JLabel();
-        enterpriseJComboBox = new javax.swing.JComboBox();
-        jLabel10 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         usernameJTextField = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        enterpriseJComboBox = new javax.swing.JComboBox();
+        submitJButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
+        nameJTextField = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        passwordJPasswordField = new javax.swing.JPasswordField();
+        backJButton = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
-        enterpriseJTable.setBackground(new java.awt.Color(153, 255, 153));
+        enterpriseJTable.setBackground(new java.awt.Color(255, 204, 204));
+        enterpriseJTable.setForeground(new java.awt.Color(102, 0, 0));
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -112,18 +113,43 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        enterpriseJTable.setCellSelectionEnabled(true);
         jScrollPane1.setViewportView(enterpriseJTable);
 
-        submitJButton.setBackground(new java.awt.Color(102, 102, 102));
-        submitJButton.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel1.setText("Network");
+
+        networkJComboBox.setBackground(new java.awt.Color(255, 204, 204));
+        networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                networkJComboBoxActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel2.setText("Username");
+
+        usernameJTextField.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel3.setText("Enterprise");
+
+        enterpriseJComboBox.setBackground(new java.awt.Color(255, 204, 204));
+        enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        submitJButton.setBackground(new java.awt.Color(255, 204, 204));
+        submitJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        submitJButton.setForeground(new java.awt.Color(102, 0, 0));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,69 +157,31 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel4.setText("Password");
+
+        nameJTextField.setBackground(new java.awt.Color(255, 204, 204));
+
+        jLabel5.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel5.setText("Name");
+
+        passwordJPasswordField.setBackground(new java.awt.Color(255, 204, 204));
+
+        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(102, 0, 0));
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+
         jLabel6.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 51, 0));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("MANAGE ENTERPRISE ADMIN");
-
-        passwordJPasswordField.setBackground(new java.awt.Color(153, 255, 153));
-        passwordJPasswordField.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel7.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
-        jLabel7.setText("Name");
-
-        nameJTextField.setBackground(new java.awt.Color(153, 255, 153));
-        nameJTextField.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel8.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
-        jLabel8.setText("Network");
-
-        networkJComboBox.setBackground(new java.awt.Color(102, 102, 102));
-        networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        networkJComboBox.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                networkJComboBoxItemStateChanged(evt);
-            }
-        });
-        networkJComboBox.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                networkJComboBoxMousePressed(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                networkJComboBoxMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                networkJComboBoxMouseExited(evt);
-            }
-        });
-        networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                networkJComboBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel9.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
-        jLabel9.setText("Enterprise");
-
-        enterpriseJComboBox.setBackground(new java.awt.Color(102, 102, 102));
-        enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Select" }));
-        enterpriseJComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterpriseJComboBoxActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
-        jLabel10.setText("Username");
-
-        usernameJTextField.setBackground(new java.awt.Color(153, 255, 153));
-        usernameJTextField.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel11.setFont(new java.awt.Font("Kefa", 0, 14)); // NOI18N
-        jLabel11.setText("Password");
-
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel6.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel6.setText("Manage Enterprise Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -202,193 +190,129 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel7))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(networkJComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(34, 34, 34)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 18, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 603, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(submitJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addComponent(backJButton)))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 477, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(121, 121, 121))
+                .addGap(153, 153, 153)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(144, 144, 144))
             .addGroup(layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(281, 281, 281)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(submitJButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameJTextField, passwordJPasswordField, usernameJTextField});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel3))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel10)
-                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel11)
-                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(28, 28, 28)
-                        .addComponent(submitJButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(45, 45, 45))
+                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addGap(32, 32, 32)
+                .addComponent(submitJButton)
+                .addGap(120, 120, 120)
+                .addComponent(backJButton)
+                .addGap(30, 30, 30))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {nameJTextField, passwordJPasswordField, usernameJTextField});
+
     }// </editor-fold>//GEN-END:initComponents
 
-    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
-
-        String net_n=networkJComboBox.getSelectedItem().toString();
-        String enter_name=enterpriseJComboBox.getSelectedItem().toString();
-        String u_name=usernameJTextField.getText();
-        String pass=passwordJPasswordField.getText();
-        String name=nameJTextField.getText();
-
-        if(u_name.isEmpty() || pass.isEmpty() || name.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Text Fields cannot be empty");
-            return;
-        }
-
-        try {
-            String sql = " insert into manage_logins values(?,?,?,?,?)";
-
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, net_n);
-            pst.setString(2, enter_name);
-            pst.setString(3, u_name);
-            pst.setString(4, pass);
-            pst.setString(5, name);
-
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Enterprise Admin Added successfuly");
-            populateTable();
-            nameJTextField.setText("");
-            usernameJTextField.setText("");
-            passwordJPasswordField.setText("");
-        }
-        catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Username must be different from others");
-        }finally{
-            try {
-                //  rs.close();
-                pst.close();
-
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
-
-        populateTable();
-        //  JOptionPane.showMessageDialog(null, "Enterprise Admin created successfully");
-
-    }//GEN-LAST:event_submitJButtonActionPerformed
-
-    private void networkJComboBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_networkJComboBoxItemStateChanged
-        // TODO add your handling code here:
-        //        populateEnterprise();
-    }//GEN-LAST:event_networkJComboBoxItemStateChanged
-
-    private void networkJComboBoxMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkJComboBoxMousePressed
-        // TODO add your handling code here:
-        //        populateEnterprise();
-    }//GEN-LAST:event_networkJComboBoxMousePressed
-
-    private void networkJComboBoxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkJComboBoxMouseClicked
-        // TODO add your handling code here:
-        //        populateEnterprise();
-    }//GEN-LAST:event_networkJComboBoxMouseClicked
-
-    private void networkJComboBoxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_networkJComboBoxMouseExited
-        // TODO add your handling code here:
-        //        populateEnterprise();
-    }//GEN-LAST:event_networkJComboBoxMouseExited
-
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
-        // TODO add your handling code here:
-        populateEnterprise();
+
+        Network network = (Network) networkJComboBox.getSelectedItem();
+        if (network != null){
+            populateEnterpriseComboBox(network);
+        }
+        
+        
     }//GEN-LAST:event_networkJComboBoxActionPerformed
 
-    private void enterpriseJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterpriseJComboBoxActionPerformed
-        // TODO add your handling code here:
-        //        System.out.println("00000000000000");
-        //        String n_name=networkJComboBox.getSelectedItem().toString();
-        //
-        //           try{
-            //        String sql ="select * from manage_enter where network_name='"+n_name+"'";
-            //        pst=conn.prepareStatement(sql);
-            //        rs=pst.executeQuery();
-            //         while (rs.next()) {
-                //
-                //        enterpriseJComboBox.addItem(rs.getString("name"));
-                //                }
-            //
-            //    }
-        //    catch(Exception e){
-            //    JOptionPane.showMessageDialog(null, e);
-            //    }
-        //    finally {
-            //
-            //            try{
-                //                rs.close();
-                //                pst.close();
-                //
-                //            }
-            //            catch(Exception e){
-                //
-                //            }
-            //        }
-    }//GEN-LAST:event_enterpriseJComboBoxActionPerformed
+    private void submitJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitJButtonActionPerformed
+        
+        Enterprise enterprise = (Enterprise) enterpriseJComboBox.getSelectedItem();
+        
+        String username = usernameJTextField.getText();
+        String password = String.valueOf(passwordJPasswordField.getPassword());
+        String name = nameJTextField.getText();
+        
+        Employee employee = enterprise.getEmployeeDirectory().createEmployee(name);
+        
+        UserAccount account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new AdminRole());
+        populateTable();
+        
+    }//GEN-LAST:event_submitJButtonActionPerformed
+
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+        userProcessContainer.remove(this);
+         Component[] componentArray = userProcessContainer.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
+        sysAdminwjp.populateTree();
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJButton;
     private javax.swing.JComboBox enterpriseJComboBox;
     private javax.swing.JTable enterpriseJTable;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameJTextField;
     private javax.swing.JComboBox networkJComboBox;
