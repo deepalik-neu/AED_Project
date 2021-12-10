@@ -7,21 +7,23 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.AuthorizationOfficerOrganization;
 import Business.Organization.Organization;
+import Business.Organization.AuthorizationOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import ui.AuthorizationOfficerRole.LegalOfficerWorkAreaJPanel;
+import ui.AuthorizationOfficerRole.AuthorizationWorkAreaPanel;
+import ui.PathologistRole.PathologistWorkAreaPanel;
 
 /**
  *
  * @author namita
  */
-public class AuthorizationOfficerRole extends Role {
+public class AuthorizationOfficerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new LegalOfficerWorkAreaJPanel(account, (AuthorizationOfficerOrganization) organization, enterprise, business, network);
+        return new AuthorizationWorkAreaPanel(account,(AuthorizationOrganization) organization,enterprise,business,network) ;//To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }
