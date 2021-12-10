@@ -5,6 +5,7 @@
 package Business.Organization;
 
 import Business.Role.Role;
+import Business.Role.SystemCoordinatorRole;
 import java.util.ArrayList;
 
 /**

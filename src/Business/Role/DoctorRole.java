@@ -19,10 +19,10 @@ import javax.swing.JPanel;
  */
 public class DoctorRole {
 
-//    @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-//        return new DoctorWorkAreaJPanel(account, (DoctorOrganization)organization, enterprise, business, network);
-//    }
-//    
+    @Override
+    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
+        return new DoctorWorkAreaJPanel(account, (DoctorOrganization)organization, enterprise, business, network);
+    }
+    
     
 }
