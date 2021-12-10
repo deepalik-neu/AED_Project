@@ -56,6 +56,7 @@ public abstract class Enterprise extends Organization{
         this.enterpriseType = enterpriseType;
     }
     
+    
     public Enterprise(String name,EnterpriseType type){
         super(name);
         this.enterpriseType=type;

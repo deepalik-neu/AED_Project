@@ -46,7 +46,7 @@ public class OrganizationDirectory {
     public Organization createLegalOrganization(Organization.LegalType legalType, String realName){
         Organization organization = null;
         if (legalType.getValue().equals(Organization.LegalType.LegalOfficer.getValue())){
-            organization = new LegalOfficerOrganization();
+            organization = new AuthorizationOfficerOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }

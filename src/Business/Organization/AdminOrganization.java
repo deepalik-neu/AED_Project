@@ -26,3 +26,4 @@ public class AdminOrganization extends Organization{
     }
      
 }
+

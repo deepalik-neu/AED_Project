@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Role.GovernmentCoordinatorRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
