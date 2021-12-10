@@ -43,10 +43,10 @@ public class OrganizationDirectory {
         return organization;
     }
     
-    public Organization createLegalOrganization(Organization.LegalType legalType, String realName){
+    public Organization createAuthorizationOrganization(Organization.AuthorizationType legalType, String realName){
         Organization organization = null;
-        if (legalType.getValue().equals(Organization.LegalType.LegalOfficer.getValue())){
-            organization = new AuthorizationOfficerOrganization();
+        if (legalType.getValue().equals(Organization.AuthorizationType.Authorization.getValue())){
+            organization = new AuthorizationOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }

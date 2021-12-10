@@ -4,25 +4,32 @@
  */
 package Business.Organization;
 
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Network.Network;
 import Business.Role.PathologistRole;
 import Business.Role.Role;
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
+import javax.swing.JPanel;
 
 /**
  *
  * @author namita
  */
-public class PathologistOrganization extends Organization{
+public class PathologistOrganization extends Organization {
 
     public PathologistOrganization() {
         super(Organization.Type.Pathologist.getValue());
     }
-    
+
+
+   
     @Override
     public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
+        ArrayList<Role> roles = new  ArrayList();
         roles.add(new PathologistRole());
         return roles;
     }
-     
+    
 }
