@@ -11,6 +11,7 @@ import Business.Organization.Organization;
 import Business.Organization.PlasmaBankOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.PlasmaBankCoordinatorRole.PlasmaBankCoordinatorWorkAreaJPanel;
 
 /**
  *
