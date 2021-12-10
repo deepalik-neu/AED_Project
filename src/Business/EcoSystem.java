@@ -7,11 +7,10 @@ package Business;
 
 import Business.Network.Network;
 import Business.Organization.Organization;
-import Business.People.DonorDirectory;
-import Business.People.DonorRequestDirectory;
-import Business.People.PatientDirectory;
-import Business.People.PatientRequestDirectory;
-
+import Business.Person.DonorDirectory;
+import Business.Person.DonorRequestDirectory;
+import Business.Person.PatientDirectory;
+import Business.Person.PatientRequestDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import Business.UserAccount.UserAccountDirectory;
