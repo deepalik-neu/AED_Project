@@ -4,6 +4,7 @@
  */
 package Business.Organization;
 
+import Business.Role.DoctorRole;
 import Business.Role.Role;
 import Business.Role.SystemCoordinatorRole;
 import java.util.ArrayList;
@@ -12,17 +13,17 @@ import java.util.ArrayList;
  *
  * @author namita
  */
-public class SystemCoordinatorOrganization extends Organization{
+public class SystemCoordinatorOrganization  extends Organization {
 
     public SystemCoordinatorOrganization() {
         super(Organization.Type.SystemCoordinator.getValue());
     }
-    
+
     @Override
     public ArrayList<Role> getSupportedRole() {
-        ArrayList<Role> roles = new ArrayList();
+           ArrayList<Role> roles = new ArrayList();
         roles.add(new SystemCoordinatorRole());
         return roles;
     }
-     
+    
 }
