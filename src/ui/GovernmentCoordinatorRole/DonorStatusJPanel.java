@@ -1,82 +1,99 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.GovernmentCoordinatorRole;
+package ui.GovernmentRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
-import Business.People.Donor;
-import Business.People.DonorDirectory;
-import Business.People.DonorRequest;
-import Business.People.DonorRequestDirectory;
-import Business.UserAccount.UserAccount;
-import HomePages.TableFormat;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+import Business.Person.Donor;
+import Business.Person.DonorRequest;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Akshay
+ * @author namita
  */
 public class DonorStatusJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form DonorStatusJPanel
+     * Creates new form DonorStatus
      */
-    
-   //private DonorDirectory donorDirectory;
+    JPanel userProcessContainer;
     private EcoSystem system;
      private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    public DonorStatusJPanel(EcoSystem system) {
+    public DonorStatusJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
-        //this.donorDirectory =  donorDirectory;
-        this.system = system;
-        donorRequestTable.getTableHeader().setDefaultRenderer(new TableFormat());
-        donorRequestTable1.getTableHeader().setDefaultRenderer(new TableFormat());
+        this.system=system;
+        this.userProcessContainer=userProcessContainer;
         populateTable();
-        populateTableS();
+        populateDonor();
     }
     
-         
-    private void populateTable() {
-        DefaultTableModel dtm = (DefaultTableModel) donorRequestTable.getModel();
+    private void populateDonor(){
+           DefaultTableModel table = (DefaultTableModel) tableDonor.getModel();
         
-        dtm.setRowCount(0);
-        
-         for(Donor donor: system.getDonorDirectory().getDonorList()){            
-            Object row[] = new Object[4];
-            row[0]= donor;
-            row[1]=donor.getName();
-            row[2]=donor.getContact();
-            row[3]=donor.getStatus();
-              
-            dtm.addRow(row);
+        table.setRowCount(0);
+          
+        for(Donor dnr : system.getDonorDirectory().getDonorList()){
+            System.out.println("PRINITNG IT HERE in Status for donor !!");
+            System.out.println(dnr.getName());
+            System.out.println(dnr.getContact());
+            
         }
         
-    }
-    private void populateTableS() {
-        DefaultTableModel dtm = (DefaultTableModel) donorRequestTable1.getModel();
-        
-        dtm.setRowCount(0);
-        
-         for(DonorRequest donor: system.getDonorRequestDirectory().getDonorRequestList()){            
-            Object row[] = new Object[4];
-            row[0]= donor;
-            row[1]=donor.getName();
-            row[2]=donor.getContact();
-            row[3]=donor.getStatus();
+         for(Donor dnre : system.getDonorDirectory().getDonorList()){
+            Object row[] = new Object[12];
+            row[0]= dnre;
+            row[1]= dnre.getName();
+            row[2]= dnre.getEmailID();
+            row[3]= dnre.getStatus();
+            row[4]= dnre.getAge();
+            row[5]= dnre.getBloodGroup();
+            row[6]= dnre.getContact();
+            row[7]= dnre.getAddress();
+            row[8]= dnre.getCovidDiagnosedDate();
+            row[9]= dnre.getCovidCuredDate();
+            //row[10]= dnre.getStatus();
+            row[10]= dnre.getSymptoms();
+            
               
-            dtm.addRow(row);
-        }
-        
+            table.addRow(row);
+        }   
     }
-    
-    
 
+    private void populateTable(){
+          DefaultTableModel table = (DefaultTableModel) tableDonorRequest1.getModel();
+        
+        table.setRowCount(0);
+          
+        for(DonorRequest dnr : system.getDonorRequestDirectory().getDonorRequestList()){
+            System.out.println("PRINITNG IT HERE in Status for request !!");
+            System.out.println(dnr.getName());
+        }
+        
+         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
+            Object row[] = new Object[12];
+            row[0]= donorRequest;
+            row[1]= donorRequest.getName();
+            row[2]= donorRequest.getEmailID();
+            row[3]= donorRequest.getStatus();
+            row[4]= donorRequest.getAge();
+            row[5]= donorRequest.getBloodGroup();
+            row[6]= donorRequest.getContact();
+            row[7]= donorRequest.getAddress();
+            row[8]= donorRequest.getCovidDiagnosedDate();
+            row[9]= donorRequest.getCovidCuredDate();
+            //row[10]= donorRequest.getStatus();
+            row[10]= donorRequest.getSymptoms();
+            
+              
+            table.addRow(row);
+        }   
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,106 +103,128 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        donorRequestTable = new javax.swing.JTable();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel25 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tableDonorRequest1 = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
-        donorRequestTable1 = new javax.swing.JTable();
+        tableDonor = new javax.swing.JTable();
+        btnDelete = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(208, 93, 2));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        donorRequestTable.setBackground(new java.awt.Color(0, 0, 0));
-        donorRequestTable.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        donorRequestTable.setForeground(new java.awt.Color(255, 255, 255));
-        donorRequestTable.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel1.setText("Donor Status");
+
+        tableDonorRequest1.setBackground(new java.awt.Color(255, 204, 204));
+        tableDonorRequest1.setForeground(new java.awt.Color(102, 0, 0));
+        tableDonorRequest1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Name", "EmailID", "Status", "Age", "Blood Group", "Contact No", "Address", "Diagnosed Date", "Cured Date", "Symptoms"
+            }
+        ));
+        jScrollPane1.setViewportView(tableDonorRequest1);
+
+        tableDonor.setBackground(new java.awt.Color(255, 204, 204));
+        tableDonor.setForeground(new java.awt.Color(102, 0, 0));
+        tableDonor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Donor ID", "Name", "Contact", "Status"
+                "Title1", "Name", "EmailID", "Status", "Age", "BloodGroup", "ContactNo", "Address", "Diagnosed Date", "Cured Date", "Symptoms"
             }
         ));
-        donorRequestTable.setGridColor(new java.awt.Color(0, 0, 0));
-        donorRequestTable.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        donorRequestTable.setRowHeight(30);
-        donorRequestTable.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(donorRequestTable);
+        jScrollPane2.setViewportView(tableDonor);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 580, 1030, 160));
+        btnDelete.setBackground(new java.awt.Color(255, 204, 204));
+        btnDelete.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(102, 0, 0));
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
-        jPanel3.setBackground(new java.awt.Color(31, 31, 31));
-        jPanel3.setPreferredSize(new java.awt.Dimension(926, 70));
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel2.setText("To delete a donor , press delete ->");
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel25.setText("Manage Donors");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 1696, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-6, 0, 1720, -1));
-
-        jButton1.setBackground(new java.awt.Color(31, 31, 31));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Delete");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(102, 0, 0));
+        jButton1.setText("<<Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 520, 117, 39));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/blood-donation_2.png"))); // NOI18N
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, 141));
-
-        donorRequestTable1.setBackground(new java.awt.Color(0, 0, 0));
-        donorRequestTable1.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        donorRequestTable1.setForeground(new java.awt.Color(255, 255, 255));
-        donorRequestTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Donor ID", "Name", "Contact", "Status"
-            }
-        ));
-        donorRequestTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        donorRequestTable1.setIntercellSpacing(new java.awt.Dimension(0, 0));
-        donorRequestTable1.setRowHeight(30);
-        donorRequestTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(donorRequestTable1);
-
-        add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 1030, 160));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(314, 314, 314)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jButton1))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         //TODO add your handling code here:
         
-        // DonorRequestDirectory ddr = new DonorRequestDirectory();
-         int selectedRow = donorRequestTable1.getSelectedRow(); 
-          DonorRequest dr =((DonorRequest) donorRequestTable1.getValueAt(selectedRow, 0));
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+         int selectedRow = tableDonorRequest1.getSelectedRow(); 
+          DonorRequest dr =((DonorRequest) tableDonorRequest1.getValueAt(selectedRow, 0));
  
           system.getDonorRequestDirectory().removeDonorRequest(dr);
           
@@ -193,22 +232,18 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
              
           
           dB4OUtil.storeSystem(system);
-          populateTableS();
-       
-        
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+          populateTable();
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable donorRequestTable;
-    private javax.swing.JTable donorRequestTable1;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tableDonor;
+    private javax.swing.JTable tableDonorRequest1;
     // End of variables declaration//GEN-END:variables
 }
