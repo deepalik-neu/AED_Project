@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author Akshay
+ * @author namita
  */
 public class DonorRequest {
     

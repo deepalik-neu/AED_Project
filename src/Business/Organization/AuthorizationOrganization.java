@@ -4,8 +4,7 @@
  */
 package Business.Organization;
 
-import Business.Role.CovidCentreRole;
-//import Business.Role.PathologistRole;
+import Business.Role.AuthorizationOfficerRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -13,17 +12,19 @@ import java.util.ArrayList;
  *
  * @author namita
  */
-public class CovidCentreOrganization extends Organization{
+public class AuthorizationOrganization extends Organization{
     
-    public CovidCentreOrganization() {
-        super(Organization.Type.CovidCentre.getValue());
+    public AuthorizationOrganization() {
+        super(Organization.Type.Authorization.getValue());
     }
+
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new  ArrayList();
-        roles.add(new CovidCentreRole());
+        roles.add(new AuthorizationOfficerRole());
         return roles;
     }
+    
     
 }

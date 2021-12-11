@@ -9,6 +9,7 @@ package Business.BloodGroup;
  * @author namita
  */
 public class BloodGroup {
+    
     private static int aPositive = 30;
     private static int aNegative = 25;
     private static int bPositive = 65;
@@ -186,5 +187,3 @@ public class BloodGroup {
     
     
 }
-
-

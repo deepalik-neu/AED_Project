@@ -7,7 +7,7 @@ package Business.People;
 
 /**
  *
- * @author Akshay
+ * @author namita
  */
 
 import java.util.Date;

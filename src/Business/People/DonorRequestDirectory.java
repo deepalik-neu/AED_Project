@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Akshay
+ * @author namita
  */
 public class DonorRequestDirectory {
     
@@ -37,10 +37,4 @@ public class DonorRequestDirectory {
         //return donorRequest;
         return null;
     }
-    
-    
-    
-    
-    
-    
 }

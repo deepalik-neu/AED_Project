@@ -10,14 +10,14 @@ import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import ui.DoctorRole.DoctorWorkAreaJPanel;
+//import ui.DoctorRole.DoctorWorkAreaJPanel;
 import javax.swing.JPanel;
 
 /**
  *
  * @author raunak
  */
-public class DoctorRole extends Role{
+public class DoctorRole {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {

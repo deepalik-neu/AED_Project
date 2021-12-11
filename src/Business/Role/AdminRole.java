@@ -7,8 +7,6 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.AdminOrganization;
-//import Business.Organization.AuthorizationOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import ui.AdministrativeRole.AdminWorkAreaJPanel;

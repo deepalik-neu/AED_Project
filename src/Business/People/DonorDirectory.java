@@ -7,7 +7,7 @@ package Business.People;
 import java.util.ArrayList;
 /**
  *
- * @author Akshay
+ * @author namita
  */
 public class DonorDirectory {
     
