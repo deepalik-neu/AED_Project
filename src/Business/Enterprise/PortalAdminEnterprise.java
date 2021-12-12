@@ -11,10 +11,10 @@ import java.util.ArrayList;
  *
  * @author namita
  */
-public class GovernmentEnterprise extends Enterprise {
+public class PortalAdminEnterprise extends Enterprise {
     
-    public GovernmentEnterprise(String name){
-        super(name,Enterprise.EnterpriseType.Government);
+    public PortalAdminEnterprise(String name){
+        super(name,Enterprise.EnterpriseType.PortalAdmin);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {

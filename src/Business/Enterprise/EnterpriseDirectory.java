@@ -39,8 +39,8 @@ public class EnterpriseDirectory {
             enterprise=new AuthorizationEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.Government){
-            enterprise=new GovernmentEnterprise(name);
+        else if(type==Enterprise.EnterpriseType.PortalAdmin){
+            enterprise=new PortalAdminEnterprise(name);
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.PlasmaBank){

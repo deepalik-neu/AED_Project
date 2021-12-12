@@ -26,7 +26,7 @@ public abstract class Enterprise extends Organization{
         PlasmaBank("PlasmaBank"),
         Authorization("Authorization"),
         CovidCentre("CovidCentre"),
-        Government("Government");
+        PortalAdmin("PortalAdmin");
         
         private String value;
         

@@ -6,23 +6,23 @@ package Business.Organization;
 
 import Business.Role.DoctorRole;
 import Business.Role.Role;
-import Business.Role.SystemCoordinatorRole;
+import Business.Role.HospitalCoordinatorRole;
 import java.util.ArrayList;
 
 /**
  *
  * @author namita
  */
-public class SystemCoordinatorOrganization  extends Organization {
+public class HospitalCoordinatorOrganization  extends Organization {
 
-    public SystemCoordinatorOrganization() {
-        super(Organization.Type.SystemCoordinator.getValue());
+    public HospitalCoordinatorOrganization() {
+        super(Organization.Type.HospitalCoordinator.getValue());
     }
 
     @Override
     public ArrayList<Role> getSupportedRole() {
            ArrayList<Role> roles = new ArrayList();
-        roles.add(new SystemCoordinatorRole());
+        roles.add(new HospitalCoordinatorRole());
         return roles;
     }
     

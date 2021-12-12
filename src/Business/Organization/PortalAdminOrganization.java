@@ -4,7 +4,7 @@
  */
 package Business.Organization;
 
-import Business.Role.GovernmentRole;
+import Business.Role.PortalAdminRole;
 //import Business.Role.PathologistRole;
 import Business.Role.Role;
 import java.util.ArrayList;
@@ -13,17 +13,17 @@ import java.util.ArrayList;
  *
  * @author namita
  */
-public class GovernmentOrganization extends Organization{
+public class PortalAdminOrganization extends Organization{
     
-    public GovernmentOrganization() {
-        super(Organization.Type.Government.getValue());
+    public PortalAdminOrganization() {
+        super(Organization.Type.PortalAdmin.getValue());
     }
 
 
     @Override
     public ArrayList<Role> getSupportedRole() {
         ArrayList<Role> roles = new  ArrayList();
-        roles.add(new GovernmentRole());
+        roles.add(new PortalAdminRole());
         return roles;
     }
     

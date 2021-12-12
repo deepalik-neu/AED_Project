@@ -29,13 +29,13 @@ public abstract class Organization {
      public enum Type{
         Admin("Admin Organization"), 
         
-        SystemCoordinator("System Coorinator Organization"),
+        HospitalCoordinator("Hospital Coorinator Organization"),
         Doctor("Doctor Organization"), 
         Pathologist("Pathologist Organization"),
         Authorization("Authorization Organization"),
         PlasmaBank("Plasma Bank"),
         CovidCentre("CovidCentre"),
-        Government("Government");
+        PortalAdmin("PortalAdmin");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -76,12 +76,12 @@ public abstract class Organization {
         }
      }
     
-    public enum GovernmentType {
+    public enum PortalAdminType {
          
-        Government("Government Coordinator Organization");
+        PortalAdmin("Portal Admin Organization");
         private String value;
 
-        private GovernmentType(String value) {
+        private PortalAdminType(String value) {
             this.value = value;
         }
 
