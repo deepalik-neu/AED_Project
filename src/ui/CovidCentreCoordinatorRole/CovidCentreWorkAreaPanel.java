@@ -14,6 +14,8 @@ import Business.Organization.DoctorOrganization;
 import Business.Organization.CovidCentreOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
+import javax.swing.JPanel;
+import ui.GovernmentRole.DonorStatusJPanel;
 
 /**
  *
@@ -21,9 +23,10 @@ import java.awt.CardLayout;
  */
 public class CovidCentreWorkAreaPanel extends javax.swing.JPanel {
     
+     private JPanel userProcessContainer;
     private UserAccount userAccount;
-    CovidCentreOrganization covidcentreorganization;
-   // private CovidCentreOrganization covidcentreorganization;
+    DoctorOrganization doctorOrganization;
+    private CovidCentreOrganization covidcentreorganization;
     private Enterprise enterprise;
     private EcoSystem system;
     private Network network;
@@ -34,14 +37,15 @@ public class CovidCentreWorkAreaPanel extends javax.swing.JPanel {
     /**
      * Creates new form CovidCentreWorkAreaPanel
      */
-    public CovidCentreWorkAreaPanel(UserAccount account, CovidCentreOrganization covidcentreorganization, Enterprise enterprise, EcoSystem business, Network network) {
+    public CovidCentreWorkAreaPanel(JPanel userProcessContainer,UserAccount account, CovidCentreOrganization covidcentreorganization, Enterprise enterprise, EcoSystem business, Network network) {
         initComponents();
-        this.system = system;
+        this.system = business;
         this.userAccount = account;
         this.covidcentreorganization = covidcentreorganization;
         this.enterprise = enterprise;
         this.system = business;
         this.network = network;
+        this.userProcessContainer=userProcessContainer;
     }
 
     /**
@@ -54,27 +58,29 @@ public class CovidCentreWorkAreaPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnAddPatient = new javax.swing.JButton();
         btnCheckStatus = new javax.swing.JButton();
         btnRequest = new javax.swing.JButton();
 
-        jLabel1.setText("Manage Covid Center");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        btnAddPatient.setText("Add Patient");
-        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddPatientActionPerformed(evt);
-            }
-        });
+        jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel1.setText("Covid Centre Organization");
 
-        btnCheckStatus.setText("Check Patient Status");
+        btnCheckStatus.setBackground(new java.awt.Color(255, 204, 204));
+        btnCheckStatus.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
+        btnCheckStatus.setForeground(new java.awt.Color(102, 0, 0));
+        btnCheckStatus.setText("Check Receiver Status");
         btnCheckStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCheckStatusActionPerformed(evt);
             }
         });
 
-        btnRequest.setText("Create Request");
+        btnRequest.setBackground(new java.awt.Color(255, 204, 204));
+        btnRequest.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
+        btnRequest.setForeground(new java.awt.Color(102, 0, 0));
+        btnRequest.setText("Volunteer Receiver Request");
         btnRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRequestActionPerformed(evt);
@@ -86,56 +92,47 @@ public class CovidCentreWorkAreaPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(176, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(158, 158, 158))
+                .addContainerGap(216, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(198, 198, 198))
             .addGroup(layout.createSequentialGroup()
-                .addGap(191, 191, 191)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(241, 241, 241)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRequest)
-                    .addComponent(btnCheckStatus)
-                    .addComponent(btnAddPatient))
+                    .addComponent(btnCheckStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnAddPatient, btnCheckStatus, btnRequest});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
-                .addComponent(btnAddPatient)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(101, 101, 101)
+                .addComponent(btnCheckStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnCheckStatus)
-                .addGap(18, 18, 18)
-                .addComponent(btnRequest)
-                .addContainerGap(237, Short.MAX_VALUE))
+                .addComponent(btnRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(300, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnAddPatient, btnCheckStatus, btnRequest});
-
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnAddPatientActionPerformed
 
     private void btnCheckStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckStatusActionPerformed
         // TODO add your handling code here:
-       
+         ReceiverStatusJPanel panel=new ReceiverStatusJPanel( system);
+        userProcessContainer.add("ReceiverStatusJPanel",panel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnCheckStatusActionPerformed
 
     private void btnRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRequestActionPerformed
         // TODO add your handling code here:
-       
+         ReceiverRequest panel=new ReceiverRequest(system,userAccount,network);
+        userProcessContainer.add("ReceiverRequest",panel);
+        CardLayout layout=(CardLayout)userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnRequestActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddPatient;
     private javax.swing.JButton btnCheckStatus;
     private javax.swing.JButton btnRequest;
     private javax.swing.JLabel jLabel1;
