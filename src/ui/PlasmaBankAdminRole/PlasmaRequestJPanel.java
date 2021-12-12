@@ -13,8 +13,10 @@ import Business.Organization.PlasmaBankOrganization;
 import Business.Organization.SystemCoordinatorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,10 +31,11 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
     private Network network;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private EcoSystem system;
+    private JPanel userProcessContainer;
     /**
      * Creates new form PlasmaRequestJPanel
      */
-    public PlasmaRequestJPanel(UserAccount userAccount, PlasmaBankOrganization plasmaorganization, Enterprise enterprise, Network network, EcoSystem system) {
+    public PlasmaRequestJPanel(JPanel userProcessContainer,UserAccount userAccount, PlasmaBankOrganization plasmaorganization, Enterprise enterprise, Network network, EcoSystem system) {
         initComponents();
         this.userAccount = userAccount;
         this.plasmaorganization = plasmaorganization;
@@ -50,13 +53,17 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[6];
-            row[0] = request;
-            row[1] = request.getPatient();
-            row[2] = request.getPatient().getName();
+            Object[] row = new Object[9];
+            row[0] = request.getPatient().getPatientID();
+          
+            row[1] = request.getPatient().getName();
+            row[2] = request.getPathologist().getUsername();
             row[3] = request.getPatient().getEmailID();
-            row[4] = request.getPatient().getBloodGroup();
-            row[5] = request.getStatus();
+            row[4] = request.getStatus();
+            row[5] = request.getPatient().getContact();
+            row[6]=request.getSummary();
+            row[7]=request.getPatient().getBloodGroup();
+            row[8]=request.getRequestDate();
              
             model.addRow(row);
         }
@@ -77,6 +84,9 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         tablePlasmaRequest = new javax.swing.JTable();
         btnApproveRequest = new javax.swing.JButton();
         btnRejectRequest = new javax.swing.JButton();
+        backJButton = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
@@ -123,6 +133,16 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        backJButton.setForeground(new java.awt.Color(102, 0, 0));
+        backJButton.setText("<< Back");
+        backJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backJButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -135,14 +155,16 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
                         .addGap(72, 72, 72)
                         .addComponent(btnRejectRequest))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(370, 370, 370)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(backJButton)
+                        .addGap(257, 257, 257)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
@@ -152,7 +174,9 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(backJButton))
                 .addGap(51, 51, 51)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,8 +280,16 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
      dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnApproveRequestActionPerformed
 
+    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_backJButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton backJButton;
     private javax.swing.JButton btnApproveRequest;
     private javax.swing.JButton btnRejectRequest;
     private javax.swing.JLabel jLabel1;

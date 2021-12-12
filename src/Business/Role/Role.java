@@ -9,7 +9,6 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
-import java.awt.Component;
 import javax.swing.JPanel;
 
 /**
@@ -17,19 +16,11 @@ import javax.swing.JPanel;
  * @author raunak
  */
 public abstract class Role {
-
-    public Component createWorkArea(JPanel container, UserAccount userAccount, Organization inOrganization, Enterprise inEnterprise, EcoSystem system) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     public enum RoleType{
         Admin("Admin"),
         Doctor("Doctor"),
-        GovernmentCoordinator("GovernmentCoordinator"),
-        LegalOfficer("LegalOfficer"),
-        Pathologist("Pathologist"),
-        PlasmaBankCoordinator("PlasmaBankCoordinator"),
-        SystemCoordinator("SystemCoordinator");
+        LabAssistant("Lab Assistant");
         
         private String value;
         private RoleType(String value){

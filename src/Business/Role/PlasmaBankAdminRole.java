@@ -7,21 +7,22 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
-import Business.Organization.GovernmentOrganization;
 import Business.Organization.Organization;
+import Business.Organization.PlasmaBankOrganization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import ui.GovernmentCoordinatorRole.GovernmentCoordinatorWorkAreaJPanel;
+import ui.PathologistRole.PathologistWorkAreaPanel;
+import ui.PlasmaBankAdminRole.PlasmaBankOfficerWorkAreaPanel;
 
 /**
  *
  * @author namita
  */
-public class GovernmentCoordinatorRole extends Role {
+public class PlasmaBankAdminRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new GovernmentCoordinatorWorkAreaJPanel(account, (GovernmentOrganization) organization, enterprise, business, network);
+        return new PlasmaBankOfficerWorkAreaPanel(userProcessContainer,account,(PlasmaBankOrganization) organization,enterprise,business,network) ;//To change body of generated methods, choose Tools | Templates.
     }
     
 }

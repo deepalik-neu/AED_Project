@@ -44,11 +44,7 @@ public abstract class Organization {
             return value;
         }
 
-//        static class Authorization {
-//
-//            public Authorization() {
-//            }
-//        }
+
     }
      
         

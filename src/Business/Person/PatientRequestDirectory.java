@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.People;
+package Business.Person;
 
 import java.util.ArrayList;
 
@@ -11,34 +11,32 @@ import java.util.ArrayList;
  * @author namita
  */
 public class PatientRequestDirectory {
-    
-    
-    private ArrayList<PatientRequest> patientRequestList;
+    private ArrayList<PatientRequest> prList;
 
-    public ArrayList<PatientRequest> getPatientRequestList() {return patientRequestList;}
-    public void setPatientRequestList(ArrayList<PatientRequest> patientRequestList) {this.patientRequestList = patientRequestList;}
+    public ArrayList<PatientRequest> getPrList() 
+    {
+        return prList;
+    }
+    public void setPrList(ArrayList<PatientRequest> prList) 
+    {
+        this.prList = prList;
+    }
     
     public PatientRequestDirectory(){
-        patientRequestList = new ArrayList<PatientRequest>();
+        prList = new ArrayList<PatientRequest>();
     }
     
     public PatientRequest addPatientRequest()
     {
         PatientRequest patientRequest = new PatientRequest();
-        patientRequestList.add(patientRequest);
+        prList.add(patientRequest);
         return patientRequest;
     }
     
     public DonorRequest removePatientRequest(PatientRequest p)
-    {
-        //DonorRequest donorRequest = new DonorRequest();
-        //this.donor = donor
-        patientRequestList.remove(p);
-        //return donorRequest;
+    { 
+        prList.remove(p);
         return null;
     }
-    
-    
-    
     
 }

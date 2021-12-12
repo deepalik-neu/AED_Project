@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Business.People;
+package Business.Person;
 
 import java.util.ArrayList;
 
@@ -12,13 +12,19 @@ import java.util.ArrayList;
  */
 public class PatientDirectory {
     
-    
     private ArrayList<Patient> patientList;
 
-    public ArrayList<Patient> getPatientList() {return patientList;}
-    public void setPatientList(ArrayList<Patient> patientList) {this.patientList = patientList;}
+    public ArrayList<Patient> getPatientList() 
+    {
+        return patientList;
+    }
+    public void setPatientList(ArrayList<Patient> patientList) 
+    {
+        this.patientList = patientList;
+    }
     
-    public PatientDirectory(){
+    public PatientDirectory()
+    {
         patientList = new ArrayList<Patient>();
         
     }
@@ -30,7 +36,5 @@ public class PatientDirectory {
         return patient;
         
     }
-
-    
     
 }

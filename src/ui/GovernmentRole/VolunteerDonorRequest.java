@@ -37,12 +37,12 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
         
         table.setRowCount(0);
           
-        for(DonorRequest dnr : system.getDonorRequestDirectory().getDonorRequestList()){
+        for(DonorRequest dnr : system.getDonorRequestDirectory().getDnrList()){
             System.out.println("PRINITNG IT HERE in Volunteer !!");
             System.out.println(dnr.getName());
         }
         
-         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
+         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
             Object row[] = new Object[12];
             row[0]= donorRequest;
             row[1]= donorRequest.getName();
@@ -52,7 +52,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             row[5]= donorRequest.getBloodGroup();
             row[6]= donorRequest.getContact();
             row[7]= donorRequest.getAddress();
-            row[8]= donorRequest.getCovidDiagnosedDate();
+            row[8]= donorRequest.getCovidDiagnosisDate();
             row[9]= donorRequest.getCovidCuredDate();
             row[10]= donorRequest.getStatus();
             row[11]= donorRequest.getSymptoms();
@@ -95,7 +95,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "EmailID", "Status", "Age", "Blood Group", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10", "Title 11"
+                "Donor ID", "Name", "EmailID", "Status", "Age", "Blood Group", "Contact", "Address", "Covid Diagnosed Date", "Covid Cured Date", "Symptoms"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -145,9 +145,6 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(256, 256, 256)
                         .addComponent(btnApprove)
                         .addGap(136, 136, 136)
@@ -157,8 +154,11 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(277, 277, 277)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -197,7 +197,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
 //        
 //        }
 //       else{
-        for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
+        for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
         
             //if(donorRequest.getName().equals(req.getStatus())){
           
@@ -235,11 +235,11 @@ private void populateRequestDetails(DonorRequest donorRequest){
 //        {
             System.out.println("check approved"+donorRequest.getAge());
         Donor donor = system.getDonorDirectory().addDonor();  
-        donor.setDonorId(donorRequest.getDonarId()); // UID
-        donor.setName(donorRequest.getName()); // Name
+        donor.setId(donorRequest.getId()); 
+        donor.setName(donorRequest.getName()); 
        
-        donor.setCovidDiagnosedDate(donorRequest.getCovidDiagnosedDate()); // CovidDiagnosedDate
-        donor.setCovidCuredDate(donorRequest.getCovidCuredDate()); // CovidCuredDate
+        donor.setCovidDiagnosisDate(donorRequest.getCovidDiagnosisDate()); 
+        donor.setCovidCuredDate(donorRequest.getCovidCuredDate()); 
      
                
         donor.setAge(donorRequest.getAge()); // Age

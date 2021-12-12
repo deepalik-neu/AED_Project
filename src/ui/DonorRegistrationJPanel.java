@@ -11,6 +11,9 @@ import static java.time.Clock.system;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.lang.Math;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -27,6 +30,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     public DonorRegistrationJPanel(EcoSystem system) {
         initComponents();
         this.system=system;
+       
     }
 
     /**
@@ -55,11 +59,21 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jTextField7 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         btnSave = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
+        txtDDate = new com.toedter.calendar.JDateChooser();
+        txtCDate = new com.toedter.calendar.JDateChooser();
+        labelName = new javax.swing.JLabel();
+        labelAddress = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
+        labelGender = new javax.swing.JLabel();
+        labelContact = new javax.swing.JLabel();
+        labelBloodGroup = new javax.swing.JLabel();
+        labelAge = new javax.swing.JLabel();
+        labelSymptoms = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -105,30 +119,125 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jTextField1.setBackground(new java.awt.Color(255, 204, 204));
         jTextField1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField1FocusLost(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField1KeyReleased(evt);
+            }
+        });
 
         jTextField2.setBackground(new java.awt.Color(255, 204, 204));
         jTextField2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField2.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField2FocusLost(evt);
+            }
+        });
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField2KeyReleased(evt);
+            }
+        });
 
         jTextField3.setBackground(new java.awt.Color(255, 204, 204));
         jTextField3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField3FocusLost(evt);
+            }
+        });
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField3KeyReleased(evt);
+            }
+        });
 
         jTextField4.setBackground(new java.awt.Color(255, 204, 204));
         jTextField4.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField4.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField4.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField4FocusLost(evt);
+            }
+        });
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
 
         jTextField5.setBackground(new java.awt.Color(255, 204, 204));
         jTextField5.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField5.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField5FocusLost(evt);
+            }
+        });
+        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5ActionPerformed(evt);
+            }
+        });
+        jTextField5.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField5KeyReleased(evt);
+            }
+        });
 
         jTextField6.setBackground(new java.awt.Color(255, 204, 204));
         jTextField6.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField6FocusLost(evt);
+            }
+        });
+        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField6KeyReleased(evt);
+            }
+        });
 
         jTextField7.setBackground(new java.awt.Color(255, 204, 204));
         jTextField7.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField7.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField7FocusLost(evt);
+            }
+        });
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
+            }
+        });
+        jTextField7.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField7KeyReleased(evt);
+            }
+        });
 
         jLabel9.setBackground(new java.awt.Color(255, 204, 204));
         jLabel9.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -140,14 +249,6 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jLabel10.setForeground(new java.awt.Color(102, 0, 0));
         jLabel10.setText("Covid Cured Date :");
 
-        jTextField8.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField8.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(102, 0, 0));
-
-        jTextField9.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField9.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(102, 0, 0));
-
         jLabel11.setBackground(new java.awt.Color(255, 204, 204));
         jLabel11.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(102, 0, 0));
@@ -156,6 +257,16 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jTextField10.setBackground(new java.awt.Color(255, 204, 204));
         jTextField10.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField10.setForeground(new java.awt.Color(102, 0, 0));
+        jTextField10.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextField10FocusLost(evt);
+            }
+        });
+        jTextField10.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField10KeyReleased(evt);
+            }
+        });
 
         btnSave.setBackground(new java.awt.Color(255, 204, 204));
         btnSave.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -167,141 +278,468 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel12.setText("ID :");
+
+        txtID.setBackground(new java.awt.Color(255, 204, 204));
+        txtID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtIDActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(175, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(288, 288, 288))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(50, 50, 50))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField2)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(326, 326, 326))))
+                .addContainerGap(317, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(288, 288, 288))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(303, 303, 303)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(148, 148, 148)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(238, 238, 238)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(88, 88, 88))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel7)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel5)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel9))
+                                        .addGap(50, 50, 50))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextField2)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField5)
+                                    .addComponent(jTextField6)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelEmail, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelAge, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(labelSymptoms, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(labelName, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(412, 412, 412)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel12)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField1, jTextField10, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7, jTextField8, jTextField9});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jTextField1, jTextField10, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {labelAddress, labelAge, labelBloodGroup, labelContact, labelEmail, labelGender, labelName, labelSymptoms});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(btnSave)
-                .addContainerGap(133, Short.MAX_VALUE))
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(labelName, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(45, 45, 45))
+                            .addComponent(labelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(labelBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(200, 200, 200)
+                        .addComponent(labelSymptoms, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDDate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSave))
+                            .addComponent(txtCDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(57, 57, 57))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField10, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7, jTextField8, jTextField9});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextField1, jTextField10, jTextField2, jTextField3, jTextField4, jTextField5, jTextField6, jTextField7});
 
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         try{
-             System.out.println("ll"+system.getDonorRequestDirectory());
-        DonorRequest donorRequest = system.getDonorRequestDirectory().addDonorRequest(); 
+             
+            
+       DonorRequest donorRequest = system.getDonorRequestDirectory().addDonorRequest(); 
         
-        donorRequest.setName(jTextField1.getText());
-     
-        donorRequest.setAge(jTextField7.getText());
-       donorRequest.setBloodGroup(jTextField6.getText());
-       
-       donorRequest.setContact(jTextField5.getText());
-       donorRequest.setCovidCuredDate(jTextField9.getText());
-       donorRequest.setCovidDiagnosedDate(jTextField8.getText());
-     
-      // donorRequest.setDonorID(TOOL_TIP_TEXT_KEY);
-       donorRequest.setEmailID(jTextField3.getText());
-       
+       donorRequest.setName(jTextField1.getText());
+       donorRequest.setAge(jTextField7.getText());
        donorRequest.setGender(jTextField4.getText());
        donorRequest.setAddress(jTextField2.getText());
        donorRequest.setSymptoms(jTextField10.getText());
+       donorRequest.setBloodGroup(jTextField6.getText());
+       donorRequest.setContact(jTextField5.getText());
+       donorRequest.setCovidCuredDate(txtCDate.getDate());
+       donorRequest.setCovidDiagnosisDate(txtDDate.getDate());
+       donorRequest.setId(txtID.getText());
+       donorRequest.setEmailID(jTextField3.getText());
+       donorRequest.setStatus("New Donor Request"); 
+
         dB4OUtil.storeSystem(system);
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2><font color='red'><I>Contact Number</I></font> should be<font color='green'> 10 digit</font>!</h2></html>") , "Error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Donor Request Added Successfully!</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
+        
         }
         catch(Exception e){
             System.out.println("stack"+e.getStackTrace());
-            System.out.println("stack"+e.toString());
+            System.out.println("stack"+e.getMessage());
         }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txtIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtIDActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
+        // TODO add your handling code here:
+//         String chckName=jTextField1.getText();
+//
+//    Pattern pattern = Pattern.compile("^[a-zA-Z- ]{1,50}$");
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid name</h2> </html>! ");   
+//    }
+    
+    }//GEN-LAST:event_jTextField1FocusLost
+
+    private void jTextField2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField2FocusLost
+        // TODO add your handling code here:
+        
+//         String chckName=jTextField2.getText();
+//
+//    Pattern pattern = Pattern.compile("^[a-zA-Z- ]{1,100}$");
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid address</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField2FocusLost
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+        
+        //email
+    }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextField5ActionPerformed
+
+    private void jTextField5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField5FocusLost
+        // TODO add your handling code here:
+        
+//         String chckName=jTextField5.getText();
+//        Pattern pattern = Pattern.compile("^[0-9]{10}$");  
+//  
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid Phone number)</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField5FocusLost
+
+    private void jTextField10FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField10FocusLost
+        // TODO add your handling code here:
+        
+//        String chckName=jTextField10.getText();
+//
+//    Pattern pattern = Pattern.compile("^(?:y|Y|Yes|yes|n|N|No|no)$");
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter (Y/N)</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField10FocusLost
+
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void jTextField7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField7FocusLost
+        // TODO add your handling code here:
+        //age
+//          String chckName=jTextField7.getText();
+//        Pattern pattern = Pattern.compile("^[0-9]{1,2}$");   
+//  
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid Age</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField7FocusLost
+
+    private void jTextField4FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField4FocusLost
+        // TODO add your handling code here:
+//        String chckName=jTextField4.getText();
+//
+//    Pattern pattern = Pattern.compile("^(?:m|M|male|Male|f|F|female|Female)$");
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid Gender(F/M)</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField4FocusLost
+
+    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
+        // TODO add your handling code here:
+//        String checkEmailAddress=jTextField3.getText();
+//
+//        Pattern pattern=Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
+//
+//        Matcher matchPattern=pattern.matcher(checkEmailAddress);
+//
+//        if(!matchPattern.matches())
+//
+//        {
+//
+//        JOptionPane.showMessageDialog(this," Please Enter Valid Email Address. ");
+//
+//        }
+        //email 
+    }//GEN-LAST:event_jTextField3FocusLost
+
+    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+        // TODO add your handling code here:
+//        String chckName=jTextField4.getText();
+//
+//    Pattern pattern = Pattern.compile("^(A|B|AB|O)[-+]$");
+//    Matcher matchPattern=pattern.matcher(chckName);
+//    if(!matchPattern.matches())
+//    {
+//     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid Gender(F/M)</h2> </html>! ");   
+//    }
+    }//GEN-LAST:event_jTextField6FocusLost
+
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField1.getText();
+
+    Pattern pattern=Pattern.compile("^[a-zA-Z]{1,50}$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelName.setText("Please enter correct name.");
+    }
+    else
+    {
+    labelName.setText(null);
+    }
+    }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void jTextField2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField2.getText();
+
+    Pattern pattern=Pattern.compile("^[a-zA-Z]{1,50}$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelAddress.setText("Please enter correct address.");
+    }
+    else
+    {
+    labelAddress.setText(null);
+    }
+    }//GEN-LAST:event_jTextField2KeyReleased
+
+    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField3.getText();
+
+    Pattern pattern=Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelEmail.setText("Please enter correct email.");
+    }
+    else
+    {
+    labelEmail.setText(null);
+    }
+    }//GEN-LAST:event_jTextField3KeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField4.getText();
+
+    Pattern pattern=Pattern.compile("^(?:m|M|male|Male|f|F|female|Female)$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelGender.setText("Please enter correct gender.");
+    }
+    else
+    {
+    labelGender.setText(null);
+    }
+        
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void jTextField5KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField5.getText();
+
+    Pattern pattern=Pattern.compile("^[0-9]{10}$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelContact.setText("Please enter 10 digits.");
+    }
+    else
+    {
+    labelContact.setText(null);
+    }
+    }//GEN-LAST:event_jTextField5KeyReleased
+
+    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField6.getText();
+
+    Pattern pattern=Pattern.compile("^(A|B|AB|O)[-+]$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelBloodGroup.setText("Please enter valid blood group.");
+    }
+    else
+    {
+    labelBloodGroup.setText(null);
+    }
+    }//GEN-LAST:event_jTextField6KeyReleased
+
+    private void jTextField7KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField7.getText();
+
+    Pattern pattern=Pattern.compile("^[0-9]{1,2}$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelAge.setText("Please enter valid age.");
+    }
+    else
+    {
+    labelAge.setText(null);
+    }
+    }//GEN-LAST:event_jTextField7KeyReleased
+
+    private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
+        // TODO add your handling code here:
+        String checkName=jTextField10.getText();
+
+    Pattern pattern=Pattern.compile("^(?:y|Y|Yes|yes|n|N|No|no)$");
+
+    Matcher matchPattern=pattern.matcher(checkName);
+    if(!matchPattern.matches())
+    {
+    labelSymptoms.setText("Please enter Yes or No.");
+    }
+    else
+    {
+    labelSymptoms.setText(null);
+    }
+    }//GEN-LAST:event_jTextField10KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,6 +747,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -325,7 +764,16 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JLabel labelAddress;
+    private javax.swing.JLabel labelAge;
+    private javax.swing.JLabel labelBloodGroup;
+    private javax.swing.JLabel labelContact;
+    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelGender;
+    private javax.swing.JLabel labelName;
+    private javax.swing.JLabel labelSymptoms;
+    private com.toedter.calendar.JDateChooser txtCDate;
+    private com.toedter.calendar.JDateChooser txtDDate;
+    private javax.swing.JTextField txtID;
     // End of variables declaration//GEN-END:variables
 }

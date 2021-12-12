@@ -55,7 +55,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
             row[5]= dnre.getBloodGroup();
             row[6]= dnre.getContact();
             row[7]= dnre.getAddress();
-            row[8]= dnre.getCovidDiagnosedDate();
+            row[8]= dnre.getCovidDiagnosisDate();
             row[9]= dnre.getCovidCuredDate();
             //row[10]= dnre.getStatus();
             row[10]= dnre.getSymptoms();
@@ -70,12 +70,12 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         
         table.setRowCount(0);
           
-        for(DonorRequest dnr : system.getDonorRequestDirectory().getDonorRequestList()){
+        for(DonorRequest dnr : system.getDonorRequestDirectory().getDnrList()){
             System.out.println("PRINITNG IT HERE in Status for request !!");
             System.out.println(dnr.getName());
         }
         
-         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
+         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
             Object row[] = new Object[12];
             row[0]= donorRequest;
             row[1]= donorRequest.getName();
@@ -85,7 +85,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
             row[5]= donorRequest.getBloodGroup();
             row[6]= donorRequest.getContact();
             row[7]= donorRequest.getAddress();
-            row[8]= donorRequest.getCovidDiagnosedDate();
+            row[8]= donorRequest.getCovidDiagnosisDate();
             row[9]= donorRequest.getCovidCuredDate();
             //row[10]= donorRequest.getStatus();
             row[10]= donorRequest.getSymptoms();
@@ -128,7 +128,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Name", "EmailID", "Status", "Age", "Blood Group", "Contact No", "Address", "Diagnosed Date", "Cured Date", "Symptoms"
+                "Donor ID", "Name", "EmailID", "Status", "Age", "Blood Group", "Contact No", "Address", "Diagnosed Date", "Cured Date", "Symptoms"
             }
         ));
         jScrollPane1.setViewportView(tableDonorRequest1);

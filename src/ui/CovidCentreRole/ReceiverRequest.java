@@ -16,9 +16,11 @@ import Business.Person.PatientRequest;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -33,14 +35,16 @@ public class ReceiverRequest extends javax.swing.JPanel {
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private UserAccount userAccount;
     private Network network;
+    private JPanel userProcessContainer;
     /**
      * Creates new form ReceiverRequest
      */
-    public ReceiverRequest(EcoSystem system, UserAccount userAccount, Network network) {
+    public ReceiverRequest(JPanel userProcessContainer,EcoSystem system, UserAccount userAccount, Network network) {
         initComponents();
          this.system = system;
         this.userAccount = userAccount;
         this.network = network;
+        this.userProcessContainer=userProcessContainer;
         
         populateRequestTable();
     }
@@ -50,13 +54,16 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
         dtm.setRowCount(0);
         
-         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPatientRequestList()){            
-            Object row[] = new Object[4];
-            row[0]= patientRequest;
+         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){            
+            Object row[] = new Object[7];
+            row[0]= patientRequest.getPatientID();
             row[1]= patientRequest.getName();
             row[2]= patientRequest.getContact();
             row[3]= patientRequest.getStatus();
-              
+            row[4]= patientRequest.getEmailID();
+            row[5]= patientRequest.getCovidDiagnosisDate();
+            row[6]= patientRequest.getGender();
+
             dtm.addRow(row);
         }        
     }
@@ -82,13 +89,13 @@ public class ReceiverRequest extends javax.swing.JPanel {
         requestTable.setForeground(new java.awt.Color(102, 0, 0));
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Patient ID", "Patient Name", "Patient Contact", "Status", "Email ID", "Diagnosed Date", "Gender"
             }
         ));
         jScrollPane1.setViewportView(requestTable);
@@ -134,20 +141,19 @@ public class ReceiverRequest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(204, 204, 204)
-                        .addComponent(btnApprove)
-                        .addGap(82, 82, 82)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 29, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backJButton2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28))
+                        .addGap(23, 23, 23)
+                        .addComponent(backJButton2)
+                        .addGap(174, 174, 174)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(btnApprove)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnApprove, btnReject});
@@ -155,17 +161,20 @@ public class ReceiverRequest extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(backJButton2)))
+                .addGap(78, 78, 78)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnApprove)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 162, Short.MAX_VALUE)
-                .addComponent(backJButton2)
-                .addGap(27, 27, 27))
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnApprove))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnApprove, btnReject});
@@ -208,7 +217,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
 //        patient.setLabConfirmation(true); //  labConfirmation
 //      
         
-        for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPatientRequestList()){                      
+        for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){                      
        // System.out.println("req:"+patientRequest.getPatientID()+" "+patient.getPatientID());
             if(patientRequest.getName().equals(patient.getName())){
             patientRequest.setStatus("Centre Approved");
@@ -223,7 +232,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
         WorkRequest request = new LabTestWorkRequest();
         
         request.setPatient(patient);
-        request.setActionDate(new Date());
+        request.setRequestDate(new Date());
         request.setAssigned("Legal Pool");
         request.setSummary("Requested for Plasma Reception");
         request.setStatus("Assigned to Legal Pool");
@@ -285,7 +294,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
-         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPatientRequestList()){                      
+         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){                      
         
             //if(patientRequest.getName().equals(nameText.getText())){
 //            statusText.setText("Rejected");
@@ -302,7 +311,9 @@ public class ReceiverRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnRejectActionPerformed
 
     private void backJButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButton2ActionPerformed
-
+    userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButton2ActionPerformed
 
 

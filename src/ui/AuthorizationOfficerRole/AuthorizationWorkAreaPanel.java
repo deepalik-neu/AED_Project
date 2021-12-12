@@ -102,7 +102,7 @@ public class AuthorizationWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
-         AuthorizationApprovalPanel panel=new AuthorizationApprovalPanel(system,userAccount,network,authorizationorganization);
+         AuthorizationApprovalPanel panel=new AuthorizationApprovalPanel(userProcessContainer,system,userAccount,network,authorizationorganization);
         userProcessContainer.add("AuthorizationApprovalPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

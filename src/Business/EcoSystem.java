@@ -44,7 +44,9 @@ private UserAccountDirectory userAccountDirectory;
     public UserAccountDirectory getUserAccountDirectory() {return userAccountDirectory; }
     public void setUserAccountDirectory(UserAccountDirectory userAccountDirectory) { this.userAccountDirectory = userAccountDirectory;  }
     public DonorRequestDirectory getDonorRequestDirectory() {   return donorRequestDirectory;    }
-    public void setDonorRequestDirectory(DonorRequestDirectory donorRequestDirectory) {        this.donorRequestDirectory = donorRequestDirectory;    }
+    public void setDonorRequestDirectory(DonorRequestDirectory donorRequestDirectory) {    
+        this.donorRequestDirectory = donorRequestDirectory; 
+    }
     public PatientRequestDirectory getPatientRequestDirectory() {        return patientRequestDirectory;    }
     public void setPatientRequestDirectory(PatientRequestDirectory patientRequestDirectory) {        this.patientRequestDirectory = patientRequestDirectory;    }
     public PatientDirectory getPatientDirectory() {return patientDirectory;}

@@ -22,7 +22,7 @@ public class AuthorizationOfficerRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new AuthorizationWorkAreaPanel(account,(AuthorizationOrganization) organization,enterprise,business,network) ;//To change body of generated methods, choose Tools | Templates.
+        return new AuthorizationWorkAreaPanel(userProcessContainer,account,(AuthorizationOrganization) organization,enterprise,business,network) ;//To change body of generated methods, choose Tools | Templates.
     }
     
     
