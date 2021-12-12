@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.SystemCoordinatorRole;
+package ui.HospitalCoordinatorRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.DoctorOrganization;
 import Business.Organization.Organization;
-import Business.Organization.SystemCoordinatorOrganization;
+import Business.Organization.HospitalCoordinatorOrganization;
 import Business.Person.PatientDirectory;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
@@ -29,19 +29,19 @@ public class ReceiverListJPanel extends javax.swing.JPanel {
     private UserAccount userAccount;
     private EcoSystem system;
     private Network network;
-    private SystemCoordinatorOrganization systemCoOrganization;
+    private HospitalCoordinatorOrganization hospCoOrganization;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     private JPanel userProcessContainer;
     /**
      * Creates new form ReceiverJPanel
      */
-    public ReceiverListJPanel(JPanel userProcessContainer,UserAccount userAccount,EcoSystem system,Network network,SystemCoordinatorOrganization systemCoOrganization) {
+    public ReceiverListJPanel(JPanel userProcessContainer,UserAccount userAccount,EcoSystem system,Network network,HospitalCoordinatorOrganization hCoOrganization) {
         initComponents();
         this.userAccount=userAccount;
         this.system=system;
         this.network=network;
         this.userProcessContainer=userProcessContainer;
-        this.systemCoOrganization=systemCoOrganization;
+        this.hospCoOrganization=hCoOrganization;
         
         populateReciverRequestTable();
         populateHospitalTable();
@@ -72,7 +72,7 @@ private void populateHospitalTable(){
         
         model.setRowCount(0);
         
-        for(WorkRequest request : systemCoOrganization.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest request : hospCoOrganization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[6];
             row[0] = request.getPatient();
             row[1] = request.getSummary();
@@ -241,7 +241,7 @@ private void populateHospitalTable(){
         
         else{
             WorkRequest request = (WorkRequest)tblReciever.getValueAt(rcr, 0);   
-            if(request.getStatus().equals("PlasmaBank Approved. Passing to System Coordinator")){
+            if(request.getStatus().equals("PlasmaBank Approved. Passing to Hospital Coordinator")){
                     
                     request.setEnterprise((Enterprise) tblHospital.getValueAt(hosp, 0));
                     request.setStatus("Assigned in Doctor Pool");

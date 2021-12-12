@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 
-package ui.GovernmentRole;
+package ui.PortalAdminRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
@@ -249,7 +249,7 @@ private void populateRequestDetails(DonorRequest donorRequest){
        
         donor.setContact(donorRequest.getContact()); // contact
         donor.setEmailID(donorRequest.getEmailID()); // emailID
-        donor.setStatus("Government Approved"); // status
+        donor.setStatus("Portal Admin Approved"); // status
     
        
         donor.setSymptoms(donorRequest.getSymptoms()); //  symptoms
@@ -258,7 +258,7 @@ private void populateRequestDetails(DonorRequest donorRequest){
 //        for(DonorRequest dnrRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
 //        
 //            if(dnrRequest.getDonarId().equals(donorRequest.getDonarId())){
-//            //dnrRequest.setStatus("Government Approved");
+//            //dnrRequest.setStatus("Portal Admin Approved");
 //           // dB4OUtil.storeSystem(system);
 //            }
 //        }

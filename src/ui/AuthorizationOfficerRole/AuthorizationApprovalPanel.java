@@ -196,13 +196,13 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         else{
         WorkRequest request = (WorkRequest)tblRequests.getValueAt(selectedRow, 0);
       
-        request.setStatus("Legally Disapproved");
+        request.setStatus("Not Authorized");
         request.setUserAccount(userAccount);
         userAccount.getWorkQueue().getWorkRequestList().add(request);
        
         dB4OUtil.storeSystem(system);
         populateTable();
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='red'> Legally Disapproved!</I></font></h2></html>"), "Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='red'> Not Authorized!</I></font></h2></html>"), "Info", JOptionPane.INFORMATION_MESSAGE);
            
         //JOptionPane.showMessageDialog(null,"Legally Disapproved", "Info", JOptionPane.INFORMATION_MESSAGE);
         
@@ -224,14 +224,13 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         else{
         WorkRequest request = (WorkRequest)tblRequests.getValueAt(selectedRow, 0);
       
-        request.setStatus("Legally Approved. Passing to PlasmaBank");
+        request.setStatus("Authorized. Passing request to Plasma Bank");
         //request.setUserAccount(userAccount);
         //userAccount.getWorkQueue().getWorkRequestList().add(request);
         dB4OUtil.storeSystem(system);
         populateTable();
         
-        //JOptionPane.showMessageDialog(null,"Legally Approved Successfully", "Info", JOptionPane.INFORMATION_MESSAGE);
-        JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Legally<font color='green'> approved</font> successfully!</I></font></h2></html>"),"Info", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Authorization<font color='green'> approved</font> successfully!</I></font></h2></html>"),"Info", JOptionPane.INFORMATION_MESSAGE);
            
         
         Enterprise ent = null;

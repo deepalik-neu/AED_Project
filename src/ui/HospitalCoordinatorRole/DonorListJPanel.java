@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.SystemCoordinatorRole;
+package ui.HospitalCoordinatorRole;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
@@ -67,13 +67,9 @@ public class DonorListJPanel extends javax.swing.JPanel {
         DefaultTableModel dtm = (DefaultTableModel) tableHospital.getModel();
         dtm.setRowCount(0);
         
-        System.out.println("list of enterprises:");
-       // System.out.println(enterpriseDirectory.getEnterpriseList());
-        System.out.println("list of enterprises ends");
-        System.out.println(network.getName());
         for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()){
             if(enterprise.getEnterpriseType().toString().equals("Hospital")){
-                System.out.println("Hosp"+ enterprise.getName());
+                
                 Object[] row = new Object[2];
                 row[0] = enterprise;
                 row[1] = enterprise.getName();
@@ -276,58 +272,62 @@ public class DonorListJPanel extends javax.swing.JPanel {
         
         int dnr = tableDonor.getSelectedRow();
         int hosp = tableHospital.getSelectedRow();
+        Donor donor=(Donor) tableDonor.getValueAt(dnr, 0); 
+        Enterprise e=(Enterprise) tableHospital.getValueAt(hosp, 0);
         
         if (dnr < 0) {
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> Donors Table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='red'>Please select a row from the Donors Table</h2></html>"), "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         else if (hosp < 0) {
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> Hospital Table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='red>Please select a row from the Hospital Table</h2></html>"), "Error", JOptionPane.ERROR_MESSAGE);
             return;
-            //JOptionPane.showMessageDialog(null, "Please select a row from the Hospital table", "Warning", JOptionPane.WARNING_MESSAGE);
-            //return;
         }
         else{
             WorkRequest request = new LabTestWorkRequest();
                         
-            //if(request.getDonor().getStatus().equals("Government Approved"))
+            if(donor.getStatus().equals("Portal Admin Approved"))
             {
                 request.setRequestDate(new Date());
-                request.setAssigned("Hospital Pool");
-                request.setSummary("Requested for Donation");
-                request.setStatus("Assigned to Hospital"); // WorkRequest Status changed
+                request.setAssigned("Assigned to Hospital");
+                request.setSummary("Donor assigned to Hospital and requested for Donation");
+                request.setStatus("Assigned to Hospital"); 
                 request.setUserAccount(userAccount);
-                request.setDonor((Donor) tableDonor.getValueAt(dnr, 0));
-                request.getDonor().setStatus("Assigned to Hospital"); // Donor's Status changed
-                request.setEnterprise((Enterprise) tableHospital.getValueAt(hosp, 0));
- System.out.println("request !!");
-                Organization org = null;
-                Enterprise enterprise = (Enterprise) tableHospital.getValueAt(hosp, 0);
-                for (Organization organization : enterprise.getOrganizationDirectory().getOrganizationList()) {
+                request.setDonor(donor);
+                request.getDonor().setStatus("Donor assigned to Hospital"); 
+                request.setEnterprise(e);
+                System.out.println("request !!");
+                Organization o = null;
+               // Enterprise enterprise = (Enterprise) tableHospital.getValueAt(hosp, 0);
+                for (Organization organization : e.getOrganizationDirectory().getOrganizationList()) {
                     System.out.println("request !!!"+organization.getName());
                     if (organization.getName().equals(Organization.Type.Pathologist.getValue())) {
-                        org = organization;
+                        o = organization;
                         break;
                     }
                 }
         
-                if (org != null) {
+                if (o != null) {
                     System.out.println("request !");
-                    org.getWorkQueue().getWorkRequestList().add(request);
-                    System.out.println(org.getName());
+                    o.getWorkQueue().getWorkRequestList().add(request);
+                    System.out.println(o.getName());
                     userAccount.getWorkQueue().getWorkRequestList().add(request);
                     populateDonorTable();
                     populateRequestTable();
-                    JOptionPane.showMessageDialog(null,new JLabel(  "<html><h2><I>Request sent<font color='green'> successfully</font>!</I></font></h2></html>")
-                            , "Info", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,new JLabel(  "<html><h2 color='green'>Work Request added successfully</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                        JOptionPane.showMessageDialog(null, "No organization present", "Error", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Sorry, organization is not present", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            //else{
-            //    JOptionPane.showMessageDialog(null,"Donor is already assigned to a Hospital.", "Info", JOptionPane.INFORMATION_MESSAGE);
-            //}    
+            else if(donor.getStatus().equals("Donor assigned to Hospital"))
+            {
+                JOptionPane.showMessageDialog(null,new JLabel(  "<html><h2 color='green'>Donor is already assigned to Hospital</h2></html>"), "Error", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Donor is not Portal Admin Approved!</h2></html>"), "Error", JOptionPane.ERROR_MESSAGE);
+            }
+             
         }
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnAssignActionPerformed
