@@ -8,6 +8,7 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
+import Business.Organization.DoctorOrganization;
 import Business.Organization.PlasmaBankOrganization;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
@@ -23,7 +24,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
     private EcoSystem business;
     private UserAccount userAccount;
-    private PlasmaBankOrganization labOrganization;
+    private DoctorOrganization doctorOrganization;
     private Network network;
     private Enterprise enterprise;
     
@@ -31,9 +32,19 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public DoctorWorkAreaJPanel() {
+    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, DoctorOrganization doctorOrganization, Enterprise enterprise, EcoSystem business, Network network) {
         initComponents();
+        this.enterprise=enterprise;
+        this.userAccount=userAccount;
+        this.doctorOrganization=doctorOrganization;
+        this.network=network;
+        this.userProcessContainer=userProcessContainer;
+        
     }
+
+//    public DoctorWorkAreaJPanel(JPanel userProcessContainer, UserAccount account, DoctorOrganization doctorOrganization, Enterprise enterprise, EcoSystem business, Network network) {
+//        throw new UnsupportedOperationException("Not suppJorted yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -47,8 +58,13 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnManageRequests = new javax.swing.JButton();
 
+        jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Doctor Organization");
 
+        btnManageRequests.setBackground(new java.awt.Color(255, 204, 204));
+        btnManageRequests.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
+        btnManageRequests.setForeground(new java.awt.Color(102, 0, 0));
         btnManageRequests.setText("Manage Requests");
         btnManageRequests.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,28 +76,30 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(232, 232, 232)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(307, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(316, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(241, 241, 241))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
+                .addGap(126, 126, 126)
                 .addComponent(btnManageRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(414, Short.MAX_VALUE))
+                .addContainerGap(386, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
         // TODO add your handling code here:
-          PlasmaRequestJPanel panel=new PlasmaRequestJPanel(userAccount,labOrganization,enterprise,network,business);
-        userProcessContainer.add("PlasmaRequestJPanel",panel);
+          DoctorRequestPanel panel=new DoctorRequestPanel(business,userAccount,doctorOrganization,enterprise);
+        userProcessContainer.add("DoctorRequestPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageRequestsActionPerformed

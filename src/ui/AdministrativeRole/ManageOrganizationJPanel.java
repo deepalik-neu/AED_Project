@@ -12,6 +12,7 @@ import static Business.Enterprise.Enterprise.EnterpriseType.CovidCentre;
 import static Business.Enterprise.Enterprise.EnterpriseType.Government;
 import static Business.Enterprise.Enterprise.EnterpriseType.PlasmaBank;
 import Business.Organization.Organization;
+import Business.Organization.Organization.AuthorizationType;
 import Business.Organization.Organization.CovidCentreType;
 import Business.Organization.Organization.GovernmentType;
 import Business.Organization.Organization.PlasmaBankType;
@@ -41,14 +42,18 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageOrganizationJPanel
      */
-    public ManageOrganizationJPanel(JPanel userProcessContainer,OrganizationDirectory directory) {
+    public ManageOrganizationJPanel(JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
         initComponents();
-        this.userProcessContainer = userProcessContainer;
+        this.userProcessContainer = container;
         this.directory = directory;
+        this.enterprise=enterprise;
+        this.system = system;
         
         populateTable();
         populateCombo();
     }
+
+//    
     
     private void populateCombo(){
         organizationJComboBox.removeAllItems();
@@ -56,20 +61,68 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
           //  if (!type.getValue().equals(Type.Admin.getValue()))
             //    organizationJComboBox.addItem(type);
         //}
+        System.out.println(enterprise.getEnterpriseType());
+       System.out.println(enterprise.getEnterpriseType().toString().equals(Authorization.toString()));
+       if(enterprise.getEnterpriseType().toString().equals(Authorization.toString())){
+        for(Organization.AuthorizationType legalType: Organization.AuthorizationType.values()){
+            if (legalType.getValue().equals(Organization.AuthorizationType.Authorization.getValue())){
+                organizationJComboBox.addItem(legalType);
+            }
+        }
+        }
+       
+       else if(enterprise.getEnterpriseType().toString().equals(PlasmaBank.toString())){
+           System.out.println("1");
+        for(Organization.PlasmaBankType plasmaType: Organization.PlasmaBankType.values()){
+            System.out.println("1");
+            System.out.println(plasmaType.getValue());
+            System.out.println(Organization.PlasmaBankType.PlasmaBank.getValue());
+            if (plasmaType.getValue().equals(Organization.PlasmaBankType.PlasmaBank.getValue())){
+                organizationJComboBox.addItem(plasmaType);
+            }
+        }
+        }
+       else if(enterprise.getEnterpriseType().toString().equals(CovidCentre.toString())){
+        for(Organization.CovidCentreType covidType: Organization.CovidCentreType.values()){
+            if (covidType.getValue().equals(Organization.CovidCentreType.CovidCentre.getValue())){
+                organizationJComboBox.addItem(covidType);
+            }
+        }
+        }
+       else if(enterprise.getEnterpriseType().toString().equals(Government.toString())){
+        for(Organization.GovernmentType govtType: Organization.GovernmentType.values()){
+            if (govtType.getValue().equals(Organization.GovernmentType.Government.getValue())){
+                organizationJComboBox.addItem(govtType);
+            }
+        }
+        }
+       else{
+        for (Organization.Type type : Organization.Type.values()){            
+            if (type.getValue().equals(Organization.Type.SystemCoordinator.getValue())
+                    ||type.getValue().equals(Organization.Type.Doctor.getValue())
+                    ||type.getValue().equals(Organization.Type.Pathologist.getValue())
+                    )
+                organizationJComboBox.addItem(type);
+        }
+       
+    }
     }
 
     private void populateTable(){
         DefaultTableModel model = (DefaultTableModel) organizationJTable.getModel();
         
         model.setRowCount(0);
-        
+      
         for (Organization organization : directory.getOrganizationList()){
             Object[] row = new Object[2];
             row[0] = organization.getOrganizationID();
-            row[1] = organization.getName();
+            row[1] = organization.getRealName();
             
             model.addRow(row);
         }
+     
+        
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -137,6 +190,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         });
 
         organizationJComboBox.setBackground(new java.awt.Color(255, 204, 204));
+        organizationJComboBox.setForeground(new java.awt.Color(102, 0, 0));
         organizationJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -186,9 +240,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                                 .addComponent(jLabel1)
                                 .addComponent(jLabel2))
                             .addGap(49, 49, 49)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtOrgRealName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtOrgRealName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(66, 66, 66)
                             .addComponent(backJButton))
@@ -204,8 +258,8 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(organizationJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -256,7 +310,7 @@ String check1 = "";
 // Main Process after validation checks
         if(check1.equals("")){
         if(enterprise.getEnterpriseType().toString().equals(Authorization.toString())){
-            //directory.createLegalOrganization((AuthorizationType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
+            directory.createAuthorizationOrganization((AuthorizationType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
         }
         else if(enterprise.getEnterpriseType().toString().equals(Government.toString())){
             directory.createGovernmentOrganization((GovernmentType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
