@@ -96,7 +96,7 @@ public class PlasmaBankOfficerWorkAreaPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         PlasmaRequestJPanel panel=new PlasmaRequestJPanel(userAccount,labOrganization,enterprise,network,business);
+         PlasmaRequestJPanel panel=new PlasmaRequestJPanel( userProcessContainer,userAccount,labOrganization,enterprise,network,business);
         userProcessContainer.add("PlasmaRequestJPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

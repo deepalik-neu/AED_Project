@@ -109,7 +109,7 @@ public class SystemCoordinatorWorkAreaPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         DonorListJPanel panel=new DonorListJPanel( userAccount, system,network);
+         DonorListJPanel panel=new DonorListJPanel(userProcessContainer, userAccount, system,network);
         userProcessContainer.add("DonorListJPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -117,7 +117,7 @@ public class SystemCoordinatorWorkAreaPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ReceiverListJPanel panel=new ReceiverListJPanel( userAccount, system, network, organization);
+        ReceiverListJPanel panel=new ReceiverListJPanel( userProcessContainer,userAccount, system, network, organization);
         userProcessContainer.add("ReceiverListJPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

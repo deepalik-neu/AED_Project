@@ -28,9 +28,9 @@
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btnRequest" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnCheckStatus" min="-2" pref="277" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btnCheckStatus" linkSize="1" max="32767" attributes="0"/>
+                  <Component id="btnRequest" linkSize="1" pref="291" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -42,10 +42,10 @@
               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="54" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-              <Component id="btnCheckStatus" min="-2" pref="60" max="-2" attributes="0"/>
+              <Component id="btnCheckStatus" linkSize="2" min="-2" pref="60" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="btnRequest" min="-2" pref="62" max="-2" attributes="0"/>
-              <EmptySpace pref="300" max="32767" attributes="0"/>
+              <Component id="btnRequest" linkSize="2" min="-2" pref="62" max="-2" attributes="0"/>
+              <EmptySpace pref="298" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

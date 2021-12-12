@@ -16,10 +16,6 @@ public abstract class Enterprise extends Organization{
     
     private EnterpriseType enterpriseType;
     private OrganizationDirectory organizationDirectory;
-    private int contact;
-    private String email;
-    private int zipcode;
-    
 
     public OrganizationDirectory getOrganizationDirectory() {
         return organizationDirectory;
@@ -28,11 +24,9 @@ public abstract class Enterprise extends Organization{
     public enum EnterpriseType{
         Hospital("Hospital"),
         PlasmaBank("PlasmaBank"),
-        Legal("Legal"),
+        Authorization("Authorization"),
         CovidCentre("CovidCentre"),
         Government("Government");
-        
-        
         
         private String value;
         
@@ -56,36 +50,9 @@ public abstract class Enterprise extends Organization{
         this.enterpriseType = enterpriseType;
     }
     
-    
     public Enterprise(String name,EnterpriseType type){
         super(name);
         this.enterpriseType=type;
         organizationDirectory=new OrganizationDirectory();
     }
-
-    public int getContact() {
-        return contact;
-    }
-
-    public void setContact(int contact) {
-        this.contact = contact;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getZipcode() {
-        return zipcode;
-    }
-
-    public void setZipcode(int zipcode) {
-        this.zipcode = zipcode;
-    }
-        
 }
-

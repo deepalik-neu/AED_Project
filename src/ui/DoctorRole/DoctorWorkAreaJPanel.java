@@ -98,7 +98,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnManageRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestsActionPerformed
         // TODO add your handling code here:
-          DoctorRequestPanel panel=new DoctorRequestPanel(business,userAccount,doctorOrganization,enterprise);
+          DoctorRequestPanel panel=new DoctorRequestPanel(userProcessContainer,business,userAccount,doctorOrganization,enterprise);
         userProcessContainer.add("DoctorRequestPanel",panel);
         CardLayout layout=(CardLayout)userProcessContainer.getLayout();
         layout.next(userProcessContainer);

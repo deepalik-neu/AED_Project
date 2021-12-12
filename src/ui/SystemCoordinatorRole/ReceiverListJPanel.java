@@ -14,8 +14,10 @@ import Business.Organization.SystemCoordinatorOrganization;
 import Business.Person.PatientDirectory;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,14 +31,16 @@ public class ReceiverListJPanel extends javax.swing.JPanel {
     private Network network;
     private SystemCoordinatorOrganization systemCoOrganization;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    private JPanel userProcessContainer;
     /**
      * Creates new form ReceiverJPanel
      */
-    public ReceiverListJPanel(UserAccount userAccount,EcoSystem system,Network network,SystemCoordinatorOrganization systemCoOrganization) {
+    public ReceiverListJPanel(JPanel userProcessContainer,UserAccount userAccount,EcoSystem system,Network network,SystemCoordinatorOrganization systemCoOrganization) {
         initComponents();
         this.userAccount=userAccount;
         this.system=system;
         this.network=network;
+        this.userProcessContainer=userProcessContainer;
         this.systemCoOrganization=systemCoOrganization;
         
         populateReciverRequestTable();
@@ -70,12 +74,12 @@ private void populateHospitalTable(){
         
         for(WorkRequest request : systemCoOrganization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[6];
-            row[0] = request;
+            row[0] = request.getPatient();
             row[1] = request.getSummary();
-            row[2] = request.getPatient();
-            row[3] = request.getEnterprise();
-            row[4] = request.getStatus();
-            row[5] = request.getPatient().getStatus(); //check status
+            row[2] = request.getPatient().getName();
+           // row[3] = request.getEnterprise();
+            row[3] = request.getStatus();
+            row[4] = request.getPatient().getStatus(); //check status
             
             model.addRow(row);
         }
@@ -110,13 +114,13 @@ private void populateHospitalTable(){
         tblReciever.setForeground(new java.awt.Color(102, 0, 51));
         tblReciever.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Request Number", "Status", "Hospital", "Emergency"
+                "ID", "Summary", "Name", "Request Status", "Patient Status"
             }
         ));
         jScrollPane1.setViewportView(tblReciever);
@@ -166,6 +170,11 @@ private void populateHospitalTable(){
         jButton2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(102, 0, 51));
         jButton2.setText("<<Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -173,9 +182,6 @@ private void populateHospitalTable(){
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(319, 319, 319)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -189,7 +195,10 @@ private void populateHospitalTable(){
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(227, 227, 227)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jButton2)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -207,9 +216,9 @@ private void populateHospitalTable(){
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2)
-                .addContainerGap())
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -271,6 +280,13 @@ private void populateHospitalTable(){
         populateReciverRequestTable();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

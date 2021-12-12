@@ -15,9 +15,11 @@ import Business.Person.Donor;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.LabTestWorkRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import java.util.Date;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -31,14 +33,16 @@ public class DonorListJPanel extends javax.swing.JPanel {
     private Network network;
     private UserAccount userAccount;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+     private JPanel userProcessContainer;
     /**
      * Creates new form DonorListJPanel
      */
-    public DonorListJPanel(UserAccount userAccount,EcoSystem system,Network network) {
+    public DonorListJPanel(JPanel userProcessContainer,UserAccount userAccount,EcoSystem system,Network network) {
         initComponents();
         this.system=system;
         this.userAccount=userAccount;
         this.network=network;
+        this.userProcessContainer=userProcessContainer;
         populateDonorTable();
         populateHospitalTable();
         populateRequestTable();
@@ -82,19 +86,19 @@ public class DonorListJPanel extends javax.swing.JPanel {
         private void populateRequestTable(){
             
             
-        DefaultTableModel model = (DefaultTableModel) tableAssignment.getModel();
+        DefaultTableModel model = (DefaultTableModel) tableDHAssignment.getModel();
 
         model.setRowCount(0);
 
         for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[6];
-            row[0] = request;
+            row[0] = request.getDonor().getName();
             
             row[1] = request.getDonor();
             row[2] = request.getSummary();
             row[3] = request.getEnterprise();
             row[4] = request.getStatus();
-            row[5] = request.getActionDate();
+            row[5] = request.getRequestDate();
             model.addRow(row);
         }
             
@@ -114,7 +118,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         tableHospital = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tableAssignment = new javax.swing.JTable();
+        tableDHAssignment = new javax.swing.JTable();
         btnAssign = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -133,7 +137,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Name", "Contact", "Status"
+                "ID", "Name", "Contact No"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -169,20 +173,20 @@ public class DonorListJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableHospital);
 
-        tableAssignment.setBackground(new java.awt.Color(255, 204, 204));
-        tableAssignment.setForeground(new java.awt.Color(102, 0, 0));
-        tableAssignment.setModel(new javax.swing.table.DefaultTableModel(
+        tableDHAssignment.setBackground(new java.awt.Color(255, 204, 204));
+        tableDHAssignment.setForeground(new java.awt.Color(102, 0, 0));
+        tableDHAssignment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Donor Name", "Status", "Hospital Name", "Requested Date"
+                "Donor Name", "ID", "Summary", "Enterprise", "Status", "Requested Date"
             }
         ));
-        jScrollPane3.setViewportView(tableAssignment);
+        jScrollPane3.setViewportView(tableDHAssignment);
 
         btnAssign.setBackground(new java.awt.Color(255, 204, 204));
         btnAssign.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -209,35 +213,39 @@ public class DonorListJPanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("<<Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(82, 82, 82)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(328, 328, 328)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(349, 349, 349)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(436, 436, 436)
-                        .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(163, 163, 163)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 664, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(82, 82, 82)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(15, 15, 15)
+                            .addComponent(jButton1))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(80, 80, 80)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(328, 328, 328)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(349, 349, 349)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(436, 436, 436)
+                            .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(221, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -284,7 +292,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
                         
             //if(request.getDonor().getStatus().equals("Government Approved"))
             {
-                request.setActionDate(new Date());
+                request.setRequestDate(new Date());
                 request.setAssigned("Hospital Pool");
                 request.setSummary("Requested for Donation");
                 request.setStatus("Assigned to Hospital"); // WorkRequest Status changed
@@ -324,6 +332,13 @@ public class DonorListJPanel extends javax.swing.JPanel {
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnAssignActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAssign;
@@ -334,7 +349,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable tableAssignment;
+    private javax.swing.JTable tableDHAssignment;
     private javax.swing.JTable tableDonor;
     private javax.swing.JTable tableHospital;
     // End of variables declaration//GEN-END:variables

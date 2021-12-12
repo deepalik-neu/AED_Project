@@ -11,16 +11,17 @@ import Business.Organization.CovidCentreOrganization;
 import Business.Organization.Organization;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import ui.CovidCentreRole.CovidCentreWorkAreaPanel;
 
 /**
  *
  * @author namita
  */
-public class CovidCentreCoordinatorRole extends Role {
+public class CovidCentreRole extends Role{
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, Organization organization, Enterprise enterprise, EcoSystem business, Network network) {
-        return new CovidCentreCoordinatorWorkAreaJPanel(account, (CovidCentreOrganization) organization, enterprise, business, network);
+       return new CovidCentreWorkAreaPanel( userProcessContainer, account,  (CovidCentreOrganization)organization,  enterprise,  business,  network) ;
     }
     
 }

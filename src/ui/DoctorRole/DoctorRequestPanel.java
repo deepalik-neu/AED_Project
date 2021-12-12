@@ -10,8 +10,10 @@ import Business.Enterprise.Enterprise;
 import Business.Organization.DoctorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,6 +23,7 @@ import javax.swing.table.DefaultTableModel;
 public class DoctorRequestPanel extends javax.swing.JPanel {
 
      private EcoSystem system;
+     JPanel userProcessContainer;
     private UserAccount userAccount;
     private DoctorOrganization organization;
     private Enterprise enterprise;
@@ -28,12 +31,13 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorRequestPanel
      */
-    public DoctorRequestPanel(EcoSystem system, UserAccount userAccount, DoctorOrganization organization, Enterprise enterprise) {
+    public DoctorRequestPanel(JPanel userProcessContainer,EcoSystem system, UserAccount userAccount, DoctorOrganization organization, Enterprise enterprise) {
         initComponents();
          this.system = system;
         this.userAccount = userAccount;
         this.organization = organization;
         this.enterprise = enterprise;
+        this.userProcessContainer=userProcessContainer;
         
         populateOrganisationpatientTable();
         populateDoctorPatientTable();
@@ -44,13 +48,25 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request : organization.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[5];
-            row[0] = request;
-            row[1] = request.getSummary();
-            row[2] = request.getPatient();
-            row[3] = request.getPatient().getName();
-          //  row[4] = request.getPatient().getContact();
+            Object[] row = new Object[9];
+//            row[0] = request;
+//            row[1] = request.getSummary();
+//            row[2] = request.getPatient().getName();;
+//            row[3] = request.getPatient()
+//          //  row[4] = request.getPatient().getContact();
+//            row[4] = request.getStatus();
+            
+            
+            row[0] = request.getPatient().getPatientID();
+          
+            row[1] = request.getPatient().getName();
+            row[2] = request.getPathologist().getUsername();
+            row[3] = request.getPatient().getEmailID();
             row[4] = request.getStatus();
+            row[5] = request.getPatient().getContact();
+            row[6]=request.getSummary();
+            row[7]=request.getPatient().getBloodGroup();
+            row[8]=request.getRequestDate();
             
             model.addRow(row);
         }
@@ -64,12 +80,10 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         
         for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[5];
-            row[0] = request;
-            row[1] = request.getPatient();
-            row[2] = request.getPatient().getName();
-        //    row[3] = request.getPatient().getContact();
-            row[3] = request.getUserAccount().getUsername();
-            row[4] = request.getStatus();
+            row[0] = request.getPatient().getPatientID();
+            row[1] = request.getPatient().getName();
+            row[2] = request.getUserAccount().getUsername();
+            row[3] = request.getStatus();
              
             model.addRow(row);
         }
@@ -122,13 +136,13 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         tableTreatment.setForeground(new java.awt.Color(102, 0, 0));
         tableTreatment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "ID", "Name", "Username", "Status"
             }
         ));
         jScrollPane2.setViewportView(tableTreatment);
@@ -175,22 +189,21 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
                         .addGap(323, 323, 323)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3))
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(331, 331, 331)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jButton4)))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jButton3))
+                                .addComponent(jScrollPane1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -199,7 +212,9 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(85, 85, 85)
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -211,9 +226,7 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(7, 7, 7)
-                        .addComponent(jButton4)
-                        .addGap(28, 28, 28))
+                        .addGap(64, 64, 64))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3)
@@ -283,6 +296,10 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+        
     }//GEN-LAST:event_jButton4ActionPerformed
     
 
