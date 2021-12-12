@@ -9,12 +9,11 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import static Business.Enterprise.Enterprise.EnterpriseType.Authorization;
 import static Business.Enterprise.Enterprise.EnterpriseType.CovidCentre;
-import static Business.Enterprise.Enterprise.EnterpriseType.Government;
 import static Business.Enterprise.Enterprise.EnterpriseType.PlasmaBank;
 import Business.Organization.Organization;
 import Business.Organization.Organization.AuthorizationType;
 import Business.Organization.Organization.CovidCentreType;
-import Business.Organization.Organization.GovernmentType;
+import Business.Organization.Organization.PortalAdminType;
 import Business.Organization.Organization.PlasmaBankType;
 import Business.Organization.Organization.Type;
 import Business.Organization.OrganizationDirectory;
@@ -26,6 +25,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static Business.Enterprise.Enterprise.EnterpriseType.PortalAdmin;
 
 /**
  *
@@ -89,16 +89,16 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
             }
         }
         }
-       else if(enterprise.getEnterpriseType().toString().equals(Government.toString())){
-        for(Organization.GovernmentType govtType: Organization.GovernmentType.values()){
-            if (govtType.getValue().equals(Organization.GovernmentType.Government.getValue())){
+       else if(enterprise.getEnterpriseType().toString().equals(PortalAdmin.toString())){
+        for(Organization.PortalAdminType govtType: Organization.PortalAdminType.values()){
+            if (govtType.getValue().equals(Organization.PortalAdminType.PortalAdmin.getValue())){
                 organizationJComboBox.addItem(govtType);
             }
         }
         }
        else{
         for (Organization.Type type : Organization.Type.values()){            
-            if (type.getValue().equals(Organization.Type.SystemCoordinator.getValue())
+            if (type.getValue().equals(Organization.Type.HospitalCoordinator.getValue())
                     ||type.getValue().equals(Organization.Type.Doctor.getValue())
                     ||type.getValue().equals(Organization.Type.Pathologist.getValue())
                     )
@@ -312,8 +312,8 @@ String check1 = "";
         if(enterprise.getEnterpriseType().toString().equals(Authorization.toString())){
             directory.createAuthorizationOrganization((AuthorizationType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
         }
-        else if(enterprise.getEnterpriseType().toString().equals(Government.toString())){
-            directory.createGovernmentOrganization((GovernmentType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
+        else if(enterprise.getEnterpriseType().toString().equals(PortalAdmin.toString())){
+            directory.createPortalAdminOrganization((PortalAdminType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());
         }
         else if(enterprise.getEnterpriseType().toString().equals(PlasmaBank.toString())){
             directory.createPlasmaOrganization((PlasmaBankType)organizationJComboBox.getSelectedItem(), txtOrgRealName.getText());

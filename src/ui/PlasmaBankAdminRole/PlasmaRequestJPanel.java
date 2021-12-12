@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.PlasmaBankOrganization;
-import Business.Organization.SystemCoordinatorOrganization;
+import Business.Organization.HospitalCoordinatorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -208,7 +208,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
          else{
            // jPanel1.setVisible(true);
             WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedRow, 0);
-            if(request.getStatus().equals("Legally Approved. Passing to PlasmaBank")){
+            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank")){
                JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> on hold</font> !</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
         //        if(request.getPatient().isEmergencyStatus() == true){
                 //jPanel1.setVisible(true);
@@ -237,9 +237,9 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         }
         else{
             WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedRow, 0);
-            if(request.getStatus().equals("Legally Approved. Passing to PlasmaBank")
+            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank")
                 || request.getStatus().equals("On Hold Due to Plasma unavailability")){
-                request.setStatus("PlasmaBank Approved. Passing to System Coordinator");
+                request.setStatus("PlasmaBank Approved. Passing to Hospital Coordinator");
         
                 dB4OUtil.storeSystem(system);
                 populatePlasmaRequestTable();
@@ -254,7 +254,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
                     }
                 }
                 for (Organization organization : ent.getOrganizationDirectory().getOrganizationList()) {
-                    if(organization instanceof SystemCoordinatorOrganization) {
+                    if(organization instanceof HospitalCoordinatorOrganization) {
                         org = organization;
                         break;
                     }

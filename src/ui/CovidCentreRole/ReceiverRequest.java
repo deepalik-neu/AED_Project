@@ -233,9 +233,9 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
         request.setPatient(patient);
         request.setRequestDate(new Date());
-        request.setAssigned("Legal Pool");
+        request.setAssigned("Authorization Pool");
         request.setSummary("Requested for Plasma Reception");
-        request.setStatus("Assigned to Legal Pool");
+        request.setStatus("Assigned to Authorization Pool");
         
         request.setUserAccount(userAccount);
        
