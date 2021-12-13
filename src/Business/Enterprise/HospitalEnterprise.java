@@ -15,11 +15,14 @@ import java.util.ArrayList;
 public class HospitalEnterprise extends Enterprise {
     
     public HospitalEnterprise(String name){
-        super(name,EnterpriseType.Hospital);
+        super(name,Enterprise.EnterpriseType.Hospital);
     }
     @Override
     public ArrayList<Role> getSupportedRole() {
         return null;
     }
-    
+//     @Override
+//        public String toString(){
+//        return "";
+//    }
 }

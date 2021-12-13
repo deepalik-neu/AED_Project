@@ -6,8 +6,8 @@ package Business.WorkQueue;
 
 import Business.DB4OUtil.DB4OUtil;
 import Business.Enterprise.Enterprise;
-import Business.People.Donor;
-import Business.People.Patient;
+import Business.Person.Donor;
+import Business.Person.Patient;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
 
@@ -23,11 +23,12 @@ public abstract class WorkRequest {
     private String status;
     private Date requestDate;
     private Date resolveDate;
-    
-    private Date actionDate;
+
+  
+
     private String summary;
     private String notes;
-    private String requestNumber;
+    private String id;
     private String assigned;
     private UserAccount pathologist;
     private UserAccount userAccount;
@@ -35,31 +36,57 @@ public abstract class WorkRequest {
     private Donor donor;
     private Enterprise enterprise;
     private String type;
-    private Patient patient;
-    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-
-    private static int count = 1;
-    private static int ct;
     
-    
-    
-    
-    public Donor getDonor() {
-        return donor;
-    }
+    private static int counter=1;
 
-    public void setDonor(Donor donor) {
-        this.donor = donor;
-    }
-
-    public Enterprise getEnterprise() {
-        return enterprise;
-    }
-
-    public void setEnterprise(Enterprise enterprise) {
-        this.enterprise = enterprise;
+    public WorkRequest() {
+        requestDate = new Date();
+        id = String.valueOf(counter);
+        counter++;
     }
     
+    
+
+     public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public String getRequestNumber() {
+        return id;
+    }
+
+    public void setRequestNumber(String requestNumber) {
+        this.id = requestNumber;
+    }
+
+    public String getAssigned() {
+        return assigned;
+    }
+
+    public void setAssigned(String assigned) {
+        this.assigned = assigned;
+    }
+
     public UserAccount getPathologist() {
         return pathologist;
     }
@@ -83,15 +110,48 @@ public abstract class WorkRequest {
     public void setOverallStatus(String overallStatus) {
         this.overallStatus = overallStatus;
     }
-    
-    public WorkRequest(){
-        
-        System.out.println(dB4OUtil.retrieveSystem().getWorkQueue().getWorkRequestList().size()+"count");
-        requestNumber = "REQ00000"+ String.valueOf(count);
-        count++;
-        
-        requestDate = new Date();
+
+    public Donor getDonor() {
+        return donor;
     }
+
+    public void setDonor(Donor donor) {
+        this.donor = donor;
+    }
+
+    public Enterprise getEnterprise() {
+        return enterprise;
+    }
+
+    public void setEnterprise(Enterprise enterprise) {
+        this.enterprise = enterprise;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Patient getPatient() {
+        return patient;
+    }
+
+    public void setPatient(Patient patient) {
+        this.patient = patient;
+    }
+
+    public DB4OUtil getdB4OUtil() {
+        return dB4OUtil;
+    }
+
+    public void setdB4OUtil(DB4OUtil dB4OUtil) {
+        this.dB4OUtil = dB4OUtil;
+    }
+    private Patient patient;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
 
     public String getMessage() {
         return message;
@@ -140,76 +200,9 @@ public abstract class WorkRequest {
     public void setResolveDate(Date resolveDate) {
         this.resolveDate = resolveDate;
     }
-
-    public Date getActionDate() {
-        return actionDate;
-    }
-
-    public void setActionDate(Date actionDate) {
-        this.actionDate = actionDate;
-    }
-
-    public String getRequestNumber() {
-        return requestNumber;
-    }
-
-    public void setRequestNumber(String requestNumber) {
-        this.requestNumber = requestNumber;
-    }
-
-    public String getAssigned() {
-        return assigned;
-    }
-
-    public void setAssigned(String assigned) {
-        this.assigned = assigned;
-    }
-
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
-
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        WorkRequest.count = count;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    
-    
-     @Override
+    @Override
     public String toString() {
-        return requestNumber.toString() ;
-    }
+    return id;
+}
     
 }

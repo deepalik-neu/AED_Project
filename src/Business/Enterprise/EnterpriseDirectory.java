@@ -28,30 +28,36 @@ public class EnterpriseDirectory {
         enterpriseList=new ArrayList<Enterprise>();
     }
     
-    //Create enterprise
+    
     public Enterprise createAndAddEnterprise(String name,Enterprise.EnterpriseType type){
         Enterprise enterprise=null;
-        if(type==Enterprise.EnterpriseType.Hospital){
+        
+        //types
+       if(type==Enterprise.EnterpriseType.Hospital){
+           //Hospital
             enterprise=new HospitalEnterprise(name);
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.Authorization){
+            //Authorization
             enterprise=new AuthorizationEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        else if(type==Enterprise.EnterpriseType.Government){
-            enterprise=new GovernmentEnterprise(name);
+        else if(type==Enterprise.EnterpriseType.PortalAdmin){
+            //PortalAdmin
+            enterprise=new PortalAdminEnterprise(name);
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.PlasmaBank){
+            //PlasmaBank
             enterprise=new PlasmaBankEnterprise(name);
             enterpriseList.add(enterprise);
         }
         else if(type==Enterprise.EnterpriseType.CovidCentre){
+            //CovidCentre
             enterprise=new CovidCentreEnterprise(name);
             enterpriseList.add(enterprise);
         }
-        
         return enterprise;
     }
 }

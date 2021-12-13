@@ -30,8 +30,8 @@ public class OrganizationDirectory {
             organization.setRealName(realName);
             organizationList.add(organization);
         }
-        else if (type.getValue().equals(Type.SystemCoordinator.getValue())){
-            organization = new SystemCoordinatorOrganization();
+        else if (type.getValue().equals(Type.HospitalCoordinator.getValue())){
+            organization = new HospitalCoordinatorOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }
@@ -43,10 +43,10 @@ public class OrganizationDirectory {
         return organization;
     }
     
-    public Organization createLegalOrganization(Organization.LegalType legalType, String realName){
+    public Organization createAuthorizationOrganization(Organization.AuthorizationType legalType, String realName){
         Organization organization = null;
-        if (legalType.getValue().equals(Organization.LegalType.LegalOfficer.getValue())){
-            organization = new AuthorizationOfficerOrganization();
+        if (legalType.getValue().equals(Organization.AuthorizationType.Authorization.getValue())){
+            organization = new AuthorizationOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }
@@ -73,10 +73,10 @@ public class OrganizationDirectory {
         return organization;
     }
      
-      public Organization createGovernmentOrganization(Organization.GovernmentType govtType, String realName){
+      public Organization createPortalAdminOrganization(Organization.PortalAdminType govtType, String realName){
         Organization organization = null;
-        if (govtType.getValue().equals(Organization.GovernmentType.Government.getValue())){
-            organization = new GovernmentOrganization();
+        if (govtType.getValue().equals(Organization.PortalAdminType.PortalAdmin.getValue())){
+            organization = new PortalAdminOrganization();
             organization.setRealName(realName);
             organizationList.add(organization);
         }

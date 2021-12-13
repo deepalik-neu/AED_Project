@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/HospitalCoordinatorRole/SCProfile.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/AuthorizationOfficerRole/AuthorizationApprovalPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/DoctorRole/DoctorRequestPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/AuthorizationOfficerRole/ProfilePanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/PathologistRole/PathologistWorkRequestJPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/PlasmaBankAdminRole/PlasmaRequestJPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/HospitalCoordinatorRole/DonorListJPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/HospitalCoordinatorRole/HospitalCoordinatorWorkAreaPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/Business/Role/HospitalCoordinatorRole.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/AuthorizationOfficerRole/AuthorizationWorkAreaPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/AdministrativeRole/ManageOrganizationJPanel.java</file>
+            <file>file:/Users/namita/Desktop/AED_Project_2/src/ui/HospitalCoordinatorRole/ReceiverListJPanel.java</file>
+        </group>
     </open-files>
 </project-private>

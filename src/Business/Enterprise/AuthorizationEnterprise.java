@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author namita
  */
 public class AuthorizationEnterprise extends Enterprise {
+    
     public AuthorizationEnterprise(String name){
         super(name,Enterprise.EnterpriseType.Authorization);
     }

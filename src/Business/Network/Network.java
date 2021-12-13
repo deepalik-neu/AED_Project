@@ -13,11 +13,6 @@ import Business.Enterprise.EnterpriseDirectory;
  */
 public class Network {
     private String name;
-    private String state;
-    private String country;
-    
-    
-    
     private EnterpriseDirectory enterpriseDirectory;
     
     public Network(){
@@ -34,25 +29,6 @@ public class Network {
     public EnterpriseDirectory getEnterpriseDirectory() {
         return enterpriseDirectory;
     }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-    
-    
-    
     
     @Override
     public String toString(){

@@ -97,10 +97,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(150, 227, 220));
 
-        enterpriseJTable.setBackground(new java.awt.Color(255, 204, 204));
-        enterpriseJTable.setForeground(new java.awt.Color(102, 0, 0));
+        jScrollPane1.setBackground(new java.awt.Color(255, 204, 204));
+        jScrollPane1.setForeground(new java.awt.Color(102, 0, 51));
+
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -122,11 +123,14 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(enterpriseJTable);
 
+        jLabel1.setBackground(new java.awt.Color(255, 204, 204));
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel1.setForeground(new java.awt.Color(102, 0, 51));
         jLabel1.setText("Network");
 
         networkJComboBox.setBackground(new java.awt.Color(255, 204, 204));
+        networkJComboBox.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        networkJComboBox.setForeground(new java.awt.Color(102, 0, 51));
         networkJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         networkJComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -134,22 +138,27 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
         jLabel2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setText("Username");
 
-        usernameJTextField.setBackground(new java.awt.Color(255, 204, 204));
+        usernameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        usernameJTextField.setForeground(new java.awt.Color(102, 0, 51));
 
+        jLabel3.setBackground(new java.awt.Color(255, 204, 204));
         jLabel3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(102, 0, 51));
         jLabel3.setText("Enterprise");
 
         enterpriseJComboBox.setBackground(new java.awt.Color(255, 204, 204));
+        enterpriseJComboBox.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        enterpriseJComboBox.setForeground(new java.awt.Color(102, 0, 51));
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        submitJButton.setBackground(new java.awt.Color(255, 204, 204));
+        submitJButton.setBackground(new java.awt.Color(255, 255, 255));
         submitJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        submitJButton.setForeground(new java.awt.Color(102, 0, 0));
+        submitJButton.setForeground(new java.awt.Color(102, 0, 51));
         submitJButton.setText("Submit");
         submitJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,21 +166,25 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel4.setBackground(new java.awt.Color(255, 204, 204));
         jLabel4.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel4.setForeground(new java.awt.Color(102, 0, 51));
         jLabel4.setText("Password");
 
-        nameJTextField.setBackground(new java.awt.Color(255, 204, 204));
+        nameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        nameJTextField.setForeground(new java.awt.Color(102, 0, 51));
 
+        jLabel5.setBackground(new java.awt.Color(255, 204, 204));
         jLabel5.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Name");
 
-        passwordJPasswordField.setBackground(new java.awt.Color(255, 204, 204));
+        passwordJPasswordField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        passwordJPasswordField.setForeground(new java.awt.Color(102, 0, 51));
 
-        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        backJButton.setForeground(new java.awt.Color(102, 0, 0));
+        backJButton.setForeground(new java.awt.Color(102, 0, 51));
         backJButton.setText("<< Back");
         backJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,7 +193,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         });
 
         jLabel6.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel6.setForeground(new java.awt.Color(102, 0, 51));
         jLabel6.setText("Manage Enterprise Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -190,82 +203,77 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(backJButton)))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(153, 153, 153)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 439, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(144, 144, 144))
+                        .addComponent(backJButton))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(175, 175, 175)
+                            .addComponent(submitJButton))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(127, 127, 127)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(26, 26, 26)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGap(125, 125, 125)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel1)
+                                .addComponent(jLabel3))
+                            .addGap(25, 25, 25)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(2, 2, 2))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(262, 262, 262)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
-                        .addComponent(submitJButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(81, 81, 81)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 265, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {nameJTextField, passwordJPasswordField, usernameJTextField});
-
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(networkJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(passwordJPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(enterpriseJComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(usernameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(passwordJPasswordField, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addGap(32, 32, 32)
+                    .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(submitJButton)
-                .addGap(120, 120, 120)
+                .addGap(47, 47, 47)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(backJButton)
                 .addGap(30, 30, 30))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {nameJTextField, passwordJPasswordField, usernameJTextField});
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void networkJComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_networkJComboBoxActionPerformed
@@ -298,7 +306,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
          Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
+       // sysAdminwjp.populateTree();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed

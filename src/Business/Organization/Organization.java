@@ -4,7 +4,6 @@
  */
 package Business.Organization;
 
-import Business.BloodGroup.BloodGroup;
 import Business.DB4OUtil.DB4OUtil;
 import Business.Employee.EmployeeDirectory;
 import Business.Role.Role;
@@ -18,25 +17,25 @@ import java.util.ArrayList;
  */
 public abstract class Organization {
 
-    private int organizationID;
     private String name;
-    private String realName;
     private WorkQueue workQueue;
+      private String realName;
     private EmployeeDirectory employeeDirectory;
     private UserAccountDirectory userAccountDirectory;
-    
+    private int organizationID;
     private static int counter=0;
-    private BloodGroup bloodGroup;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     
-    
-    
-    public enum Type{
+     public enum Type{
         Admin("Admin Organization"), 
         
-        SystemCoordinator("System Coorinator Organization"),
+        HospitalCoordinator("Hospital Coorinator Organization"),
         Doctor("Doctor Organization"), 
-        Pathologist("Pathologist Organization");
+        Pathologist("Pathologist Organization"),
+        Authorization("Authorization Organization"),
+        PlasmaBank("Plasma Bank"),
+        CovidCentre("CovidCentre"),
+        PortalAdmin("PortalAdmin");
         private String value;
         private Type(String value) {
             this.value = value;
@@ -44,8 +43,11 @@ public abstract class Organization {
         public String getValue() {
             return value;
         }
+
+
     }
-    
+     
+        
      public enum PlasmaBankType {
          
         PlasmaBank("Plasma Bank Coordinator Organization");
@@ -62,7 +64,7 @@ public abstract class Organization {
     
     public enum CovidCentreType {
          
-        CovidCentre("Covid centre coordinaor Organization");
+        CovidCentre("Covid centre coordinator Organization");
         private String value;
 
         private CovidCentreType(String value) {
@@ -74,12 +76,12 @@ public abstract class Organization {
         }
      }
     
-    public enum GovernmentType {
+    public enum PortalAdminType {
          
-        Government("Government Coordinator Organization");
+        PortalAdmin("Portal Admin Organization");
         private String value;
 
-        private GovernmentType(String value) {
+        private PortalAdminType(String value) {
             this.value = value;
         }
 
@@ -89,12 +91,12 @@ public abstract class Organization {
      }
     
     
-     public enum LegalType {
+     public enum AuthorizationType {
          
-        LegalOfficer("Legal Officer Organization");
+        Authorization("Authorization Organization");
         private String value;
 
-        private LegalType(String value) {
+        private AuthorizationType(String value) {
             this.value = value;
         }
 
@@ -109,11 +111,7 @@ public abstract class Organization {
         System.out.println("initialise work queue");
         employeeDirectory = new EmployeeDirectory();
         userAccountDirectory = new UserAccountDirectory();
-        bloodGroup = new BloodGroup();
-        
-          organizationID = counter;  
-        
-        
+        organizationID = counter;
         ++counter;
     }
 
@@ -146,16 +144,8 @@ public abstract class Organization {
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
-
-    public BloodGroup getBloodGroup() {
-        return bloodGroup;
-    }
-
-    public void setBloodGroup(BloodGroup bloodGroup) {
-        this.bloodGroup = bloodGroup;
-    }
-
-    public String getRealName() {
+    
+     public String getRealName() {
         return realName;
     }
 
@@ -163,9 +153,7 @@ public abstract class Organization {
         this.realName = realName;
     }
 
-    
-    
-    
+
     @Override
     public String toString() {
         return name;
