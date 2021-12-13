@@ -34,7 +34,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     LabTestWorkRequest request;
     private EcoSystem system;
     private UserAccount userAccount;
-    private PathologistOrganization pathoorganization;
+    private PathologistOrganization pathologistOrganization;
     private Enterprise enterprise;
     private Network network;
     private Enterprise enterprise1;
@@ -43,56 +43,53 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public PathologistWorkRequestJPanel(EcoSystem system, UserAccount userAccount, PathologistOrganization pathoorganization, Enterprise enterprise, Network network) {
+    public PathologistWorkRequestJPanel(EcoSystem system, UserAccount userAccount, PathologistOrganization pathologistOrganization, Enterprise enterprise, Network network) {
     
           initComponents();
         this.userProcessContainer = userProcessContainer;
         this.request = request;
-        this.pathoorganization = pathoorganization;
+        this.pathologistOrganization = pathologistOrganization;
         this.enterprise = enterprise;
         this.system = system;
         this.userAccount = userAccount;
         this.network = network;
         
-        populateOrganizationDonorTable();
-        populatePathologistDonorTable();
+        populateWorkRequestDonorTable();
+        populateAssignedToPathologistDonorTable();
        
     }
 
-     public void populateOrganizationDonorTable(){
+     public void populateWorkRequestDonorTable(){
         DefaultTableModel model = (DefaultTableModel)tableDonor.getModel();
         
         model.setRowCount(0);
         
-        for(WorkRequest request : pathoorganization.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest wr : pathologistOrganization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[6];
-            row[0] = request.getDonor().getName();;            
-            row[1] = request.getDonor().getBloodGroup();
-            row[2] = request.getSummary();
-            //row[3] = request
-            //row[3] = request.getDonor().getContact();
-            row[3] = request.getStatus();
-            row[4] = request.getDonor().getEmailID();
-            row[5] = request.getRequestDate();
+            row[0] = wr;            
+            row[1] = wr.getDonor().getBloodGroup();
+            row[2] = wr.getSummary();
+            row[3] = wr.getStatus();
+            row[4] = wr.getDonor().getEmailID();
+            row[5] = wr.getRequestDate();
             
             model.addRow(row);
         }
     }
      
-      public void populatePathologistDonorTable(){
+      public void populateAssignedToPathologistDonorTable(){
         DefaultTableModel model = (DefaultTableModel)tablePathologistDonors.getModel();
         
         model.setRowCount(0);
         
-        for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest wr : userAccount.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[6];
-           //row[0] = request;
-            row[0] = request.getDonor();
-            row[1] = request.getDonor().getName();
-            //row[3] = request.getDonor().getContact();
-            row[2] = request.getDonor().getBloodGroup();
-            row[3] = request.getUserAccount().getUsername();
-            row[4] = request.getStatus();
+          
+            row[0] = wr;
+            row[1] = wr.getDonor().getName();
+            row[2] = wr.getDonor().getBloodGroup();
+            row[3] = wr.getUserAccount().getUsername();
+            row[4] = wr.getStatus();
              
             model.addRow(row);
         }
@@ -118,11 +115,11 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jScrollPane1.setForeground(new java.awt.Color(102, 0, 0));
 
-        tableDonor.setBackground(new java.awt.Color(255, 204, 204));
+        tableDonor.setBackground(new java.awt.Color(153, 153, 153));
         tableDonor.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         tableDonor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,7 +136,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
 
         jScrollPane2.setForeground(new java.awt.Color(102, 0, 0));
 
-        tablePathologistDonors.setBackground(new java.awt.Color(255, 204, 204));
+        tablePathologistDonors.setBackground(new java.awt.Color(153, 153, 153));
         tablePathologistDonors.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         tablePathologistDonors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -154,7 +151,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tablePathologistDonors);
 
-        btnAssign.setBackground(new java.awt.Color(255, 204, 204));
+        btnAssign.setBackground(new java.awt.Color(153, 153, 153));
         btnAssign.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnAssign.setForeground(new java.awt.Color(102, 0, 0));
         btnAssign.setText("Assign to me");
@@ -164,7 +161,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnProcess.setBackground(new java.awt.Color(255, 204, 204));
+        btnProcess.setBackground(new java.awt.Color(153, 153, 153));
         btnProcess.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnProcess.setForeground(new java.awt.Color(102, 0, 0));
         btnProcess.setText("Process Request");
@@ -174,7 +171,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        donate.setBackground(new java.awt.Color(255, 204, 204));
+        donate.setBackground(new java.awt.Color(153, 153, 153));
         donate.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         donate.setForeground(new java.awt.Color(102, 0, 0));
         donate.setText("Plasma Donated by Donor");
@@ -184,7 +181,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        add.setBackground(new java.awt.Color(255, 204, 204));
+        add.setBackground(new java.awt.Color(153, 153, 153));
         add.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         add.setForeground(new java.awt.Color(102, 0, 0));
         add.setText("Add Plasma to Bank");
@@ -194,7 +191,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
             }
         });
 
-        discard.setBackground(new java.awt.Color(255, 204, 204));
+        discard.setBackground(new java.awt.Color(153, 153, 153));
         discard.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         discard.setForeground(new java.awt.Color(102, 0, 0));
         discard.setText("Discard Plasma ");
@@ -208,7 +205,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Pathologist Organization");
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("<<Back");
@@ -283,69 +280,66 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     private void btnAssignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignActionPerformed
         // TODO add your handling code here:
         
-         int selectedRow = tableDonor.getSelectedRow();
+        int selectedDonor = tableDonor.getSelectedRow();
         
-        if (selectedRow < 0){
+        if (selectedDonor < 0){
          
-         JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-            
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Please select<font color='red'> a row</font> from the<font color='green'> Work request donor table</font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);   
             return;
         }
         
         else{
-        WorkRequest request = (WorkRequest)tableDonor.getValueAt(selectedRow, 0);
-        //request.setReceiver(userAccount);
-        
+        WorkRequest request = (WorkRequest) tableDonor.getValueAt(selectedDonor, 0);
+
         if(request.getStatus().equals("Assigned to Hospital"))
         { 
-        request.setStatus("Assigned to Pathologist" + userAccount.getUsername());
-        request.setUserAccount(userAccount);
-        userAccount.getWorkQueue().getWorkRequestList().add(request);
+            request.setStatus("Assigned to Pathologist");
+            request.setSummary("Donor assigned to Pathologist"+ userAccount.getUsername());
+            request.setUserAccount(userAccount);
+            userAccount.getWorkQueue().getWorkRequestList().add(request);
+            request.setRequestDate(new Date());
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Donor assigned to Pathologist"+ userAccount.getUsername()+"</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
         }
-        else{
+        else
+        {
             
-        JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Work Request is<font color='red'> already</font> in progress!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='yellow'>Work Request for donor is already in progress!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
                 
-        //JOptionPane.showMessageDialog(null, "Work Request is already assigned!" );
         }
         
         dB4OUtil.storeSystem(system);
         
         
-        populateOrganizationDonorTable();
-        populatePathologistDonorTable();
+        populateWorkRequestDonorTable();
+        populateAssignedToPathologistDonorTable();
         }
     }//GEN-LAST:event_btnAssignActionPerformed
 
     private void btnProcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProcessActionPerformed
         // TODO add your handling code here:
         
-         int selectedRow = tablePathologistDonors.getSelectedRow();
+         int selectedDonor = tablePathologistDonors.getSelectedRow();
         
-        if (selectedRow < 0){
-             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+        if (selectedDonor < 0){
+              JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Please select<font color='red'> a row</font> from the<font color='green'>  donor table</font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);   
             
-           // JOptionPane.showMessageDialog(null, "Please select a row first!" );
             return;
         }
         else
         {               
-        WorkRequest request = (WorkRequest)tablePathologistDonors.getValueAt(selectedRow, 0);
-       System.out.println("status"+request.getStatus());
+        WorkRequest request = (WorkRequest)tablePathologistDonors.getValueAt(selectedDonor, 0);
+      
         if(request.getStatus().contains("Assigned to Pathologist")){
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Process request<font color='green'> accepted!</font>e<font color='green'> table</I></font></h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
-//       textRequest.setText( String.valueOf(tblOrganisationDonors.getValueAt(selectedRow, 0)));  
-//       checkBP.setEnabled(true);
-//       checkTest.setEnabled(true);
-//       checkPulse.setEnabled(true);
-//       buttonPlasmaDonated.setEnabled(true);
+             
+            request.setSummary("Donor sample request processed.");
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Process request accepted by the pathlogist</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
+
         }
         else{
             
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Work Request is<font color='red'> already</font> in progress!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-                
-            //JOptionPane.showMessageDialog(null, "Request is already processed!" );
-        }
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Work Request is<font color='red'> already</font> in progress!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+
+            }
         }
         dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnProcessActionPerformed
@@ -353,65 +347,34 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     private void donateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_donateActionPerformed
         // TODO add your handling code here:
         int selectedRow = tablePathologistDonors.getSelectedRow();
-        
-        
-//        if (!checkBP.isSelected()) {
-//            checkBP.setBorder(BorderFactory.createLineBorder(Color.RED));
-//            checkBP.setForeground(Color.red);
-//        }
-//         if (!checkTest.isSelected()) {
-//            checkTest.setBorder(BorderFactory.createLineBorder(Color.RED));
-//            checkTest.setForeground(Color.red);
-//        }
-//         if (!checkPulse.isSelected()) {
-//            checkPulse.setBorder(BorderFactory.createLineBorder(Color.RED));
-//            checkPulse.setForeground(Color.red);
-//        }
-        
-        
-        
+  
         if (selectedRow < 0){
             
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a Request Number</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-           
-           //JOptionPane.showMessageDialog(null, "Please select a row first!" );
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Please select<font color='red'> a row</font> from the<font color='green'>  donor table</font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);   
             return;
         }
         
-//        else if( !checkBP.isSelected()  || !checkTest.isSelected()  ||  !checkPulse.isSelected())
-//        {   JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Kindly do the<font color='red'> Health Check of the Donor</font> before the<font color='green'> Plasma Donation</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
-//            //JOptionPane.showMessageDialog(null, "Kindly do the Heatlth Check of the Donor before the Donation!" , "Error", JOptionPane.ERROR_MESSAGE);
-//        }
-        
         else{
-        WorkRequest request1 = (WorkRequest)tableDonor.getValueAt(selectedRow, 0);
-                request1.setStatus("Plasma Donated");
-                
-                //request1.getDonor().setStatus("Plasma Donated");
+        WorkRequest wr = (WorkRequest)tableDonor.getValueAt(selectedRow, 0);
+               
+                wr.setStatus("Plasma Donated");
+                wr.setSummary("Donor sample is dobated.");           
+                wr.setRequestDate(new Date());
+               
                 dB4OUtil.storeSystem(system);
                 
-                populateOrganizationDonorTable();
-                populatePathologistDonorTable();
+                populateWorkRequestDonorTable();
+                populateAssignedToPathologistDonorTable();
                 
-                JOptionPane.showMessageDialog(null, new JLabel("<html><h2><font color='green'><I>Plasma Donated!</I></font></h2></html>"));
+                JOptionPane.showMessageDialog(null, new JLabel("<html><h2><font color='blue'>Plasma Donated successfully!</font></h2></html>"));
            
         for(Donor dnr: system.getDonorDirectory().getDonorList()){
-            //if(dnr.getDonorId().equals(request1.getDonor().getDonorId())){
-            if(dnr.getName().equals(request1.getDonor().getName())){
-            //    dnr.setLastDonationDate(new Date());
+            if(dnr.getId().equals(wr.getDonor().getId())){
                 dnr.setStatus("Plasma Donated");
-               // System.out.println(String.valueOf(dnr.getLastDonationDate())+" last donation date");
+                JOptionPane.showMessageDialog(null, new JLabel("<html><h2><font color='blue'>Donor status changes successfully!</font></h2></html>"));
             }
         }
-//        buttonPlasmaDonated.setEnabled(false);
-//        bloodGroupJComboBox.setEnabled(true);
-//        buttonAddPlasma.setEnabled(true);
-//        buttonPlasmaDiscard.setEnabled(true);
-//        checkPlasma.setEnabled(true);
-//        
-//        jLabel7.setVisible(true);
-        
+
         }
         dB4OUtil.storeSystem(system);
         
@@ -420,61 +383,37 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
         
-//         if(!checkPlasma.isSelected()){
-//            checkPlasma.setBorder(BorderFactory.createLineBorder(Color.RED));
-//            checkPlasma.setForeground(Color.red);
-//           // JOptionPane.showMessageDialog(null, "Kindly Test for other Infections!", "Error", JOptionPane.ERROR_MESSAGE);
-//            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Kindly do the<font color='red'> Test</font> for other infections!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
+
+//        for(Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()){
+//              if(ent.getEnterpriseType().toString().equals("PlasmaBank")){
+//                  enterprise1 = ent;           
+//              }
+//        }  
+//        for (Organization org: enterprise1.getOrganizationDirectory().getOrganizationList()){
+//              System.out.println(org.getClass().getTypeName().toString()+" asit");
+//              if(org.getClass().getTypeName().toString().equals("Business.Organization.PlasmaBankOrganization")){
+//                 organ =org;
+//              }
 //        }
-//        else if(bloodGroupJComboBox.getSelectedItem().equals(null)){
-//            bloodGroupJComboBox.setBorder(BorderFactory.createLineBorder(Color.RED));
-//            bloodGroupJComboBox.setForeground(Color.red);
-//           // JOptionPane.showMessageDialog(null, "Kindly select a Blood Group!", "Error", JOptionPane.ERROR_MESSAGE);
-//            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Kindly select a<font color='red'> Blood Group!</font><I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
-//        }
-//        else{
-        for(Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()){
-              if(ent.getEnterpriseType().toString().equals("PlasmaBank")){
-                  enterprise1 = ent;           
-              }
-        }  
-        for (Organization org: enterprise1.getOrganizationDirectory().getOrganizationList()){
-              System.out.println(org.getClass().getTypeName().toString()+" asit");
-              if(org.getClass().getTypeName().toString().equals("Business.Organization.PlasmaBankOrganization")){
-                 organ =org;
-              }
-        }
-          
-//        try
-//          {organ.getBloodGroup().addBloodGroup(String.valueOf(bloodGroupJComboBox.getSelectedItem()));
-//          }
-//        catch( NullPointerException ex   )
-//          { System.out.println("");
-//          }
-                    
+                
         int selectedRow = tablePathologistDonors.getSelectedRow();
         
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Kindly select a<font color='red'> row!</font><I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-          
+        else{
         WorkRequest request = (WorkRequest)tablePathologistDonors.getValueAt(selectedRow, 0);
                 request.setStatus("Plasma added to Bank");
-                
+                request.setSummary("Plasma sample added to the Plasma Bank successfully!");      
                 dB4OUtil.storeSystem(system);
                 
-                populateOrganizationDonorTable();
-                populatePathologistDonorTable();
+                populateWorkRequestDonorTable();
+                populateAssignedToPathologistDonorTable();
             
-                JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Plasma<font color='green'> added</font> to the bank!<I></h2></html>"));
+                JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='blue'>Plasma added to the bank successfully!</h2></html>"));
            
-                
-//                buttonAddPlasma.setEnabled(false);
-//                buttonPlasmaDiscard.setEnabled(false);        
-         //}
+        }
          dB4OUtil.storeSystem(system);
          
     }//GEN-LAST:event_addActionPerformed
@@ -485,20 +424,18 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         int selectedRow = tablePathologistDonors.getSelectedRow();
         if (selectedRow < 0){
              JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-            //JOptionPane.showMessageDialog(null, "Please select a row first!" );
+            
             return;
         }
         else
         {  
         WorkRequest request = (WorkRequest)tablePathologistDonors.getValueAt(selectedRow, 0);
                 request.setStatus("Plasma Discarded");
-                populateOrganizationDonorTable();
-                populatePathologistDonorTable();
-                JOptionPane.showMessageDialog(null, new JLabel("<html><h2><font color='red'><I>Plasma Discarded!</I></font></h2></html>"));  
-        
-//        buttonAddPlasma.setEnabled(false);
-//        buttonPlasmaDiscard.setEnabled(false);
-        
+                 request.setSummary("Plasma sample discarded!");      
+                populateWorkRequestDonorTable();
+                populateAssignedToPathologistDonorTable();
+                JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='red'>Plasma sample is Discarded!</h2></html>"));  
+               
         dB4OUtil.storeSystem(system);
         }
     }//GEN-LAST:event_discardActionPerformed

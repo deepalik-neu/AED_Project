@@ -17,7 +17,7 @@ import java.awt.CardLayout;
 import static java.time.Clock.system;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import ui.GovernmentRole.DonorStatusJPanel;
+import ui.PortalAdminRole.DonorStatusJPanel;
 
 /**
  *
@@ -78,11 +78,13 @@ public class PathologistWorkAreaPanel extends javax.swing.JPanel {
 
         btnManageRequest = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnProfile = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(51, 119, 119));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnManageRequest.setBackground(new java.awt.Color(255, 204, 204));
+        btnManageRequest.setBackground(new java.awt.Color(0, 204, 204));
         btnManageRequest.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
         btnManageRequest.setForeground(new java.awt.Color(102, 0, 0));
         btnManageRequest.setText("Manage Request");
@@ -91,13 +93,27 @@ public class PathologistWorkAreaPanel extends javax.swing.JPanel {
                 btnManageRequestActionPerformed(evt);
             }
         });
-        add(btnManageRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 200, 200, 60));
+        add(btnManageRequest, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 200, 60));
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Pathologist Organization");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 430, 60));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 430, 60));
+
+        btnProfile.setBackground(new java.awt.Color(0, 204, 204));
+        btnProfile.setFont(new java.awt.Font("Kefa", 1, 18)); // NOI18N
+        btnProfile.setForeground(new java.awt.Color(102, 0, 0));
+        btnProfile.setText("Manage Profile");
+        btnProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProfileActionPerformed(evt);
+            }
+        });
+        add(btnProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 200, 60));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/101.jpeg.jpeg")); // NOI18N
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 360, 240));
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRequestActionPerformed
@@ -120,8 +136,14 @@ public class PathologistWorkAreaPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_btnManageRequestActionPerformed
 
+    private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProfileActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnManageRequest;
+    private javax.swing.JButton btnProfile;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

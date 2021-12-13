@@ -56,7 +56,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
          for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){            
             Object row[] = new Object[7];
-            row[0]= patientRequest.getPatientID();
+            row[0]= patientRequest;
             row[1]= patientRequest.getName();
             row[2]= patientRequest.getContact();
             row[3]= patientRequest.getStatus();
@@ -82,10 +82,10 @@ public class ReceiverRequest extends javax.swing.JPanel {
         btnReject = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         backJButton2 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(102, 102, 102));
 
-        requestTable.setBackground(new java.awt.Color(255, 204, 204));
         requestTable.setForeground(new java.awt.Color(102, 0, 0));
         requestTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,7 +100,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(requestTable);
 
-        btnApprove.setBackground(new java.awt.Color(255, 204, 204));
+        btnApprove.setBackground(new java.awt.Color(255, 255, 255));
         btnApprove.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnApprove.setForeground(new java.awt.Color(102, 0, 0));
         btnApprove.setText("Approve");
@@ -110,7 +110,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
             }
         });
 
-        btnReject.setBackground(new java.awt.Color(255, 204, 204));
+        btnReject.setBackground(new java.awt.Color(255, 255, 255));
         btnReject.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnReject.setForeground(new java.awt.Color(102, 0, 0));
         btnReject.setText("Reject");
@@ -124,7 +124,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Receiver Request ");
 
-        backJButton2.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton2.setBackground(new java.awt.Color(255, 255, 255));
         backJButton2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backJButton2.setForeground(new java.awt.Color(102, 0, 0));
         backJButton2.setText("<< Back");
@@ -134,6 +134,8 @@ public class ReceiverRequest extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/images.jpeg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,19 +143,21 @@ public class ReceiverRequest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(backJButton2)
                         .addGap(174, 174, 174)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(209, 209, 209)
-                        .addComponent(btnApprove)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(64, 64, 64)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 826, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(btnApprove)
+                        .addGap(18, 18, 18)
                         .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnApprove, btnReject});
@@ -167,14 +171,17 @@ public class ReceiverRequest extends javax.swing.JPanel {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
-                        .addComponent(backJButton2)))
-                .addGap(78, 78, 78)
+                        .addComponent(backJButton2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)))
+                .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(82, 82, 82)
+                .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnApprove))
-                .addContainerGap(189, Short.MAX_VALUE))
+                    .addComponent(btnApprove)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnApprove, btnReject});
@@ -184,16 +191,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
     private void btnApproveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApproveActionPerformed
         // TODO add your handling code here:
         
-//        if( !statusText.getText().equals("New Request"))
-//            {
-//                JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Request<font color='red'> can not</font> be approved!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
-//                
-//            //    JOptionPane.showMessageDialog(null,"Can Not Approve the Request!");
-//            }
-//        
-//        else
-//        {
+
         int selectedRow = requestTable.getSelectedRow();
         PatientRequest dr =((PatientRequest) requestTable.getValueAt(selectedRow, 0));
        
@@ -201,26 +199,24 @@ public class ReceiverRequest extends javax.swing.JPanel {
         patient.setName(dr.getName());
         patient.setContact(dr.getContact());  
         
-        patient.setPatientID(dr.getPatientID()); // UID, receiverID
-        patient.setName(dr.getName()); // Name
+        patient.setPatientID(dr.getPatientID()); 
+        patient.setName(dr.getName()); 
        
        
         
-        patient.setAge(dr.getAge()); // Age
-        patient.setGender(dr.getGender()); // gender
-        patient.setBloodGroup(dr.getBloodGroup()); // Blood group
-        patient.setAddress(dr.getAddress()); // streetAddress
+        patient.setAge(dr.getAge()); 
+        patient.setGender(dr.getGender()); 
+        patient.setBloodGroup(dr.getBloodGroup()); 
+        patient.setAddress(dr.getAddress()); 
         
-        patient.setContact(dr.getContact()); // contact
-        patient.setEmailID(dr.getEmailID()); // emailID
-        patient.setStatus("Centre Approved"); // status
-//        patient.setLabConfirmation(true); //  labConfirmation
-//      
-        
+        patient.setContact(dr.getContact()); 
+        patient.setEmailID(dr.getEmailID()); 
+        patient.setStatus("Covid Centre Approved"); 
+    
         for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){                      
        // System.out.println("req:"+patientRequest.getPatientID()+" "+patient.getPatientID());
             if(patientRequest.getName().equals(patient.getName())){
-            patientRequest.setStatus("Centre Approved");
+            patientRequest.setStatus("Covid Centre Approved");
             dB4OUtil.storeSystem(system);
             }
         }
@@ -233,9 +229,9 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
         request.setPatient(patient);
         request.setRequestDate(new Date());
-        request.setAssigned("Legal Pool");
+        request.setAssigned("Authorization");
         request.setSummary("Requested for Plasma Reception");
-        request.setStatus("Assigned to Legal Pool");
+        request.setStatus("Assigned to Authorization Pool");
         
         request.setUserAccount(userAccount);
        
@@ -264,13 +260,13 @@ public class ReceiverRequest extends javax.swing.JPanel {
             org.getWorkQueue().getWorkRequestList().add(request);
             System.out.println(org.getName());
             userAccount.getWorkQueue().getWorkRequestList().add(request);
-            //user.addUserRequest(request);
+           
             
             dB4OUtil.storeSystem(system);
             populateRequestTable();
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Request<font color='green'> approved</font> successfully!</I></h2></html>"));
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Covid Center request approved successfully!</h2></html>"));
            
-            //JOptionPane.showMessageDialog(null,"Request Sent Successfully", "Info", JOptionPane.INFORMATION_MESSAGE);
+           
             
         } else {
         
@@ -284,12 +280,10 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
         
         
-       // statusText.setText("Centre Approved");
+      
         dB4OUtil.storeSystem(system);
         populateRequestTable();
-      //  JOptionPane.showMessageDialog(null,"New patient has been added!");
-        
-       // }
+      
     }//GEN-LAST:event_btnApproveActionPerformed
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
@@ -322,6 +316,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
     private javax.swing.JButton btnApprove;
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable requestTable;
     // End of variables declaration//GEN-END:variables

@@ -48,25 +48,26 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         model.setRowCount(0);
         
         for(WorkRequest request : organization.getWorkQueue().getWorkRequestList()){
-            Object[] row = new Object[9];
-//            row[0] = request;
-//            row[1] = request.getSummary();
-//            row[2] = request.getPatient().getName();;
-//            row[3] = request.getPatient()
-//          //  row[4] = request.getPatient().getContact();
-//            row[4] = request.getStatus();
+            Object[] row = new Object[11];
+
             
             
-            row[0] = request.getPatient().getPatientID();
+            row[0] = request;
           
             row[1] = request.getPatient().getName();
-            row[2] = request.getPathologist().getUsername();
+            row[2] = request.getPatient().getPatientID();
             row[3] = request.getPatient().getEmailID();
             row[4] = request.getStatus();
             row[5] = request.getPatient().getContact();
             row[6]=request.getSummary();
             row[7]=request.getPatient().getBloodGroup();
             row[8]=request.getRequestDate();
+//            row[9]=request.getDonor().getName();
+//            row[10]=request.getDonor().getEmailID();
+            
+            row[9]=request.getPatient().getPatientID();
+            row[10]=request.getStatus();
+            
             
             model.addRow(row);
         }
@@ -80,7 +81,7 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         
         for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[5];
-            row[0] = request.getPatient().getPatientID();
+            row[0] = request;
             row[1] = request.getPatient().getName();
             row[2] = request.getUserAccount().getUsername();
             row[3] = request.getStatus();
@@ -106,8 +107,8 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         tableTreatment = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -120,13 +121,13 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         tableList.setForeground(new java.awt.Color(102, 0, 0));
         tableList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+                "ID", "Patient Name", "Username", "Patient Status", "Summary", "Blood Group", "Requested Date", "Donor name", "Donor Contact"
             }
         ));
         jScrollPane1.setViewportView(tableList);
@@ -167,8 +168,6 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton3.setText("jButton3");
-
         jButton4.setBackground(new java.awt.Color(255, 204, 204));
         jButton4.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(102, 0, 51));
@@ -179,32 +178,32 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/1.jpg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 942, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(323, 323, 323)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(331, 331, 331)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 839, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jButton3))
-                                .addComponent(jScrollPane1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(299, 299, 299)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton1, jButton2});
@@ -216,21 +215,18 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
                 .addComponent(jButton4)
                 .addGap(38, 38, 38)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(26, 26, 26)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(64, 64, 64))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
-                        .addGap(190, 190, 190))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jButton2});
@@ -245,24 +241,21 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         if (selectedRow < 0){
         
             JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Please select a<font color='red'> request number</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-           
-            //JOptionPane.showMessageDialog(null, "Please select a row first" );
+
             return;
         }
         else {
         WorkRequest request = (WorkRequest)tableList.getValueAt(selectedRow, 0);
         
-        if(request.getStatus().equals("Assigned in Doctor Pool"))
+        if(request.getStatus().equals("Assigned to a Hospital"))
         {
         request.setStatus("Assign to Doctor " + userAccount.getUsername());
         request.setUserAccount(userAccount);
         userAccount.getWorkQueue().getWorkRequestList().add(request);
         }
         else{
-         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> already</font> in progress!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-                
-            
-        //JOptionPane.showMessageDialog(null, "Work Request is already assigned!" );
+          JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='yellow'>Work Request for patient is already in progress!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);  
+       
         }
         dB4OUtil.storeSystem(system);
         
@@ -277,17 +270,18 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
          int selectedRow = tableTreatment.getSelectedRow();
         
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Please select a<font color='red'> request number</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-           
-           // JOptionPane.showMessageDialog(null, "Please select a row" );
+            JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='red'>Please select a request from the table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+
             return;
         }
         
-        else{
+        else
+        {
         WorkRequest request = (WorkRequest)tableTreatment.getValueAt(selectedRow, 0);
         request.setStatus("Treatment Done");
         request.getPatient().setStatus("Treatment Done");
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Treatment a<font color='green'> done!</font> <font color='green'> </I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+        request.setSummary("Treatment Done");
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='green'>Treatment done!</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
         dB4OUtil.storeSystem(system);
         populateOrganisationpatientTable();
         populateDoctorPatientTable();
@@ -306,9 +300,9 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableList;

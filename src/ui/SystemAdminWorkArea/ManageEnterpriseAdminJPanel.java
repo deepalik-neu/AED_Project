@@ -97,12 +97,11 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(150, 227, 220));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 204, 204));
         jScrollPane1.setForeground(new java.awt.Color(102, 0, 51));
 
-        enterpriseJTable.setBackground(new java.awt.Color(255, 204, 204));
         enterpriseJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -144,7 +143,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setText("Username");
 
-        usernameJTextField.setBackground(new java.awt.Color(255, 204, 204));
         usernameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         usernameJTextField.setForeground(new java.awt.Color(102, 0, 51));
 
@@ -158,7 +156,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         enterpriseJComboBox.setForeground(new java.awt.Color(102, 0, 51));
         enterpriseJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        submitJButton.setBackground(new java.awt.Color(255, 204, 204));
+        submitJButton.setBackground(new java.awt.Color(255, 255, 255));
         submitJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         submitJButton.setForeground(new java.awt.Color(102, 0, 51));
         submitJButton.setText("Submit");
@@ -173,7 +171,6 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel4.setForeground(new java.awt.Color(102, 0, 51));
         jLabel4.setText("Password");
 
-        nameJTextField.setBackground(new java.awt.Color(255, 204, 204));
         nameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         nameJTextField.setForeground(new java.awt.Color(102, 0, 51));
 
@@ -182,11 +179,10 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Name");
 
-        passwordJPasswordField.setBackground(new java.awt.Color(255, 204, 204));
         passwordJPasswordField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         passwordJPasswordField.setForeground(new java.awt.Color(102, 0, 51));
 
-        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backJButton.setForeground(new java.awt.Color(102, 0, 51));
         backJButton.setText("<< Back");
@@ -310,7 +306,7 @@ public class ManageEnterpriseAdminJPanel extends javax.swing.JPanel {
          Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
+       // sysAdminwjp.populateTree();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_backJButtonActionPerformed

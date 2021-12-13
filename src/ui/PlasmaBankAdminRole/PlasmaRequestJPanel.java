@@ -10,7 +10,7 @@ import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Organization.PlasmaBankOrganization;
-import Business.Organization.SystemCoordinatorOrganization;
+import Business.Organization.HospitalCoordinatorOrganization;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -52,12 +52,12 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
-        for(WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()){
+        for(WorkRequest request : plasmaorganization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[9];
-            row[0] = request.getPatient().getPatientID();
+            row[0] = request;
           
             row[1] = request.getPatient().getName();
-            row[2] = request.getPathologist().getUsername();
+            row[2] = request.getPatient().getPatientID();
             row[3] = request.getPatient().getEmailID();
             row[4] = request.getStatus();
             row[5] = request.getPatient().getContact();
@@ -85,8 +85,9 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         btnApproveRequest = new javax.swing.JButton();
         btnRejectRequest = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
@@ -143,6 +144,8 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/7.jpeg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,20 +155,25 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(255, 255, 255)
                         .addComponent(btnApproveRequest)
-                        .addGap(72, 72, 72)
+                        .addGap(69, 69, 69)
                         .addComponent(btnRejectRequest))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addComponent(backJButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(backJButton)
-                        .addGap(257, 257, 257)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(432, 432, 432))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(35, 35, 35)))
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnApproveRequest, btnRejectRequest});
@@ -173,23 +181,25 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(backJButton))
-                .addGap(51, 51, 51)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(224, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(backJButton)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnApproveRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRejectRequest))
-                        .addGap(136, 136, 136))))
+                        .addContainerGap(20, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnApproveRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRejectRequest))
+                .addGap(116, 116, 116))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnApproveRequest, btnRejectRequest});
@@ -199,27 +209,24 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
     private void btnRejectRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectRequestActionPerformed
         // TODO add your handling code here:
         
-          int selectedRow = tablePlasmaRequest.getSelectedRow();
-       // jPanel1.setVisible(true);
-        if (selectedRow < 0){   
+          int selectedPatient = tablePlasmaRequest.getSelectedRow();
+      
+        if (selectedPatient < 0){   
             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table!</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
              return;
         }
-         else{
-           // jPanel1.setVisible(true);
-            WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedRow, 0);
-            if(request.getStatus().equals("Legally Approved. Passing to PlasmaBank")){
-               JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> on hold</font> !</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-        //        if(request.getPatient().isEmergencyStatus() == true){
-                //jPanel1.setVisible(true);
-       //         }
-                //dB4OUtil.storeSystem(system);
-                //populatePlasmaCoordinatorTable();   
+         else
+        {
+          
+            WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedPatient, 0);
+            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank")){
+                request.setStatus("Plasma Donoation Request Rejected");
+               JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Work Request is<font color='red'> on hold</font> !</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+       
             }
             else{
-              //JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> already</font> in progress!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-      //           jPanel1.setVisible(false);
-              //  JOptionPane.showMessageDialog(null, "Work Request is already in progress!" ); 
+                
+               JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='yellow'>Work Request for patient is already in progress!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
     }//GEN-LAST:event_btnRejectRequestActionPerformed
@@ -230,16 +237,18 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         int selectedRow = tablePlasmaRequest.getSelectedRow();
         
         if (selectedRow < 0){
-            //JOptionPane.showMessageDialog(null, "Please select a row first!" );
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+         
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='red'>Please select a row from the table</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
             
             return;
         }
-        else{
+        else
+        {
             WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedRow, 0);
-            if(request.getStatus().equals("Legally Approved. Passing to PlasmaBank")
-                || request.getStatus().equals("On Hold Due to Plasma unavailability")){
-                request.setStatus("PlasmaBank Approved. Passing to System Coordinator");
+            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank")
+                || request.getStatus().equals("On Hold Due to Plasma unavailability"))
+            {
+                request.setStatus("PlasmaBank Approved. Passing to Hospital Coordinator");
         
                 dB4OUtil.storeSystem(system);
                 populatePlasmaRequestTable();
@@ -254,7 +263,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
                     }
                 }
                 for (Organization organization : ent.getOrganizationDirectory().getOrganizationList()) {
-                    if(organization instanceof SystemCoordinatorOrganization) {
+                    if(organization instanceof HospitalCoordinatorOrganization) {
                         org = organization;
                         break;
                     }
@@ -262,17 +271,16 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         
                 if (org != null) {
                     org.getWorkQueue().getWorkRequestList().add(request);
-                   // org.getBloodGroup().subtractBloodGroup(request.getPatient().getBloodGroup());
-                   // populateTextFields();
-                    JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> approved!</font> </I></h2></html>"), "Warning", JOptionPane.INFORMATION_MESSAGE);
+
+                    JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Work Request for plasma bank is approved! </h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "No organization present", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Sorry, organization not present</h2></html>"), "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
             else{
-                // JOptionPane.showMessageDialog(null, "Work Request is already in progress!" );
-                 JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Work Request is<font color='red'> already</font> in progress!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+                
+                 JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='yellow'>Work Request for patient is already in progress!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
                 
             }
         }
@@ -294,6 +302,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnRejectRequest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tablePlasmaRequest;
     // End of variables declaration//GEN-END:variables

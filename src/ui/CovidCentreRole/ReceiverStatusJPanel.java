@@ -90,7 +90,7 @@ public class ReceiverStatusJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         backJButton2 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 153, 153));
 
         tablePatientRequest.setBackground(new java.awt.Color(255, 204, 204));
         tablePatientRequest.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
