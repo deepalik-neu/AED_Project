@@ -87,7 +87,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(239, 150, 150));
 
         enterpriseJTable.setBackground(new java.awt.Color(255, 204, 204));
         enterpriseJTable.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -251,7 +251,7 @@ public class ManageEnterpriseJPanel extends javax.swing.JPanel {
          Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
+       // sysAdminwjp.populateTree();
 
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);

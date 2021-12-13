@@ -81,9 +81,9 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        organizationJTable.setBackground(new java.awt.Color(255, 204, 204));
+        organizationJTable.setBackground(new java.awt.Color(204, 204, 204));
         organizationJTable.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         organizationJTable.setForeground(new java.awt.Color(102, 0, 0));
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -118,7 +118,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
             organizationJTable.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        addJButton.setBackground(new java.awt.Color(255, 204, 204));
+        addJButton.setBackground(new java.awt.Color(204, 204, 204));
         addJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         addJButton.setForeground(new java.awt.Color(102, 0, 0));
         addJButton.setText("Create Employee");
@@ -143,7 +143,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Organization");
 
-        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setBackground(new java.awt.Color(204, 204, 204));
         backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backJButton.setForeground(new java.awt.Color(102, 0, 0));
         backJButton.setText("<< Back");
@@ -158,7 +158,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Name");
 
-        nameJTextField.setBackground(new java.awt.Color(255, 204, 204));
+        nameJTextField.setBackground(new java.awt.Color(204, 204, 204));
         nameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         nameJTextField.setForeground(new java.awt.Color(102, 0, 0));
 
@@ -201,7 +201,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(152, 152, 152)
                         .addComponent(addJButton)))
-                .addGap(175, 329, Short.MAX_VALUE))
+                .addGap(175, 406, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -212,7 +212,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(backJButton)))
-                .addGap(0, 407, Short.MAX_VALUE))
+                .addGap(0, 484, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -239,7 +239,7 @@ public class ManageEmployeeJPanel extends javax.swing.JPanel {
                     .addComponent(nameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(addJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
                 .addComponent(backJButton)
                 .addGap(32, 32, 32))
         );

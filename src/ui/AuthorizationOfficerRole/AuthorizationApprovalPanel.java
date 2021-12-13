@@ -54,10 +54,10 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         
         for(WorkRequest request : org.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[9];
-            row[0] = request.getPatient().getPatientID();
+            row[0] = request;
           
             row[1] = request.getPatient().getName();
-              row[2] = request.getPathologist().getUsername();
+              row[2] = request.getPatient().getPatientID();
             row[3] = request.getPatient().getEmailID();
             row[4] = request.getStatus();
               row[5] = request.getPatient().getContact();
@@ -85,15 +85,15 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         btnApproval = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         backJButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jButton1.setText("jButton1");
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(228, 198, 41));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setText("Authorization Approval");
 
-        tblRequests.setBackground(new java.awt.Color(255, 204, 204));
         tblRequests.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         tblRequests.setForeground(new java.awt.Color(102, 0, 0));
         tblRequests.setModel(new javax.swing.table.DefaultTableModel(
@@ -109,7 +109,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblRequests);
 
-        btnApproval.setBackground(new java.awt.Color(255, 204, 204));
+        btnApproval.setBackground(new java.awt.Color(255, 255, 255));
         btnApproval.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnApproval.setForeground(new java.awt.Color(102, 0, 0));
         btnApproval.setText("Appove");
@@ -119,7 +119,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
             }
         });
 
-        btnReject.setBackground(new java.awt.Color(255, 204, 204));
+        btnReject.setBackground(new java.awt.Color(255, 255, 255));
         btnReject.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnReject.setForeground(new java.awt.Color(102, 0, 0));
         btnReject.setText("Reject");
@@ -129,7 +129,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
             }
         });
 
-        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setBackground(new java.awt.Color(255, 255, 255));
         backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backJButton.setForeground(new java.awt.Color(102, 0, 0));
         backJButton.setText("<< Back");
@@ -139,6 +139,8 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/200.png.png")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -146,20 +148,25 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(backJButton)
+                                .addGap(488, 488, 488))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
                         .addComponent(btnApproval, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(106, 106, 106)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(backJButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 832, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                        .addGap(68, 68, 68)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(161, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnApproval, btnReject});
@@ -167,16 +174,22 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(77, 77, 77)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(backJButton)
+                        .addGap(42, 42, 42)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 101, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnApproval, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addComponent(backJButton)
-                .addGap(145, 145, 145))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnApproval, btnReject});
@@ -204,7 +217,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         populateTable();
         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I><font color='red'> Not Authorized!</I></font></h2></html>"), "Info", JOptionPane.INFORMATION_MESSAGE);
            
-        //JOptionPane.showMessageDialog(null,"Legally Disapproved", "Info", JOptionPane.INFORMATION_MESSAGE);
+       
         
         }
     }//GEN-LAST:event_btnRejectActionPerformed
@@ -217,7 +230,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
            
-           // JOptionPane.showMessageDialog(null,"Please select a row", "Info", JOptionPane.INFORMATION_MESSAGE);
+          
             
             return;
         }
@@ -283,6 +296,7 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReject;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRequests;
     // End of variables declaration//GEN-END:variables

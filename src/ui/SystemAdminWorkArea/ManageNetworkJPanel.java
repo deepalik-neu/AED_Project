@@ -61,12 +61,11 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(230, 230, 113));
 
         jScrollPane1.setBackground(new java.awt.Color(255, 204, 204));
         jScrollPane1.setForeground(new java.awt.Color(102, 0, 51));
 
-        networkJTable.setBackground(new java.awt.Color(255, 204, 204));
         networkJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -103,7 +102,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
         lblName.setForeground(new java.awt.Color(102, 0, 51));
         lblName.setText("Name:");
 
-        btnSubmit.setBackground(new java.awt.Color(255, 204, 204));
+        btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
         btnSubmit.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(102, 0, 51));
         btnSubmit.setText("Submit");
@@ -113,11 +112,10 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtNetworkName.setBackground(new java.awt.Color(255, 204, 204));
         txtNetworkName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtNetworkName.setForeground(new java.awt.Color(102, 0, 51));
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(102, 0, 51));
         btnBack.setText("<< Back");
@@ -194,7 +192,7 @@ public class ManageNetworkJPanel extends javax.swing.JPanel {
          Component[] componentArray = userProcessContainer.getComponents();
         Component component = componentArray[componentArray.length - 1];
         SystemAdminWorkAreaJPanel sysAdminwjp = (SystemAdminWorkAreaJPanel) component;
-        sysAdminwjp.populateTree();
+        //sysAdminwjp.populateTree();
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.previous(userProcessContainer);
     }//GEN-LAST:event_btnBackActionPerformed

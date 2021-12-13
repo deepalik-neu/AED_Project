@@ -21,5 +21,8 @@ public class HospitalEnterprise extends Enterprise {
     public ArrayList<Role> getSupportedRole() {
         return null;
     }
-    
+//     @Override
+//        public String toString(){
+//        return "";
+//    }
 }

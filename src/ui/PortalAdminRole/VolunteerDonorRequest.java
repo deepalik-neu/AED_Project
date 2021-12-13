@@ -77,14 +77,14 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
         btnReject = new javax.swing.JButton();
         btnApprove = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 238, 238));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Manage Donor Request");
 
-        tableDonorRequest.setBackground(new java.awt.Color(255, 204, 204));
         tableDonorRequest.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         tableDonorRequest.setForeground(new java.awt.Color(102, 0, 0));
         tableDonorRequest.setModel(new javax.swing.table.DefaultTableModel(
@@ -108,7 +108,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableDonorRequest);
 
-        btnReject.setBackground(new java.awt.Color(255, 204, 204));
+        btnReject.setBackground(new java.awt.Color(255, 255, 255));
         btnReject.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnReject.setForeground(new java.awt.Color(102, 0, 0));
         btnReject.setText("Reject");
@@ -118,7 +118,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             }
         });
 
-        btnApprove.setBackground(new java.awt.Color(255, 204, 204));
+        btnApprove.setBackground(new java.awt.Color(255, 255, 255));
         btnApprove.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnApprove.setForeground(new java.awt.Color(102, 0, 0));
         btnApprove.setText("Approve");
@@ -128,7 +128,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(255, 204, 204));
+        btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnBack.setForeground(new java.awt.Color(102, 0, 0));
         btnBack.setText("<<Back");
@@ -138,6 +138,8 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/8.jpeg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,33 +147,41 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(btnApprove)
-                        .addGap(136, 136, 136)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(277, 277, 277)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 966, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(263, 263, 263)
+                        .addComponent(btnApprove)
+                        .addGap(136, 136, 136)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(89, 89, 89)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnApprove)
                     .addComponent(btnReject))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addComponent(btnBack)
                 .addGap(60, 60, 60))
         );
@@ -279,6 +289,7 @@ private void populateRequestDetails(DonorRequest donorRequest){
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tableDonorRequest;
     // End of variables declaration//GEN-END:variables

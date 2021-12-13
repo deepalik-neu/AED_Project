@@ -121,9 +121,8 @@ public class DonorListJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
-        tableDonor.setBackground(new java.awt.Color(255, 204, 204));
         tableDonor.setForeground(new java.awt.Color(102, 0, 0));
         tableDonor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -146,7 +145,6 @@ public class DonorListJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tableDonor);
 
-        tableHospital.setBackground(new java.awt.Color(255, 204, 204));
         tableHospital.setForeground(new java.awt.Color(102, 0, 0));
         tableHospital.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,7 +167,6 @@ public class DonorListJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tableHospital);
 
-        tableDHAssignment.setBackground(new java.awt.Color(255, 204, 204));
         tableDHAssignment.setForeground(new java.awt.Color(102, 0, 0));
         tableDHAssignment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -184,7 +181,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
         ));
         jScrollPane3.setViewportView(tableDHAssignment);
 
-        btnAssign.setBackground(new java.awt.Color(255, 204, 204));
+        btnAssign.setBackground(new java.awt.Color(255, 255, 255));
         btnAssign.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnAssign.setForeground(new java.awt.Color(102, 0, 0));
         btnAssign.setText("Assign");
@@ -205,7 +202,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("List of approved Donors");
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("<<Back");
@@ -229,15 +226,14 @@ public class DonorListJPanel extends javax.swing.JPanel {
                             .addGap(82, 82, 82)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(15, 15, 15)
-                            .addComponent(jButton1))
-                        .addGroup(layout.createSequentialGroup()
                             .addGap(80, 80, 80)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(328, 328, 328)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(349, 349, 349)
+                            .addGap(14, 14, 14)
+                            .addComponent(jButton1)
+                            .addGap(241, 241, 241)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(436, 436, 436)
@@ -248,8 +244,10 @@ public class DonorListJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(70, 70, 70)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -261,9 +259,7 @@ public class DonorListJPanel extends javax.swing.JPanel {
                 .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(54, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

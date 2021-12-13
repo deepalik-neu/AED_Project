@@ -4,20 +4,36 @@
  */
 package ui.HospitalCoordinatorRole;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import Business.Enterprise.Enterprise;
+import Business.Organization.OrganizationDirectory;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JPanel;
 
 /**
  *
  * @author namita
  */
 public class SCProfile extends javax.swing.JPanel {
+    private OrganizationDirectory directory;
+    private JPanel userProcessContainer;
+    private Enterprise enterprise;
+    EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+
+    
 
     /**
      * Creates new form SCProfile
      */
-    public SCProfile() {
+    public SCProfile(JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
         initComponents();
+        this.userProcessContainer=container;
+        this.directory=directory;
+        this.enterprise=enterprise;
+        this.system=system;
     }
 
     /**
@@ -53,12 +69,12 @@ public class SCProfile extends javax.swing.JPanel {
         labelGender = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 153, 0));
 
         labelContact.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelContact.setForeground(new java.awt.Color(255, 0, 0));
 
-        jTextField3.setBackground(new java.awt.Color(255, 204, 204));
+        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
         jTextField3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 0, 0));
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -97,7 +113,7 @@ public class SCProfile extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Manage Profile");
 
-        txtAddress.setBackground(new java.awt.Color(255, 204, 204));
+        txtAddress.setBackground(new java.awt.Color(204, 204, 204));
         txtAddress.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(102, 0, 51));
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -106,7 +122,7 @@ public class SCProfile extends javax.swing.JPanel {
             }
         });
 
-        txtName.setBackground(new java.awt.Color(255, 204, 204));
+        txtName.setBackground(new java.awt.Color(204, 204, 204));
         txtName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(102, 0, 51));
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -115,7 +131,7 @@ public class SCProfile extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("Save");
@@ -125,7 +141,7 @@ public class SCProfile extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 51));
         jLabel1.setText("Name:");
 
-        jTextField6.setBackground(new java.awt.Color(255, 204, 204));
+        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
         jTextField6.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(102, 0, 0));
         jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -144,7 +160,7 @@ public class SCProfile extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 51));
         jLabel2.setText("Contact:");
 
-        txtContact.setBackground(new java.awt.Color(255, 204, 204));
+        txtContact.setBackground(new java.awt.Color(204, 204, 204));
         txtContact.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtContact.setForeground(new java.awt.Color(102, 0, 51));
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -161,7 +177,7 @@ public class SCProfile extends javax.swing.JPanel {
         labelName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelName.setForeground(new java.awt.Color(255, 0, 0));
 
-        txtAge.setBackground(new java.awt.Color(255, 204, 204));
+        txtAge.setBackground(new java.awt.Color(204, 204, 204));
         txtAge.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtAge.setForeground(new java.awt.Color(102, 0, 51));
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -173,7 +189,7 @@ public class SCProfile extends javax.swing.JPanel {
         labelAddress.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelAddress.setForeground(new java.awt.Color(255, 0, 0));
 
-        txtGender.setBackground(new java.awt.Color(255, 204, 204));
+        txtGender.setBackground(new java.awt.Color(204, 204, 204));
         txtGender.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtGender.setForeground(new java.awt.Color(102, 0, 51));
         txtGender.addKeyListener(new java.awt.event.KeyAdapter() {

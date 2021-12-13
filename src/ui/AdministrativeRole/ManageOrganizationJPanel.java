@@ -143,9 +143,9 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         txtOrgRealName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(153, 255, 204));
 
-        organizationJTable.setBackground(new java.awt.Color(255, 204, 204));
+        organizationJTable.setBackground(new java.awt.Color(231, 208, 199));
         organizationJTable.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         organizationJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -197,7 +197,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Organization Type ");
 
-        backJButton.setBackground(new java.awt.Color(255, 204, 204));
+        backJButton.setBackground(new java.awt.Color(231, 208, 199));
         backJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backJButton.setForeground(new java.awt.Color(102, 0, 0));
         backJButton.setText("<< Back");
@@ -211,7 +211,7 @@ public class ManageOrganizationJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Organization Name");
 
-        txtOrgRealName.setBackground(new java.awt.Color(255, 204, 204));
+        txtOrgRealName.setBackground(new java.awt.Color(231, 208, 199));
         txtOrgRealName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtOrgRealNameActionPerformed(evt);

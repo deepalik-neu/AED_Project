@@ -109,13 +109,13 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(204, 204, 255));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setText("Donor Status");
 
-        tableDonorRequest.setBackground(new java.awt.Color(255, 204, 204));
+        tableDonorRequest.setBackground(new java.awt.Color(153, 153, 153));
         tableDonorRequest.setForeground(new java.awt.Color(102, 0, 0));
         tableDonorRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -130,7 +130,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tableDonorRequest);
 
-        tableDonor.setBackground(new java.awt.Color(255, 204, 204));
+        tableDonor.setBackground(new java.awt.Color(153, 153, 153));
         tableDonor.setForeground(new java.awt.Color(102, 0, 0));
         tableDonor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -142,7 +142,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tableDonor);
 
-        btnDelete.setBackground(new java.awt.Color(255, 204, 204));
+        btnDelete.setBackground(new java.awt.Color(153, 153, 153));
         btnDelete.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(102, 0, 0));
         btnDelete.setText("Delete");
@@ -157,7 +157,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Remove donor request press Delete-->");
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("<<Back");

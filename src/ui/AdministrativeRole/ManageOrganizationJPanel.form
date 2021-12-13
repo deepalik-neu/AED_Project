@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.8" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+      <Color blue="cc" green="ff" red="99" type="rgb"/>
     </Property>
   </Properties>
   <AuxValues>
@@ -93,7 +93,7 @@
         <Component class="javax.swing.JTable" name="organizationJTable">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="cc" green="cc" red="ff" type="rgb"/>
+              <Color blue="c7" green="d0" red="e7" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Kefa" size="14" style="1"/>
@@ -174,7 +174,7 @@
     <Component class="javax.swing.JButton" name="backJButton">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="ff" type="rgb"/>
+          <Color blue="c7" green="d0" red="e7" type="rgb"/>
         </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Kefa" size="14" style="1"/>
@@ -202,7 +202,7 @@
     <Component class="javax.swing.JTextField" name="txtOrgRealName">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="ff" type="rgb"/>
+          <Color blue="c7" green="d0" red="e7" type="rgb"/>
         </Property>
       </Properties>
       <Events>

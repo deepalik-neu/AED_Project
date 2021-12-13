@@ -53,9 +53,8 @@ public class PathologistProfile extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(146, 198, 224));
 
-        txtAddress.setBackground(new java.awt.Color(255, 204, 204));
         txtAddress.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtAddress.setForeground(new java.awt.Color(102, 0, 51));
         txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -79,7 +78,6 @@ public class PathologistProfile extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(102, 0, 51));
         jLabel3.setText("Address:");
 
-        txtAge.setBackground(new java.awt.Color(255, 204, 204));
         txtAge.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtAge.setForeground(new java.awt.Color(102, 0, 51));
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -88,7 +86,6 @@ public class PathologistProfile extends javax.swing.JPanel {
             }
         });
 
-        txtGender.setBackground(new java.awt.Color(255, 204, 204));
         txtGender.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtGender.setForeground(new java.awt.Color(102, 0, 51));
         txtGender.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -107,7 +104,6 @@ public class PathologistProfile extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(102, 0, 51));
         jLabel6.setText("Gender:");
 
-        jTextField3.setBackground(new java.awt.Color(255, 204, 204));
         jTextField3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField3.setForeground(new java.awt.Color(102, 0, 0));
         jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -136,7 +132,6 @@ public class PathologistProfile extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(102, 0, 0));
         jLabel8.setText("Blood Group :");
 
-        txtName.setBackground(new java.awt.Color(255, 204, 204));
         txtName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtName.setForeground(new java.awt.Color(102, 0, 51));
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -145,7 +140,6 @@ public class PathologistProfile extends javax.swing.JPanel {
             }
         });
 
-        jTextField6.setBackground(new java.awt.Color(255, 204, 204));
         jTextField6.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jTextField6.setForeground(new java.awt.Color(102, 0, 0));
         jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -159,7 +153,6 @@ public class PathologistProfile extends javax.swing.JPanel {
             }
         });
 
-        txtContact.setBackground(new java.awt.Color(255, 204, 204));
         txtContact.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         txtContact.setForeground(new java.awt.Color(102, 0, 51));
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -193,7 +186,7 @@ public class PathologistProfile extends javax.swing.JPanel {
         jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Manage Profile");
 
-        jButton1.setBackground(new java.awt.Color(255, 204, 204));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("Save");
@@ -205,15 +198,19 @@ public class PathologistProfile extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(335, 335, 335)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel8))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(335, 335, 335)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel8)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextField6)
@@ -257,9 +254,9 @@ public class PathologistProfile extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -99,9 +99,9 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         roleJComboBox = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(255, 255, 255));
+        setBackground(new java.awt.Color(255, 153, 102));
 
-        createUserJButton.setBackground(new java.awt.Color(255, 204, 204));
+        createUserJButton.setBackground(new java.awt.Color(255, 255, 255));
         createUserJButton.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         createUserJButton.setForeground(new java.awt.Color(102, 0, 0));
         createUserJButton.setText("Create");
@@ -111,7 +111,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
             }
         });
 
-        nameJTextField.setBackground(new java.awt.Color(255, 204, 204));
         nameJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         nameJTextField.setForeground(new java.awt.Color(102, 0, 0));
 
@@ -158,7 +157,6 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 0, 0));
         jLabel2.setText("Password");
 
-        passwordJTextField.setBackground(new java.awt.Color(255, 204, 204));
         passwordJTextField.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         passwordJTextField.setForeground(new java.awt.Color(102, 0, 0));
 
@@ -172,7 +170,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
         employeeJComboBox.setForeground(new java.awt.Color(102, 0, 0));
         employeeJComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        backjButton1.setBackground(new java.awt.Color(255, 204, 204));
+        backjButton1.setBackground(new java.awt.Color(255, 255, 255));
         backjButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         backjButton1.setForeground(new java.awt.Color(102, 0, 0));
         backjButton1.setText("<< Back");
@@ -248,7 +246,7 @@ public class ManageUserAccountJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(272, 272, 272)
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(240, Short.MAX_VALUE))
+                .addContainerGap(305, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {employeeJComboBox, nameJTextField, organizationJComboBox, passwordJTextField, roleJComboBox});
