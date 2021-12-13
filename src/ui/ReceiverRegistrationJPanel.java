@@ -214,6 +214,27 @@ public class ReceiverRegistrationJPanel extends javax.swing.JPanel {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Age :");
 
+        labelName.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelName.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelAddress.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelAddress.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelEmail.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelEmail.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelGender.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelGender.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelContact.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelContact.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelBloodGroup.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelBloodGroup.setForeground(new java.awt.Color(204, 0, 0));
+
+        labelAge.setFont(new java.awt.Font("Kefa", 3, 14)); // NOI18N
+        labelAge.setForeground(new java.awt.Color(204, 0, 0));
+
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("ID :");
 
@@ -249,11 +270,11 @@ public class ReceiverRegistrationJPanel extends javax.swing.JPanel {
                                     .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 87, Short.MAX_VALUE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                                     .addComponent(textID, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
                                     .addComponent(jTextField2)
                                     .addComponent(jTextField5)
                                     .addComponent(jTextField6)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE))
+                                    .addComponent(jTextField7, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(40, 40, 40)
@@ -318,11 +339,11 @@ public class ReceiverRegistrationJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel3)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel5)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
@@ -382,7 +403,7 @@ public class ReceiverRegistrationJPanel extends javax.swing.JPanel {
        patientrequest.setStatus("New Patient Request!");
       
         dB4OUtil.storeSystem(system);
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Thank you for registering for<font color='green'><I><B> HELP!</B></I></font> We will soon get back to you. <font color='green'><I><B>Take Care!!</B></I></font></h2></html>"));
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Receiver Added successfully!</h2></html>"));
         }
         catch(Exception e){
             System.out.println("stack"+e.getStackTrace());

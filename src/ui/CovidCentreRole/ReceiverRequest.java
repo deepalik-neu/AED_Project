@@ -272,15 +272,7 @@ public class ReceiverRequest extends javax.swing.JPanel {
         
          JOptionPane.showMessageDialog(null, "No organization present", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-        
-        
-        
-        
-        
-        
-      
+
         dB4OUtil.storeSystem(system);
         populateRequestTable();
       
@@ -288,18 +280,20 @@ public class ReceiverRequest extends javax.swing.JPanel {
 
     private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
         // TODO add your handling code here:
+         int selectedRow = requestTable.getSelectedRow();
+        PatientRequest dr =((PatientRequest) requestTable.getValueAt(selectedRow, 0));
          for(PatientRequest patientRequest: system.getPatientRequestDirectory().getPrList()){                      
         
-            //if(patientRequest.getName().equals(nameText.getText())){
-//            statusText.setText("Rejected");
-            patientRequest.setStatus("Rejected");
-           // }
+            if(patientRequest.getPatientID().equals(dr.getPatientID())){
+        
+            patientRequest.setStatus("Patient Request Rejected");
+            }
     }
         
         dB4OUtil.storeSystem(system);   
         populateRequestTable();
         
-         JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Request has been<font color='red'> rejected</font>!</I></h2></html>"));
+         JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Patient request is rejected. Please contact admin.</h2></html>"));
         
         
     }//GEN-LAST:event_btnRejectActionPerformed

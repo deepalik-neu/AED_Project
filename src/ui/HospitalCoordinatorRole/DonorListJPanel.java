@@ -88,9 +88,9 @@ public class DonorListJPanel extends javax.swing.JPanel {
 
         for (WorkRequest request : userAccount.getWorkQueue().getWorkRequestList()) {
             Object[] row = new Object[6];
-            row[0] = request.getDonor().getName();
+            row[0] = request;
             
-            row[1] = request.getDonor();
+            row[1] = request;
             row[2] = request.getSummary();
             row[3] = request.getEnterprise();
             row[4] = request.getStatus();
@@ -98,6 +98,12 @@ public class DonorListJPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
             
+        }
+        private void populate(){
+            int n=5;
+            for(int i=0;i<=n;i++){
+                System.out.println("Approved");
+            }
         }
     
     /**
@@ -170,13 +176,13 @@ public class DonorListJPanel extends javax.swing.JPanel {
         tableDHAssignment.setForeground(new java.awt.Color(102, 0, 0));
         tableDHAssignment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Donor Name", "ID", "Summary", "Enterprise", "Status", "Requested Date"
+                "Donor Name", "Summary", "Enterprise", "Status", "Requested Date"
             }
         ));
         jScrollPane3.setViewportView(tableDHAssignment);

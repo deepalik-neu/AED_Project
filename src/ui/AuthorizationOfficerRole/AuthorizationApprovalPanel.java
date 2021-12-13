@@ -201,9 +201,9 @@ public class AuthorizationApprovalPanel extends javax.swing.JPanel {
          int selectedRow = tblRequests.getSelectedRow();
         
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='red'>Please select a row from the table.</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
            
-           // JOptionPane.showMessageDialog(null,"Please select a row", "Info", JOptionPane.INFORMATION_MESSAGE);
+          
             return;
         }
         else{

@@ -36,6 +36,16 @@ public abstract class WorkRequest {
     private Donor donor;
     private Enterprise enterprise;
     private String type;
+    
+    private static int counter=1;
+
+    public WorkRequest() {
+        requestDate = new Date();
+        id = String.valueOf(counter);
+        counter++;
+    }
+    
+    
 
      public String getId() {
         return id;
@@ -142,11 +152,6 @@ public abstract class WorkRequest {
     }
     private Patient patient;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
-
-    
-    public WorkRequest(){
-        requestDate = new Date();
-    }
 
     public String getMessage() {
         return message;

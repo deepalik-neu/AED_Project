@@ -8,8 +8,11 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,7 +20,7 @@ import javax.swing.JPanel;
  * @author namita
  */
 public class ProfilePanel extends javax.swing.JPanel {
-    
+      private UserAccount userAccount;
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
     private Enterprise enterprise;
@@ -27,13 +30,18 @@ public class ProfilePanel extends javax.swing.JPanel {
     /**
      * Creates new form ProfilePanel
      */
-    public ProfilePanel(JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
+    public ProfilePanel(UserAccount userAccount,JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.userProcessContainer=container;
         this.directory=directory;
         this.enterprise=enterprise;
         this.system=system;
+        this.userAccount=userAccount;
+         populateProfile();
     }
+    private void populateProfile(){
+txtName.setText(userAccount.getEmployee().getName());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +75,7 @@ public class ProfilePanel extends javax.swing.JPanel {
         labelAge = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(227, 227, 77));
 
@@ -205,6 +214,19 @@ public class ProfilePanel extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("<<Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -241,7 +263,9 @@ public class ProfilePanel extends javax.swing.JPanel {
                             .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
                             .addComponent(labelBloodGroup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(381, 381, 381)
+                        .addGap(39, 39, 39)
+                        .addComponent(jButton2)
+                        .addGap(245, 245, 245)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(420, 420, 420)
@@ -258,8 +282,13 @@ public class ProfilePanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton2)))
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -467,9 +496,21 @@ public class ProfilePanel extends javax.swing.JPanel {
     }
     }//GEN-LAST:event_txtAgeKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         userAccount.getEmployee().setName(txtName.getText());
+          JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Details Updated</h2></html>"), "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

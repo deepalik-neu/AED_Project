@@ -155,7 +155,7 @@ public class HospitalCoordinatorWorkAreaPanel extends javax.swing.JPanel {
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
         System.out.println("msg");
-            SCProfile scprofileJPanel = new SCProfile(userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
+            SCProfile scprofileJPanel = new SCProfile(userAccount,userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
             System.out.println("msg"+scprofileJPanel);
             userProcessContainer.add("SCProfile", scprofileJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

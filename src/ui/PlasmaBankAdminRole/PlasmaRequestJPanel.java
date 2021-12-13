@@ -87,7 +87,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         backJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 153, 153));
+        setBackground(new java.awt.Color(255, 204, 204));
 
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
@@ -109,7 +109,7 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9"
+                "ID", "Name", "Patient ID", "Email ID", "Status", "Contact", "request summary", "Blood Group", "Requested Date"
             }
         ));
         jScrollPane1.setViewportView(tablePlasmaRequest);
@@ -245,8 +245,8 @@ public class PlasmaRequestJPanel extends javax.swing.JPanel {
         else
         {
             WorkRequest request = (WorkRequest)tablePlasmaRequest.getValueAt(selectedRow, 0);
-            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank")
-                || request.getStatus().equals("On Hold Due to Plasma unavailability"))
+            if(request.getStatus().equals("Authorized. Passing request to Plasma Bank"))
+              
             {
                 request.setStatus("PlasmaBank Approved. Passing to Hospital Coordinator");
         
