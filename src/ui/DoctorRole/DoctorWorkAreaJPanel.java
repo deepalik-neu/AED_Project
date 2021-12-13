@@ -140,7 +140,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
-        DoctorProfile dprofileJPanel = new DoctorProfile(userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,business);
+        DoctorProfile dprofileJPanel = new DoctorProfile(userAccount,userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,business);
             System.out.println("msg"+dprofileJPanel);
             userProcessContainer.add("manageOrganizationJPanel", dprofileJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

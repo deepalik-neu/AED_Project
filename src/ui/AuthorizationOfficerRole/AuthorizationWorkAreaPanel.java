@@ -141,7 +141,7 @@ public class AuthorizationWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
-        ProfilePanel profileJPanel = new ProfilePanel(userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
+        ProfilePanel profileJPanel = new ProfilePanel(userAccount,userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
             System.out.println("msg"+profileJPanel);
             userProcessContainer.add("manageOrganizationJPanel", profileJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

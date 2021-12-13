@@ -36,11 +36,7 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
                 DefaultTableModel table = (DefaultTableModel) tableDonorRequest.getModel();
         
         table.setRowCount(0);
-          
-        for(DonorRequest dnr : system.getDonorRequestDirectory().getDnrList()){
-            System.out.println("PRINITNG IT HERE in Volunteer !!");
-            System.out.println(dnr.getName());
-        }
+      
         
          for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
             Object row[] = new Object[12];
@@ -199,28 +195,20 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
         int selectedRow = tableDonorRequest.getSelectedRow();
         DonorRequest req= (DonorRequest)tableDonorRequest.getValueAt(selectedRow, 0);
         
-//        if( !req.getStatus().equals("New Request"))
-//        {
-//            //JOptionPane.showMessageDialog(null,"Can Not Approve the Request!");
-//         JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Request<font color='red'> can not</font> be accepted. Please check!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
-//        
-//        }
-//       else{
+
         for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
         
-            //if(donorRequest.getName().equals(req.getStatus())){
+           if(donorRequest.getId().equals(req.getId())){
           
             donorRequest.setStatus("Rejected");
-            //}
+            }
     }
         dB4OUtil.storeSystem(system);
         populateTable();
         
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2><I>Request has been<font color='red'> rejected</font>!</I></h2></html>"));
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2>Request is rejected.Please contact Admin.</h2></html>"));
         
-        //JOptionPane.showMessageDialog(null,"Rejected the Request!");
-        //}
+        
        dB4OUtil.storeSystem(system);
     }//GEN-LAST:event_btnRejectActionPerformed
 
@@ -233,17 +221,17 @@ public class VolunteerDonorRequest extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
 private void populateRequestDetails(DonorRequest donorRequest){
-//    if( !donorRequest.getStatus().equals("New Request"))
-//        {
-//            //JOptionPane.showMessageDialog(null,"Can Not Approve the Request!");
-//         JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Request<font color='red'> can not</font> be approved!</I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
-//           
-//        
-//        }
-//        
-//        else
-//        {
-            System.out.println("check approved"+donorRequest.getAge());
+    if( !donorRequest.getStatus().equals("New Donor Request"))
+        {
+            
+         JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='red'>Request is not approved. Please check with the Admin.</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+           
+        
+        }
+        
+        else
+        {
+           
         Donor donor = system.getDonorDirectory().addDonor();  
         donor.setId(donorRequest.getId()); 
         donor.setName(donorRequest.getName()); 
@@ -252,37 +240,36 @@ private void populateRequestDetails(DonorRequest donorRequest){
         donor.setCovidCuredDate(donorRequest.getCovidCuredDate()); 
      
                
-        donor.setAge(donorRequest.getAge()); // Age
-        donor.setGender(donorRequest.getGender()); // gender
-        donor.setBloodGroup(donorRequest.getBloodGroup()); // Blood group
-        donor.setAddress(donorRequest.getAddress()); // streetAddress
+        donor.setAge(donorRequest.getAge());
+        donor.setGender(donorRequest.getGender()); 
+        donor.setBloodGroup(donorRequest.getBloodGroup()); 
+        donor.setAddress(donorRequest.getAddress()); 
        
-        donor.setContact(donorRequest.getContact()); // contact
-        donor.setEmailID(donorRequest.getEmailID()); // emailID
-        donor.setStatus("Portal Admin Approved"); // status
+        donor.setContact(donorRequest.getContact()); 
+        donor.setEmailID(donorRequest.getEmailID()); 
+        donor.setStatus("Portal Admin Approved"); 
     
        
-        donor.setSymptoms(donorRequest.getSymptoms()); //  symptoms
+        donor.setSymptoms(donorRequest.getSymptoms()); 
        
            
-//        for(DonorRequest dnrRequest: system.getDonorRequestDirectory().getDonorRequestList()){            
-//        
-//            if(dnrRequest.getDonarId().equals(donorRequest.getDonarId())){
-//            //dnrRequest.setStatus("Portal Admin Approved");
-//           // dB4OUtil.storeSystem(system);
-//            }
-//        }
+        for(DonorRequest dnrRequest: system.getDonorRequestDirectory().getDnrList()){            
+        
+            if(dnrRequest.getId().equals(donorRequest.getId())){
+            dnrRequest.setStatus("Accepted as Donor");
+            dB4OUtil.storeSystem(system);
+            }
+        
      
         
         dB4OUtil.storeSystem(system);
-        //populateTable();
+        populateTable();
         
          JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Request<font color='green'> approved</font> successfully!</I></h2></html>"));
-           
-         JOptionPane.showMessageDialog(null,"Request Approved. New Donor added!");
+
         
-        
-        //}
+        }
+        }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnApprove;

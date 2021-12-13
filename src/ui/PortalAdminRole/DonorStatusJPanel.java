@@ -38,12 +38,7 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         
         table.setRowCount(0);
           
-//        for(Donor dnr : system.getDonorDirectory().getDonorList()){
-//            System.out.println("PRINITNG IT HERE in Status for donor !!");
-//            System.out.println(dnr.getName());
-//            System.out.println(dnr.getContact());
-//            
-//        }
+
         
          for(Donor dnre : system.getDonorDirectory().getDonorList()){
             Object row[] = new Object[12];
@@ -68,10 +63,6 @@ public class DonorStatusJPanel extends javax.swing.JPanel {
         
         table.setRowCount(0);
           
-//        for(DonorRequest dnr : system.getDonorRequestDirectory().getDnrList()){
-//            System.out.println("PRINITNG IT HERE in Status for request !!");
-//            System.out.println(dnr.getName());
-//        }
         
          for(DonorRequest donorRequest: system.getDonorRequestDirectory().getDnrList()){            
             Object row[] = new Object[12];

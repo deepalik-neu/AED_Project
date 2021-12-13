@@ -8,8 +8,12 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,6 +21,7 @@ import javax.swing.JPanel;
  * @author namita
  */
 public class SCProfile extends javax.swing.JPanel {
+     private UserAccount userAccount;
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
     private Enterprise enterprise;
@@ -28,13 +33,18 @@ public class SCProfile extends javax.swing.JPanel {
     /**
      * Creates new form SCProfile
      */
-    public SCProfile(JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
+    public SCProfile(UserAccount userAccount,JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.userProcessContainer=container;
         this.directory=directory;
         this.enterprise=enterprise;
         this.system=system;
+        this.userAccount=userAccount;
+        populateProfile();
     }
+private void populateProfile(){
+txtName.setText(userAccount.getEmployee().getName());
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,81 +56,32 @@ public class SCProfile extends javax.swing.JPanel {
     private void initComponents() {
 
         labelContact = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         labelBloodGroup = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         labelAge = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
         txtName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        txtContact = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         labelName = new javax.swing.JLabel();
-        txtAge = new javax.swing.JTextField();
         labelAddress = new javax.swing.JLabel();
-        txtGender = new javax.swing.JTextField();
         labelEmail = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         labelGender = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 153, 0));
 
         labelContact.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelContact.setForeground(new java.awt.Color(255, 0, 0));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(102, 0, 0));
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
-            }
-        });
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField3KeyReleased(evt);
-            }
-        });
-
         labelBloodGroup.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelBloodGroup.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel7.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel7.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel7.setText("Age :");
 
         labelAge.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelAge.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel8.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel8.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel8.setText("Blood Group :");
-
         jLabel5.setFont(new java.awt.Font("Kefa", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(102, 0, 51));
         jLabel5.setText("Manage Profile");
-
-        txtAddress.setBackground(new java.awt.Color(204, 204, 204));
-        txtAddress.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        txtAddress.setForeground(new java.awt.Color(102, 0, 51));
-        txtAddress.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtAddressKeyReleased(evt);
-            }
-        });
 
         txtName.setBackground(new java.awt.Color(204, 204, 204));
         txtName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
@@ -135,84 +96,38 @@ public class SCProfile extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(255, 204, 204));
         jLabel1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 51));
         jLabel1.setText("Name:");
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(102, 0, 0));
-        jTextField6.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField6FocusLost(evt);
-            }
-        });
-        jTextField6.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField6KeyReleased(evt);
-            }
-        });
-
-        jLabel2.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel2.setText("Contact:");
-
-        txtContact.setBackground(new java.awt.Color(204, 204, 204));
-        txtContact.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        txtContact.setForeground(new java.awt.Color(102, 0, 51));
-        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtContactKeyReleased(evt);
-            }
-        });
-
-        jLabel3.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel3.setText("Address:");
-
         labelName.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelName.setForeground(new java.awt.Color(255, 0, 0));
-
-        txtAge.setBackground(new java.awt.Color(204, 204, 204));
-        txtAge.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        txtAge.setForeground(new java.awt.Color(102, 0, 51));
-        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtAgeKeyReleased(evt);
-            }
-        });
 
         labelAddress.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelAddress.setForeground(new java.awt.Color(255, 0, 0));
 
-        txtGender.setBackground(new java.awt.Color(204, 204, 204));
-        txtGender.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        txtGender.setForeground(new java.awt.Color(102, 0, 51));
-        txtGender.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtGenderKeyReleased(evt);
-            }
-        });
-
         labelEmail.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelEmail.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel4.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel4.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel4.setText("Email :");
 
         labelGender.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         labelGender.setForeground(new java.awt.Color(255, 0, 0));
 
-        jLabel6.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel6.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 0, 51));
-        jLabel6.setText("Gender:");
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
+        jButton2.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(102, 0, 51));
+        jButton2.setText("<<Back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -220,24 +135,15 @@ public class SCProfile extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(293, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel8))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField6)
-                    .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(txtContact, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(txtAge, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                    .addComponent(txtGender)
-                    .addComponent(jTextField3))
-                .addGap(48, 48, 48)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(214, 214, 214)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(labelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -249,130 +155,54 @@ public class SCProfile extends javax.swing.JPanel {
                     .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(48, 48, 48))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(381, 381, 381)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(378, 378, 378)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(27, 27, 27)
+                .addComponent(jButton2)
+                .addGap(260, 260, 260)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jTextField3, jTextField6, txtAddress, txtAge, txtContact, txtGender, txtName});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, txtName});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButton2)))
                 .addGap(84, 84, 84)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(labelName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(labelContact, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelGender, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(labelAge, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(labelBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(216, 216, 216))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelContact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtAge)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(labelEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelBloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addGap(63, 63, 63)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
+                        .addGap(41, 41, 41)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(462, 462, 462))))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, jLabel2, jLabel3, jLabel4, jLabel6, jLabel7, jLabel8, jTextField3, jTextField6, txtAddress, txtAge, txtContact, txtGender, txtName});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, txtName});
 
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        // TODO add your handling code here:
-        //        String checkEmailAddress=jTextField3.getText();
-        //
-        //        Pattern pattern=Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
-        //
-        //        Matcher matchPattern=pattern.matcher(checkEmailAddress);
-        //
-        //        if(!matchPattern.matches())
-        //
-        //        {
-            //
-            //        JOptionPane.showMessageDialog(this," Please Enter Valid Email Address. ");
-            //
-            //        }
-        //email
-    }//GEN-LAST:event_jTextField3FocusLost
-
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-
-        //email
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
-    private void jTextField3KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyReleased
-        // TODO add your handling code here:
-        String checkName=jTextField3.getText();
-
-        Pattern pattern=Pattern.compile("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelEmail.setText("Please enter correct email.");
-        }
-        else
-        {
-            labelEmail.setText(null);
-        }
-    }//GEN-LAST:event_jTextField3KeyReleased
-
-    private void txtAddressKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAddressKeyReleased
-        // TODO add your handling code here:
-        String checkName=txtAddress.getText();
-
-        Pattern pattern=Pattern.compile("^[a-zA-Z]{1,50}$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelAddress.setText("Please enter correct address.");
-        }
-        else
-        {
-            labelAddress.setText(null);
-        }
-    }//GEN-LAST:event_txtAddressKeyReleased
 
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
         // TODO add your handling code here:
@@ -391,99 +221,25 @@ public class SCProfile extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtNameKeyReleased
 
-    private void jTextField6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField6FocusLost
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //        String chckName=jTextField4.getText();
-        //
-        //    Pattern pattern = Pattern.compile("^(A|B|AB|O)[-+]$");
-        //    Matcher matchPattern=pattern.matcher(chckName);
-        //    if(!matchPattern.matches())
-        //    {
-            //     JOptionPane.showMessageDialog(this,"<html><h2>Please enter a valid Gender(F/M)</h2> </html>! ");
-            //    }
-    }//GEN-LAST:event_jTextField6FocusLost
+         userAccount.getEmployee().setName(txtName.getText());
+          JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Details Updated</h2></html>"), "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField6KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6KeyReleased
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String checkName=jTextField6.getText();
-
-        Pattern pattern=Pattern.compile("^(A|B|AB|O)[-+]$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelBloodGroup.setText("Please enter valid blood group.");
-        }
-        else
-        {
-            labelBloodGroup.setText(null);
-        }
-    }//GEN-LAST:event_jTextField6KeyReleased
-
-    private void txtContactKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyReleased
-        // TODO add your handling code here:
-        String checkName=txtContact.getText();
-
-        Pattern pattern=Pattern.compile("^[0-9]{10}$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelContact.setText("Please enter 10 digits.");
-        }
-        else
-        {
-            labelContact.setText(null);
-        }
-    }//GEN-LAST:event_txtContactKeyReleased
-
-    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
-        // TODO add your handling code here:
-        String checkName=txtAge.getText();
-
-        Pattern pattern=Pattern.compile("^[0-9]{1,2}$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelAge.setText("Please enter valid age.");
-        }
-        else
-        {
-            labelAge.setText(null);
-        }
-    }//GEN-LAST:event_txtAgeKeyReleased
-
-    private void txtGenderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGenderKeyReleased
-        // TODO add your handling code here:
-        String checkName=txtGender.getText();
-
-        Pattern pattern=Pattern.compile("^(?:m|M|male|Male|f|F|female|Female)$");
-
-        Matcher matchPattern=pattern.matcher(checkName);
-        if(!matchPattern.matches())
-        {
-            labelGender.setText("Please enter correct gender.");
-        }
-        else
-        {
-            labelGender.setText(null);
-        }
-    }//GEN-LAST:event_txtGenderKeyReleased
+        userProcessContainer.remove(this);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.previous(userProcessContainer);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel labelAddress;
     private javax.swing.JLabel labelAge;
     private javax.swing.JLabel labelBloodGroup;
@@ -491,10 +247,6 @@ public class SCProfile extends javax.swing.JPanel {
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelGender;
     private javax.swing.JLabel labelName;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }

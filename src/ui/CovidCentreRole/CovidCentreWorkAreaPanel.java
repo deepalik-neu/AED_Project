@@ -163,7 +163,7 @@ public class CovidCentreWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfileActionPerformed
         // TODO add your handling code here:
-        CovidProfile covidprofileJPanel = new CovidProfile(userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
+        CovidProfile covidprofileJPanel = new CovidProfile(userAccount,userProcessContainer,enterprise.getOrganizationDirectory(), enterprise,system);
             System.out.println("msg"+covidprofileJPanel);
             userProcessContainer.add("manageOrganizationJPanel", covidprofileJPanel);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();

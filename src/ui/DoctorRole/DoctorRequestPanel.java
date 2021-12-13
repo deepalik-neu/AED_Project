@@ -47,6 +47,7 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         
         model.setRowCount(0);
         
+        
         for(WorkRequest request : organization.getWorkQueue().getWorkRequestList()){
             Object[] row = new Object[11];
 
@@ -65,8 +66,7 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
 //            row[9]=request.getDonor().getName();
 //            row[10]=request.getDonor().getEmailID();
             
-            row[9]=request.getPatient().getPatientID();
-            row[10]=request.getStatus();
+          
             
             
             model.addRow(row);
@@ -121,13 +121,13 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         tableList.setForeground(new java.awt.Color(102, 0, 0));
         tableList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "ID", "Patient Name", "Username", "Patient Status", "Summary", "Blood Group", "Requested Date", "Donor name", "Donor Contact"
+                "ID", "Patient Name", "Username", "Patient Status", "Summary", "Blood Group", "Requested Date"
             }
         ));
         jScrollPane1.setViewportView(tableList);
@@ -235,7 +235,8 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+         //int n = tableTreatment.getRowCount();
+        // if(n==1){
          int selectedRow = tableList.getSelectedRow();
         
         if (selectedRow < 0){
@@ -262,12 +263,18 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         populateOrganisationpatientTable();
         populateDoctorPatientTable();
         }
+         
+//         else
+//         {
+//             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='yellow'>Doctor is already working with another patient!</h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);  
+//         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
          int selectedRow = tableTreatment.getSelectedRow();
+          
         
         if (selectedRow < 0){
             JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='red'>Please select a request from the table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
@@ -281,7 +288,8 @@ public class DoctorRequestPanel extends javax.swing.JPanel {
         request.setStatus("Treatment Done");
         request.getPatient().setStatus("Treatment Done");
         request.setSummary("Treatment Done");
-        JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='green'>Treatment done!</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
+       
+        JOptionPane.showMessageDialog(null, new JLabel("<html><h2 color='green'>Treatment done for the patient!</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
         dB4OUtil.storeSystem(system);
         populateOrganisationpatientTable();
         populateDoctorPatientTable();

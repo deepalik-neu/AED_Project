@@ -43,7 +43,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ProcessWorkRequestJPanel
      */
-    public PathologistWorkRequestJPanel(EcoSystem system, UserAccount userAccount, PathologistOrganization pathologistOrganization, Enterprise enterprise, Network network) {
+    public PathologistWorkRequestJPanel(JPanel userProcessContainer,EcoSystem system, UserAccount userAccount, PathologistOrganization pathologistOrganization, Enterprise enterprise, Network network) {
     
           initComponents();
         this.userProcessContainer = userProcessContainer;
@@ -93,6 +93,14 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
              
             model.addRow(row);
         }
+      }
+      
+      public void populate()
+      {
+         int n=5;
+          for(int i=0;i<n;i++){
+              System.out.println("approved");
+          }
       }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -220,23 +228,22 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jButton1)
+                .addGap(181, 181, 181)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(528, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(356, 356, 356)
+                        .addGap(350, 350, 350)
                         .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1118, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(181, 181, 181)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(29, 29, 29)
                         .addComponent(donate, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,7 +252,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
                                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(64, 64, 64)
                                 .addComponent(discard, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {add, btnProcess, discard, donate});
@@ -257,7 +264,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addGap(60, 60, 60)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnAssign)
@@ -270,7 +277,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
                     .addComponent(donate, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(discard, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(201, 201, 201))
+                .addGap(251, 251, 251))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {add, btnAssign, btnProcess, discard, donate});
@@ -298,7 +305,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
             request.setUserAccount(userAccount);
             userAccount.getWorkQueue().getWorkRequestList().add(request);
             request.setRequestDate(new Date());
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Donor assigned to Pathologist"+ userAccount.getUsername()+"</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Donor assigned to Pathologist "+ userAccount.getUsername()+"</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
@@ -333,7 +340,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
              
             request.setSummary("Donor sample request processed.");
             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2 color='green'>Process request accepted by the pathlogist</h2></html>"), "Success", JOptionPane.INFORMATION_MESSAGE);
-
+populateAssignedToPathologistDonorTable();
         }
         else{
             
@@ -383,23 +390,11 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
         
-
-//        for(Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()){
-//              if(ent.getEnterpriseType().toString().equals("PlasmaBank")){
-//                  enterprise1 = ent;           
-//              }
-//        }  
-//        for (Organization org: enterprise1.getOrganizationDirectory().getOrganizationList()){
-//              System.out.println(org.getClass().getTypeName().toString()+" asit");
-//              if(org.getClass().getTypeName().toString().equals("Business.Organization.PlasmaBankOrganization")){
-//                 organ =org;
-//              }
-//        }
                 
         int selectedRow = tablePathologistDonors.getSelectedRow();
         
         if (selectedRow < 0){
-            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Kindly select a<font color='red'> row!</font><I></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><Please select a row from pathologist table./h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
         else{
@@ -423,7 +418,7 @@ public class PathologistWorkRequestJPanel extends javax.swing.JPanel {
         
         int selectedRow = tablePathologistDonors.getSelectedRow();
         if (selectedRow < 0){
-             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2><I>Please select<font color='red'> a row</font> from the<font color='green'> table</I></font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
+             JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Please select a row from pathologist table.</font></h2></html>"), "Warning", JOptionPane.WARNING_MESSAGE);
             
             return;
         }

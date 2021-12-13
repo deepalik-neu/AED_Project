@@ -14,10 +14,7 @@ public class DonorRequestDirectory {
     
     private ArrayList<DonorRequest> dnrList;
 
-//    public ArrayList<DonorRequest> getDonorRequestList() 
-//    {
-//        return dnrList;
-//    }
+
     
     public DonorRequestDirectory()
     {

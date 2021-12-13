@@ -8,8 +8,11 @@ import Business.DB4OUtil.DB4OUtil;
 import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Organization.OrganizationDirectory;
+import Business.UserAccount.UserAccount;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -17,6 +20,7 @@ import javax.swing.JPanel;
  * @author namita
  */
 public class CovidProfile extends javax.swing.JPanel {
+      private UserAccount userAccount;
     private OrganizationDirectory directory;
     private JPanel userProcessContainer;
     private Enterprise enterprise;
@@ -26,14 +30,18 @@ public class CovidProfile extends javax.swing.JPanel {
     /**
      * Creates new form CovidProfile
      */
-    public CovidProfile(JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
+    public CovidProfile(UserAccount userAccount,JPanel container,OrganizationDirectory directory, Enterprise enterprise, EcoSystem system) {
         initComponents();
         this.userProcessContainer=container;
         this.directory=directory;
         this.enterprise=enterprise;
         this.system=system;
+    this.userAccount=userAccount;
+    populateProfile();
     }
-
+    private void populateProfile(){
+txtName.setText(userAccount.getEmployee().getName());
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -212,6 +220,11 @@ public class CovidProfile extends javax.swing.JPanel {
         jButton1.setFont(new java.awt.Font("Kefa", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(102, 0, 0));
         jButton1.setText("Save");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel9.setIcon(new javax.swing.ImageIcon("/Users/namita/Desktop/Images for AED Project/Unknown1.png")); // NOI18N
 
@@ -482,6 +495,13 @@ public class CovidProfile extends javax.swing.JPanel {
             labelContact.setText(null);
         }
     }//GEN-LAST:event_txtContactKeyReleased
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         userAccount.getEmployee().setName(txtName.getText());
+          JOptionPane.showMessageDialog(null, new JLabel(  "<html><h2>Details Updated</h2></html>"), "INFORMATION", JOptionPane.INFORMATION_MESSAGE);
+                                      
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
